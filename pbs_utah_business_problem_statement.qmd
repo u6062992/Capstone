@@ -1,0 +1,75 @@
+---
+title: "PBS Utah major-donor prediction: Business problem statement"
+---
+
+# Business need
+
+PBS Utah has limited development resources and a large population of current and former donors. Its available data includes modern and legacy donation records, campaign interactions, constituent characteristics, institutional engagement, gift premiums, and authenticated PBS Passport viewing activity. PBS Utah needs a consistent, data-driven method for identifying donors with the greatest potential to become major donors and prioritizing them for appropriate human review and outreach.
+
+# Business problem statement
+
+PBS Utah seeks to determine which current non-major donors are most likely to make their first qualifying major gift within a defined future period and, where feasible, when their next discretionary donation is likely to occur.
+
+This project will combine historical giving, campaign participation, constituent information, and privacy-appropriate Passport engagement measures to produce an interpretable donor-propensity model. The model's results will be presented in a dashboard that ranks promising prospects and helps PBS Utah allocate limited development staff time.
+
+The recommended initial target is whether an eligible donor makes a qualifying major gift within the next 12 months, using information available during the preceding five years. PBS Utah must confirm the major-gift threshold and prediction period before the target is finalized.
+
+# Project objectives
+
+The project will:
+
+1. Integrate relevant Unite, Team Approach, campaign, constituent, gift-premium, soft-credit, and Passport data.
+2. Rank eligible non-major donors by their probability of becoming major donors within the prediction period.
+3. Estimate the likely window of each donor's next discretionary gift, if supported by the data.
+4. Identify the giving, engagement, and viewing characteristics associated with major-donor conversion.
+5. Forecast the expected volume of major-donor prospects.
+6. compare model performance with simple baselines and PBS Utah's current prioritization process.
+7. Deliver actionable and interpretable results through a dashboard for development staff.
+
+# Scope and deliverables
+
+The primary analysis will use a five-year historical lookback and a 12-month prediction horizon. Older legacy history may be used for selected long-term measures, such as donor tenure, historical maximum gift, and lifetime giving, when it improves predictive performance.
+
+The project will deliver:
+
+- A documented definition of the eligible donor population and major-donor outcome
+- A cleaned, integrated donor-level analytical dataset
+- A data dictionary and data-quality assessment
+- An exploratory comparison of major donors, upgraded donors, and other donors
+- A validated major-donor propensity model
+- A donation-timing model or timing-risk segmentation, if feasible
+- An interactive dashboard containing ranked prospects, probabilities, timing windows, and principal model drivers
+- Reproducible analysis code, technical documentation, and implementation recommendations
+
+Scheduled sustainer installments will be distinguished from discretionary donations. Passport viewing will be represented through aggregated engagement measures and will be recognized as covering authenticated Passport members rather than all PBS Utah viewers.
+
+Automated solicitation, exact-date prediction, causal claims about viewing behavior, and inference of sensitive personal characteristics are outside the project's scope.
+
+# Key assumptions
+
+The project assumes that:
+
+- PBS Utah will define a major donor or qualifying major gift.
+- Unite is the authoritative source for modern payments beginning in May 2020.
+- Team Approach provides legacy household-level payment history through the system transition.
+- Legacy households can be matched to at least some modern individual constituent records.
+- Passport records can be linked to constituents using the supplied identifiers.
+- Missing Passport activity does not necessarily indicate that a donor does not watch PBS Utah.
+- The data contains enough major-donor conversions to train and validate a model.
+- Only information available at the prediction date will be used to generate a prediction.
+- Development staff will review recommendations before contacting donors.
+- Donor-level data and model results will be restricted to authorized users.
+
+# Success criteria
+
+The project will be successful if it creates a reliable combined donor history and identifies major-donor prospects more effectively than simple chance, basic giving rules, or the current prioritization process.
+
+Because major gifts are rare, performance will be evaluated using precision, recall, lift, probability calibration, and results within the number of prospects PBS Utah staff can realistically cultivate. Overall accuracy will not be used as the primary measure.
+
+The final dashboard should enable PBS Utah to answer three operational questions:
+
+1. Which donors should development staff prioritize?
+2. When are those donors most likely to make another discretionary gift?
+3. How many promising prospects can the organization expect within a given period?
+
+The preferred business outcome is a prioritized prospect list that produces materially greater major-donor conversion or fundraising value than PBS Utah's existing selection approach while remaining interpretable, privacy-conscious, and practical for development staff.
