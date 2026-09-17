@@ -2,15 +2,6 @@
 title: "PBS Utah major-donor prediction: Business problem statement"
 ---
 
-::: {.callout-note}
-This report was generated using AI under general human direction. At the time of generation, the contents have not been comprehensively reviewed by a human analyst.
-
-<!--
-To indicate human review: Delete the line above about contents not being reviewed, and replace this comment with:
-The contents have been reviewed and validated by [Your Name], [Your Role] on [Date].
--->
-:::
-
 # Business need
 
 PBS Utah has limited development resources and a large population of current and former donors. Its available data includes modern and legacy donation records, campaign interactions, constituent characteristics, institutional engagement, gift premiums, and authenticated PBS Passport viewing activity. PBS Utah needs a consistent, data-driven method for deciding which households to prioritize, how much to ask them to give, and when to approach them.

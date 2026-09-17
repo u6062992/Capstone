@@ -4,4 +4,4 @@ This capstone project supports PBS Utah in identifying current donors who are mo
 
 ## Project documentation
 
-- [Business problem statement](pbs_utah_business_problem_statement.qmd) — Defines the project's business need, objectives, scope, deliverables, assumptions, and success criteria.
+- [Business problem statement](pbs_utah_business_problem_statement.html) — View the rendered statement describing the project's business need, objectives, scope, deliverables, assumptions, and success criteria.
