@@ -4,7 +4,7 @@
 
 The GitHub-published EDA bundle includes:
 
-- Final Quarto source and self-contained HTML report
+- Final Quarto source and rendered Markdown report
 - All Python scripts required to rebuild the analytical tables and EDA outputs
 - Summary CSV and Markdown outputs
 - SVG visualizations
@@ -35,7 +35,7 @@ python EDA/scripts/build_donor_fiscal_year_features.py
 python EDA/scripts/eda_eligible_fy2023_2025.py
 python EDA/scripts/create_initial_eda_visualizations.py
 python EDA/scripts/bootstrap_clustered_lift.py
-quarto render EDA/pbs_utah_final_eda_report.qmd --to html --embed-resources
+quarto render EDA/pbs_utah_final_eda_report.qmd
 ```
 
 ## Primary outputs

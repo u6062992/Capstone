@@ -18,5 +18,5 @@ the higher-giving tiers remained well above baseline after repeated donor
 observations were considered.
 
 - [Open the complete EDA folder](EDA/)
-- [View the rendered final EDA report](EDA/pbs_utah_final_eda_report.html)
+- [View the rendered final EDA report](EDA/pbs_utah_final_eda_report.md)
 - [View the Quarto report source](EDA/pbs_utah_final_eda_report.qmd)

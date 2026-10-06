@@ -1,5 +1,6 @@
 ---
 title: "PBS Utah major-donor conversion: Final exploratory data analysis"
+format: gfm
 ---
 
 # Executive summary

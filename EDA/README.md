@@ -7,7 +7,7 @@ giving reaches at least $1,200.
 
 ## Final report
 
-- [Rendered HTML report](pbs_utah_final_eda_report.html)
+- [Rendered Markdown report](pbs_utah_final_eda_report.md)
 - [Quarto source](pbs_utah_final_eda_report.qmd)
 
 ## Key findings
@@ -26,7 +26,7 @@ giving reaches at least $1,200.
 ## Folder structure
 
 - `pbs_utah_final_eda_report.qmd` — final report source
-- `pbs_utah_final_eda_report.html` — self-contained rendered report
+- `pbs_utah_final_eda_report.md` — rendered Markdown report for GitHub
 - `scripts/` — standard-library Python scripts used to construct and analyze
   the donor-year data
 - `outputs/` — EDA summaries, lift tables, recommendations, and SVG figures
@@ -44,7 +44,7 @@ python EDA/scripts/build_donor_fiscal_year_features.py
 python EDA/scripts/eda_eligible_fy2023_2025.py
 python EDA/scripts/create_initial_eda_visualizations.py
 python EDA/scripts/bootstrap_clustered_lift.py
-quarto render EDA/pbs_utah_final_eda_report.qmd --to html --embed-resources
+quarto render EDA/pbs_utah_final_eda_report.qmd
 ```
 
 The scripts use only the Python standard library. Quarto is required only to
