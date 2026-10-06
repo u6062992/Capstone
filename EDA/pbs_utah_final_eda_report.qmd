@@ -1,0 +1,599 @@
+---
+title: "PBS Utah major-donor conversion: Final exploratory data analysis"
+---
+
+# Executive summary
+
+This exploratory data analysis supports PBS Utah's goal of identifying individual donors who are most likely to become major donors. A major-donor conversion is defined as the first fiscal year in which an individual reaches at least $1,200 in cumulative recognized giving.
+
+The primary analytical cohort contains 154,247 eligible donor–fiscal-year observations from FY2023 through FY2025. These observations represent 60,372 unique donors and 101 first-time major-donor conversions.
+
+The analysis found that:
+
+- Major-donor conversion is extremely rare, with an overall rate of 0.0655%.
+- Ninety-nine of the 101 eligible conversions came from active donors.
+- Recent giving level is the strongest simple conversion signal.
+- Donors currently giving $250–$499 had approximately 9.6 times baseline lift.
+- Donors currently giving $500–$1,199 had approximately 108.8 times baseline lift.
+- Three-year giving history provides additional separation, particularly above $500.
+- The lift findings remain strong after accounting for repeated donor observations through donor-clustered bootstrap intervals.
+- Cultivation history is strongly associated with conversion but represents an intervention and staff-selection process, not an ordinary donor characteristic.
+- Passport engagement appears potentially incremental, but its relationship with conversion is modest compared with giving history.
+- Legacy relationship history appears useful even when household-level legacy gift amounts are not assigned to individuals.
+
+The initial propensity model should focus on active normal donors. Lapsed donors should remain a separately reported segment because only two lapsed-donor conversions are available.
+
+# Business objective and analytical decisions
+
+The analytical objective is to predict:
+
+1. Which normal donors are likely to become major donors
+2. How much PBS Utah should consider asking them to give
+3. When PBS Utah should consider making the ask
+
+The following decisions define the EDA and future modeling work.
+
+| Decision | Definition |
+|---|---|
+| Unit of analysis | Individual constituent |
+| Annual period | PBS Utah fiscal year, July through June |
+| Major-donor threshold | At least $1,200 in cumulative recognized annual giving |
+| Conversion event | First observed fiscal year reaching $1,200 |
+| Prediction horizon | Following fiscal year |
+| Historical window | Current and previous two fiscal years |
+| Primary population | Active normal donors |
+| Secondary population | Lapsed normal donors, reported separately |
+| Recurring payments | Count toward annual giving but are tracked separately |
+| Soft credits | Included once after exact-duplicate removal |
+| Legacy payment amounts | Not attributed from households to individuals |
+| Existing major donors | Excluded from future eligibility after conversion |
+
+For individual $$i$$ in fiscal year $$t$$:
+
+$$
+\text{Annual Giving}_{i,t}
+=
+\text{Positive Direct Payments}_{i,t}
++
+\text{Positive Assigned Soft Credits}_{i,t}
+$$
+
+The conversion outcome is:
+
+$$
+Y_{i,t+1}
+=
+\begin{cases}
+1 & \text{if Annual Giving}_{i,t+1} \geq \$1{,}200 \\
+0 & \text{otherwise}
+\end{cases}
+$$
+
+# Data sources
+
+The corrected synthetic release includes constituent, transaction, solicitation, viewing, cultivation, and legacy-history information.
+
+| Domain | Primary file | Role |
+|---|---|---|
+| Constituents | `Data/constituents_w_memberships.csv` | Individual identifiers and constituent attributes |
+| Modern payments | `Data/unite_payments.txt` | FY2021–FY2026 individual payments |
+| Legacy payments | `Data/team_approach_legacy_payments.txt` | Pre-FY2021 household giving history |
+| Soft credits | `Data/soft_credits.csv` | Organization-paid gifts recognized for individuals |
+| Campaign definitions | `Data/campaign_codes.csv` | Marketing-code attributes |
+| Campaign membership | `Data/campaign_members.txt` | Solicitation and response history |
+| Passport activity | `Data/passport_viewing.txt` | Annual viewing by constituent and genre |
+| Cultivation | `Data/cultivation.csv` | Selection, contact, and holdout assignments |
+| Officer portfolios | `Data/officer_portfolios.csv` | Portfolio capacity and rollout information |
+
+All records and identifiers in the release are synthetic and do not describe real people, gifts, solicitations, or viewing behavior.
+
+# Data preparation
+
+## Individual donor selection
+
+The constituent data contains 196,165 individuals and two organizations. The two organizations were excluded from direct individual giving.
+
+The analysis also excluded:
+
+- `SYN-ORPHAN` identifiers
+- Organization hard-credit payment rows
+- Zero-dollar and negative payment rows
+- Soft credits without a matched individual
+- Exact duplicate soft-credit rows
+- Donors already classified as major donors before a scoring period
+
+High-dollar transactions were not deleted. They are necessary to identify the positive conversion outcome.
+
+## Payment and soft-credit processing
+
+The annual-giving build:
+
+- Included 1,683,922 positive individual Unite payment rows
+- Excluded 33,733 orphan payment rows
+- Excluded 3,959 organization-payment rows
+- Excluded 1,084 remaining nonpositive payment rows
+- Included 3,953 positive, matched, deduplicated soft credits
+- Removed 79 exact duplicate soft-credit rows
+- Excluded 79 orphan soft credits
+- Excluded 34 nonpositive soft credits
+
+Organization hard-credit payments were not counted as direct individual giving. The associated soft credit was assigned once to the recognized individual.
+
+## Legacy history
+
+Team Approach gifts are household-level and cannot be reliably allocated to one individual. Legacy dollar amounts were therefore not assigned to constituents.
+
+The following nonmonetary indicators were retained:
+
+- Whether linked legacy history exists
+- First and last linked legacy fiscal years
+- Number of linked legacy gift records
+- Number of linked giving years
+- Sustaining-history count
+- Upgrade-history count
+- Years since the last linked legacy gift
+
+## Rolling feature construction
+
+All rolling predictors use only information available by the scoring fiscal-year end.
+
+The enriched table includes:
+
+- Current and three-year giving totals
+- Direct, recurring, nonrecurring, and soft-credit giving
+- Payment frequency and maximum prior payment
+- Giving recency and year-over-year change
+- Distance from the $1,200 threshold
+- Campaign solicitation and response history
+- Passport viewing volume, genre breadth, and completion
+- Cultivation selection, contact, holdout, and portfolio history
+- Legacy relationship-history indicators
+
+No next-year information was used to construct predictors.
+
+# Analytical cohort
+
+The core donor–fiscal-year table contains:
+
+- 430,866 donor-year rows
+- 71,811 observed individual donors
+- Fiscal years FY2021–FY2026
+- 223,925 eligible scoring observations
+- 214 observed next-year conversions across all available scoring cohorts
+
+The primary EDA cohort is restricted to:
+
+- FY2023–FY2025
+- Eligible active or lapsed normal donors
+- Three complete years of modern history
+- An observed next-year outcome
+
+This produces:
+
+| Measure | Result |
+|---|---:|
+| Donor-year observations | 154,247 |
+| Unique donors | 60,372 |
+| Conversions | 101 |
+| Non-conversions | 154,146 |
+| Conversion rate | 0.0655% |
+| Active donor-year observations | 98,564 |
+| Lapsed donor-year observations | 55,683 |
+| Active conversions | 99 |
+| Lapsed conversions | 2 |
+
+Many donors appear in multiple annual cohorts:
+
+| Number of cohort years | Donors |
+|---:|---:|
+| One | 6,629 |
+| Two | 13,611 |
+| Three | 40,132 |
+
+The repeated observations require time-based validation and donor-aware uncertainty estimates.
+
+# Data quality and missingness
+
+## Missingness
+
+Notable missingness in the primary cohort includes:
+
+| Field group | Missingness |
+|---|---:|
+| Current-year cultivation portfolio fields | Approximately 98% |
+| Current-year Passport completion | 64.0% |
+| Three-year Passport completion | 29.8% |
+| Legacy first and last fiscal year | 42.2% |
+| Years since last legacy gift | 42.2% |
+
+Missing Passport activity is not equivalent to confirmed zero viewing. It may indicate:
+
+- No linked Passport account
+- No consent to share viewing
+- No viewing during the year
+
+The analysis therefore preserves a separate Passport-observed indicator.
+
+Missing legacy fields indicate that no linked legacy history was found and are accompanied by a legacy-history indicator.
+
+## Constant and unusable fields
+
+Several fields are constant in the eligible EDA cohort and should not be used as predictors:
+
+- Current major-donor status
+- First-observed-major-year status
+- Prior-major status
+- Eligibility status
+- Outcome-observed status
+- Complete-history status
+- Recurring-alone threshold status
+- Major-gift campaign count
+- Upgrade campaign count
+- Renewal campaign count
+- Lapsed campaign count
+
+The synthetic campaign release does not contain usable variation in several campaign-type fields.
+
+## Leakage controls
+
+The following fields must be excluded from model inputs:
+
+- `constituent_id`
+- `next_fy_conversion`
+- Future payment or engagement information
+- Current or future major-donor status
+- End-of-data snapshot fields when reconstructing historical predictions
+- Current-year treatment assignments when estimating untreated propensity
+
+The current major-donor-class and sustainer fields describe the end of the dataset and are not valid point-in-time historical predictors.
+
+# Target balance
+
+![Target balance and conversion rates](outputs/figures/target_balance.svg)
+
+The conversion outcome is exceptionally rare. Overall accuracy would therefore be misleading: a model predicting no conversions would exceed 99.9% accuracy while providing no fundraising value.
+
+Conversion rates differ substantially by eligibility segment.
+
+| Scoring year | Segment | Observations | Conversions | Rate |
+|---:|---|---:|---:|---:|
+| FY2023 | Active | 33,133 | 26 | 0.0785% |
+| FY2023 | Lapsed | 14,109 | 0 | 0.0000% |
+| FY2024 | Active | 32,670 | 24 | 0.0735% |
+| FY2024 | Lapsed | 21,073 | 1 | 0.0047% |
+| FY2025 | Active | 32,761 | 49 | 0.1496% |
+| FY2025 | Lapsed | 20,501 | 1 | 0.0049% |
+
+A standalone lapsed-donor conversion model is not supportable with only two positive outcomes.
+
+# Giving distributions
+
+![Giving distributions by conversion outcome](outputs/figures/giving_distributions.svg)
+
+Converters exhibit substantially higher recent giving than non-converters.
+
+| Measure | Non-converter median | Converter median |
+|---|---:|---:|
+| Current annual giving | $15 | $298 |
+| Three-year total giving | $120 | $750 |
+| Three-year average giving | $40 | $250 |
+| Three-year nonrecurring giving | $15 | $570 |
+| Maximum direct payment | $9 | $250 |
+| Giving years in prior three years | 2 | 3 |
+| Current gap to $1,200 | $1,185 | $902 |
+
+The converter group demonstrates:
+
+- Greater giving consistency
+- Larger prior gifts
+- More nonrecurring giving
+- More positive year-over-year movement
+- Greater proximity to the $1,200 threshold
+
+# Converter lift
+
+## Pooled lift with Wilson intervals
+
+![Converter lift by giving band](outputs/figures/converter_lift.svg)
+
+Wilson intervals describe uncertainty within each pooled binomial rate. Lift intervals shown in this figure divide the Wilson rate interval by the observed overall conversion rate and do not propagate uncertainty in that baseline rate.
+
+## Fiscal-year stability
+
+![Conversion rates by fiscal year and giving tier](outputs/figures/converter_lift_by_fiscal_year.svg)
+
+The broad pattern is consistent across fiscal years:
+
+1. Donors below $250 in current annual giving convert below baseline.
+2. Donors giving $250–$499 convert above baseline.
+3. Donors giving $500–$1,199 have extremely high lift.
+4. Donors with three-year giving of at least $500 convert above baseline.
+5. Donors with three-year giving of at least $1,000 have the strongest multi-year lift.
+
+Point estimates vary by fiscal year, but confidence intervals for the highest tiers overlap substantially. The observed differences should not be interpreted as a proven temporal trend.
+
+## Donor-clustered bootstrap intervals
+
+![Donor-clustered bootstrap lift intervals](outputs/figures/converter_lift_cluster_bootstrap.svg)
+
+A 1,000-replicate nonparametric bootstrap resampled all 60,372 donor histories with replacement. All annual observations for a selected donor remained together.
+
+The bootstrap used fixed seed `20261005`. A repeated run produced identical CSV and SVG hashes.
+
+| Giving measure | Band | Observed lift | Clustered 95% interval |
+|---|---|---:|---:|
+| Current annual giving | $250–$499 | 9.58× | 7.01×–12.65× |
+| Current annual giving | $500–$1,199 | 108.77× | 87.55×–132.07× |
+| Three-year giving | $500–$749 | 3.23× | 2.05×–4.61× |
+| Three-year giving | $750–$999 | 12.99× | 7.00×–20.39× |
+| Three-year giving | $1,000–$1,499 | 70.33× | 48.99×–91.77× |
+| Three-year giving | $1,500 or more | 192.50× | 108.63×–280.91× |
+
+The actionable high-giving tiers remain above baseline after accounting for repeated donor observations.
+
+The $25–$49 annual band and $250–$499 three-year band have intervals that overlap 1× and should not be interpreted as conclusively above baseline.
+
+# Campaign findings
+
+Converters had greater campaign exposure and response history.
+
+| Measure | Non-converter median | Converter median |
+|---|---:|---:|
+| Three-year solicitations | 21 | 40 |
+| Three-year responses | 0 | 1 |
+| Three-year response rate | 0% | 3.23% |
+
+Campaign exposure and response may be useful predictors, but the available campaign-type categories contain limited synthetic variation. Total solicitation, response, response-rate, and digital-contact measures are more useful than the constant campaign-type features.
+
+Campaign responses are derived from current-year payments and are valid for predicting the following fiscal year. They must not be used to predict conversion in the same fiscal year.
+
+# Passport findings
+
+Passport engagement differences are modest relative to giving history.
+
+| Measure | Non-converter median | Converter median |
+|---|---:|---:|
+| Active Passport years | 1 | 1 |
+| Titles viewed | 22 | 30 |
+| Genres viewed | 3 | 4 |
+| Mean completion among observed viewers | 76.4% | 73.3% |
+
+Converters viewed somewhat more titles and genres, but viewing completion did not separate the groups clearly.
+
+Passport features should be tested for incremental value after controlling for giving history. Program titles or sensitive viewing-interest inferences should not be used for donor targeting.
+
+# Cultivation findings
+
+Prior cultivation contact has the largest observed univariate difference outside giving history.
+
+| Measure | Non-converter median | Converter median |
+|---|---:|---:|
+| Prior cultivation contacts | 0 | 1 |
+| Mean prior cultivation contacts | 0.04 | 1.33 |
+
+This association should not be interpreted as an ordinary predictive donor trait. Cultivation reflects:
+
+- Staff selection of promising donors
+- A potential causal effect of contact
+- Portfolio rollout and operational capacity
+
+Cultivation must be handled in three distinct ways:
+
+1. Excluded from the baseline untreated propensity model
+2. Included in a separate operational-policy model
+3. Evaluated through contacted-versus-holdout treatment analysis
+
+# Legacy-history findings
+
+Converters have longer linked legacy histories.
+
+| Measure | Non-converter median | Converter median |
+|---|---:|---:|
+| Linked legacy gift rows | 2 | 15 |
+| Linked legacy giving years | 1 | 6 |
+| Years since last legacy gift, when observed | 5 | 5 |
+
+Legacy history may provide useful tenure and relationship-depth information. Because the source records are household-level, the report does not interpret linked legacy amounts as individual giving.
+
+# Feature recommendations
+
+## Baseline propensity feature set
+
+The baseline model should include information known at the scoring date from:
+
+- Current and historical giving
+- Campaign exposure and responses
+- Passport observation and engagement
+- Constituent characteristics
+- Legacy relationship history
+
+The baseline model should exclude:
+
+- Cultivation selection and contact
+- Holdout status
+- Officer and portfolio assignment
+- Donor identifiers
+- Target and eligibility fields
+- Constant campaign fields
+- End-of-data snapshot fields
+- Future information
+
+## Operational-policy feature set
+
+A separate operational-policy model may add:
+
+- Prior cultivation selection
+- Prior contact
+- Portfolio history
+- Program-adoption history
+- Officer-capacity information
+
+This model would predict outcomes under the existing outreach process rather than untreated donor propensity.
+
+## Treatment analysis
+
+The cultivation holdout structure should be evaluated separately to estimate whether contact increases conversion relative to randomly withheld selected donors.
+
+# Redundancy and feature reduction
+
+The enriched table intentionally retains multiple related measures for EDA. The modeling dataset should use a smaller approved list.
+
+Redundant groups include:
+
+- Annual giving and threshold gap
+- Three-year total and three-year average giving
+- Total giving and its direct, recurring, nonrecurring, and soft-credit components
+- Campaign counts, responses, and response rates
+- Passport-observed flags and missing completion fields
+
+Feature reduction should preserve interpretability and prevent a small number of underlying concepts from being represented repeatedly.
+
+# Operational baselines
+
+Before modeling, transparent rules should be evaluated using:
+
+- Current annual giving of at least $250
+- Current annual giving of at least $500
+- Three-year giving of at least $500
+- Three-year giving of at least $1,000
+- Ranking by current annual giving
+- Ranking by three-year total giving
+
+PBS Utah's documented portfolio capacity is approximately 1,000 prospects per year. Baseline performance should therefore be evaluated at $$K=1{,}000$$ and at any smaller operational capacities confirmed by development staff.
+
+Required metrics include:
+
+- Precision at K
+- Recall at K
+- Lift at K
+- Conversion capture
+- Expected conversions in the selected list
+
+A predictive model should outperform these simple rules at the same prospect capacity.
+
+# Modeling handoff
+
+## Recommended primary population
+
+Use active normal donors for the first propensity model:
+
+- 98,564 active donor-year observations
+- 99 conversions
+
+Retain lapsed donors as a separately reported population. The lapsed cohort is more appropriately framed as a donor-reactivation problem unless additional positive outcomes become available.
+
+## Validation design
+
+Use repeated, outcome-stratified, donor-grouped cross-validation across FY2023–FY2025 as the primary validation framework. All observations for a constituent must remain in the same fold so that one donor's annual records cannot appear in both model development and assessment data.
+
+Five-fold grouped cross-validation is recommended. With 101 conversion events, this should place approximately 20 conversions in each assessment fold while allowing the full dataset to contribute to model development and validation. Repeating the grouped folds with several fixed seeds will reduce dependence on one favorable or unfavorable partition.
+
+Model settings and feature-selection decisions must be made using only the training portion of each fold. Aggregated out-of-fold predictions should be used to estimate overall performance, and donor identifiers must never be model features.
+
+FY2025 should not serve as the sole primary validation set because its following outcome period contains an unusual donation environment associated with the rescission of federal public-media funding. Evaluating a model trained only on earlier years against that period would combine model performance with an external event that was not represented in donors' prior behavior.
+
+The original temporal design should instead be retained as a secondary disruption-period stress test:
+
+- Development period: FY2023–FY2024
+- Disruption-period assessment: FY2025
+- Interpretation: sensitivity to a changed fundraising environment, not the primary estimate of expected model performance
+
+Primary performance should be reported across the repeated donor-grouped folds. The FY2025 stress test should be reported separately to show whether ranking, lift, and calibration changed during the unusual period. Pooled longitudinal results should retain donor-clustered uncertainty where applicable.
+
+## Success metrics
+
+Because the outcome is rare, evaluation should prioritize:
+
+- Precision at K
+- Recall at K
+- Lift at K
+- Precision-recall area under the curve
+- Probability calibration
+- Performance by fiscal year and donor segment
+
+Overall accuracy should not be used as the primary measure.
+
+# Limitations
+
+## Synthetic data
+
+The records were generated for analysis and do not reproduce PBS Utah's production data exactly. Strong thresholds or relationships may reflect the synthetic generation process.
+
+The report demonstrates a defensible analytical workflow but does not establish that the observed effect sizes will generalize to real donors.
+
+## Rare outcomes
+
+Only 101 eligible conversions are available, including two among lapsed donors. High-tier estimates can remain uncertain even when lift is large.
+
+## Repeated donors
+
+Most donors appear in multiple annual cohorts. Pooled donor-year estimates require clustered uncertainty or longitudinal validation.
+
+## Passport selection
+
+Passport data covers authenticated viewing only. Missing activity cannot distinguish no viewing, no linked account, or no consent.
+
+## Cultivation selection
+
+Contacted donors were selected by development processes. Associations with contact combine donor propensity, staff judgment, and possible treatment effects.
+
+## Legacy attribution
+
+Legacy gifts are household-level. Individual dollar attribution would create unsupported giving amounts and is therefore excluded.
+
+## Campaign timing
+
+The synthetic campaign start date is a fiscal-year marker rather than an exact solicitation date. Campaign data supports response history but not exact ask-date optimization.
+
+# EDA completion status
+
+The documentation phase of EDA is complete. The cohort, outcome, data-processing rules, missingness, leakage controls, univariate findings, lift, fiscal-year comparisons, and uncertainty analyses are recorded and reproducible.
+
+Before freezing the modeling dataset, the following closeout analyses remain recommended:
+
+1. Cultivation contact-versus-holdout analysis
+2. Passport incremental-value analysis within giving tiers
+3. Categorical coverage and fairness audit
+4. Temporal distribution-stability analysis
+5. Feature-redundancy review and approved feature list
+6. Top-K operational baseline evaluation
+7. Enriched-feature data dictionary
+
+Once these items are documented and the feature list is frozen, the project can proceed to model development without changing the cohort or target definition.
+
+# Reproducible artifacts
+
+## Analytical datasets
+
+The generated donor-level datasets are stored locally in `derived_data/` and are
+excluded from Git because they are reproducible and one file exceeds GitHub's
+100 MB per-file limit. See [`ARTIFACTS.md`](ARTIFACTS.md) for generation order,
+file sizes, and commands.
+
+## Scripts
+
+- [`build_donor_fiscal_year_core.py`](scripts/build_donor_fiscal_year_core.py)
+- [`build_donor_fiscal_year_features.py`](scripts/build_donor_fiscal_year_features.py)
+- [`eda_eligible_fy2023_2025.py`](scripts/eda_eligible_fy2023_2025.py)
+- [`create_initial_eda_visualizations.py`](scripts/create_initial_eda_visualizations.py)
+- [`bootstrap_clustered_lift.py`](scripts/bootstrap_clustered_lift.py)
+
+## EDA summaries and tables
+
+- [`initial_eda_summary.md`](outputs/initial_eda_summary.md)
+- [`feature_quality.csv`](outputs/feature_quality.csv)
+- [`categorical_counts.csv`](outputs/categorical_counts.csv)
+- [`key_feature_comparison_by_outcome.csv`](outputs/key_feature_comparison_by_outcome.csv)
+- [`target_balance_by_fy_and_segment.csv`](outputs/target_balance_by_fy_and_segment.csv)
+- [`converter_lift_by_giving_band.csv`](outputs/converter_lift_by_giving_band.csv)
+- [`converter_lift_by_fiscal_year.csv`](outputs/converter_lift_by_fiscal_year.csv)
+- [`converter_lift_cluster_bootstrap.csv`](outputs/converter_lift_cluster_bootstrap.csv)
+- [`final_eda_recommendations.md`](outputs/final_eda_recommendations.md)
+
+## Visualizations
+
+- [`target_balance.svg`](outputs/figures/target_balance.svg)
+- [`giving_distributions.svg`](outputs/figures/giving_distributions.svg)
+- [`converter_lift.svg`](outputs/figures/converter_lift.svg)
+- [`converter_lift_by_fiscal_year.svg`](outputs/figures/converter_lift_by_fiscal_year.svg)
+- [`converter_lift_cluster_bootstrap.svg`](outputs/figures/converter_lift_cluster_bootstrap.svg)

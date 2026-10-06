@@ -1,0 +1,5 @@
+/derived_data/
+/scripts/__pycache__/
+*.pyc
+*.pyo
+*.log

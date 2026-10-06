@@ -1,0 +1,72 @@
+feature,value,count,share
+fiscal_year,2024,53743,0.348422
+fiscal_year,2025,53262,0.345303
+fiscal_year,2023,47242,0.306275
+eligibility_segment,active_normal,98564,0.639001
+eligibility_segment,lapsed_normal,55683,0.360999
+primary_constituent_type,Donors,84582,0.548354
+primary_constituent_type,Friends,43815,0.284057
+primary_constituent_type,Alumni (Degree),17606,0.114142
+primary_constituent_type,Alumni (No Degree),3829,0.024824
+primary_constituent_type,Parents,2348,0.015222
+primary_constituent_type,Staff,725,0.004700
+primary_constituent_type,Faculty,718,0.004655
+primary_constituent_type,Emeritus Faculty,191,0.001238
+primary_constituent_type,Former Staff,169,0.001096
+primary_constituent_type,Former Students,145,0.000940
+primary_constituent_type,Former Faculty,117,0.000759
+primary_constituent_type,Other,2,0.000013
+address_state,UT,126239,0.818421
+address_state,CA,3681,0.023864
+address_state,WY,2334,0.015132
+address_state,TX,1812,0.011747
+address_state,NV,1751,0.011352
+address_state,ID,1749,0.011339
+address_state,CO,1663,0.010781
+address_state,FL,1555,0.010081
+address_state,AZ,1370,0.008882
+address_state,WA,1310,0.008493
+address_state,OR,858,0.005563
+address_state,VA,726,0.004707
+address_state,MT,676,0.004383
+address_state,NC,645,0.004182
+address_state,MI,561,0.003637
+address_state,MO,505,0.003274
+address_state,PA,504,0.003267
+address_state,NM,478,0.003099
+address_state,NY,478,0.003099
+address_state,GA,469,0.003041
+address_state,IL,441,0.002859
+address_state,OH,431,0.002794
+address_state,TN,383,0.002483
+address_state,WI,379,0.002457
+address_state,SC,372,0.002412
+address_state,MN,367,0.002379
+address_state,MD,318,0.002062
+address_state,OK,285,0.001848
+address_state,AK,262,0.001699
+address_state,HI,180,0.001167
+address_state,NE,180,0.001167
+address_state,KS,175,0.001135
+address_state,AL,161,0.001044
+address_state,IN,159,0.001031
+address_state,KY,141,0.000914
+address_state,IA,132,0.000856
+address_state,SD,130,0.000843
+address_state,AR,97,0.000629
+address_state,DC,96,0.000622
+address_state,LA,71,0.000460
+address_state,MS,55,0.000357
+address_state,ND,39,0.000253
+address_state,DE,29,0.000188
+gender,Female,58097,0.376649
+gender,Unknown,53850,0.349115
+gender,Male,42300,0.274235
+next_fy_conversion,False,154146,0.999345
+next_fy_conversion,True,101,0.000655
+passport_observed_fy,False,98703,0.639902
+passport_observed_fy,True,55544,0.360098
+has_linked_legacy_history,True,89214,0.578384
+has_linked_legacy_history,False,65033,0.421616
+cultivation_selected_fy,False,151429,0.981731
+cultivation_selected_fy,True,2818,0.018269

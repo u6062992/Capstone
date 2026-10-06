@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="700" viewBox="0 0 1400 700" role="img" aria-labelledby="chart-title chart-desc">
+<title id="chart-title">Target balance and conversion rates</title>
+<desc id="chart-desc">PBS Utah donor conversion exploratory data analysis chart.</desc>
+<style>
+text { font-family: Arial, Helvetica, sans-serif; fill: #243447; }
+.title { font-size: 26px; font-weight: 700; }
+.subtitle { font-size: 14px; fill: #5F6B76; }
+.panel-title { font-size: 17px; font-weight: 700; }
+.axis { font-size: 11px; fill: #5F6B76; }
+.label { font-size: 12px; }
+.value { font-size: 12px; font-weight: 700; }
+.note { font-size: 12px; fill: #5F6B76; }
+</style>
+<rect width="100%" height="100%" fill="#FFFFFF"/>
+<text x="60.0" y="55.0" class="title" text-anchor="start">Target balance and conversion rates</text>
+<text x="60.0" y="82.0" class="subtitle" text-anchor="start">Eligible FY2023–FY2025 donor-years with complete three-year history</text>
+<rect x="50.0" y="115.0" width="610.0" height="490.0" rx="12.0" fill="#F8FAFC" opacity="1.000"/>
+<rect x="700.0" y="115.0" width="650.0" height="490.0" rx="12.0" fill="#F8FAFC" opacity="1.000"/>
+<text x="75.0" y="153.0" class="panel-title" text-anchor="start">Outcome counts (log scale)</text>
+<line x1="205.0" y1="195.0" x2="205.0" y2="450.0" stroke="#D9E1E8" stroke-width="1"/>
+<text x="205.0" y="473.0" class="axis" text-anchor="middle">1</text>
+<line x1="285.0" y1="195.0" x2="285.0" y2="450.0" stroke="#D9E1E8" stroke-width="1"/>
+<text x="285.0" y="473.0" class="axis" text-anchor="middle">10</text>
+<line x1="365.0" y1="195.0" x2="365.0" y2="450.0" stroke="#D9E1E8" stroke-width="1"/>
+<text x="365.0" y="473.0" class="axis" text-anchor="middle">100</text>
+<line x1="445.0" y1="195.0" x2="445.0" y2="450.0" stroke="#D9E1E8" stroke-width="1"/>
+<text x="445.0" y="473.0" class="axis" text-anchor="middle">1,000</text>
+<line x1="525.0" y1="195.0" x2="525.0" y2="450.0" stroke="#D9E1E8" stroke-width="1"/>
+<text x="525.0" y="473.0" class="axis" text-anchor="middle">10,000</text>
+<line x1="605.0" y1="195.0" x2="605.0" y2="450.0" stroke="#D9E1E8" stroke-width="1"/>
+<text x="605.0" y="473.0" class="axis" text-anchor="middle">100,000</text>
+<text x="187.0" y="267.0" class="label" text-anchor="end">Non-converter</text>
+<rect x="205.0" y="240.0" width="415.0" height="42.0" rx="5.0" fill="#4C78A8" opacity="1.000"/>
+<text x="630.0" y="267.0" class="value" text-anchor="start">154,146</text>
+<text x="187.0" y="382.0" class="label" text-anchor="end">Converter</text>
+<rect x="205.0" y="355.0" width="160.3" height="42.0" rx="5.0" fill="#F58518" opacity="1.000"/>
+<text x="375.3" y="382.0" class="value" text-anchor="start">101</text>
+<text x="75.0" y="547.0" class="value" text-anchor="start">Overall conversion rate: 0.0655%</text>
+<text x="75.0" y="573.0" class="note" text-anchor="start">The rare outcome is not visible on an ordinary linear count scale.</text>
+<text x="725.0" y="153.0" class="panel-title" text-anchor="start">Conversion rate by cohort</text>
+<line x1="785.0" y1="500.0" x2="1310.0" y2="500.0" stroke="#D9E1E8" stroke-width="1"/>
+<text x="775.0" y="504.0" class="axis" text-anchor="end">0.00%</text>
+<line x1="785.0" y1="422.5" x2="1310.0" y2="422.5" stroke="#D9E1E8" stroke-width="1"/>
+<text x="775.0" y="426.5" class="axis" text-anchor="end">0.04%</text>
+<line x1="785.0" y1="345.0" x2="1310.0" y2="345.0" stroke="#D9E1E8" stroke-width="1"/>
+<text x="775.0" y="349.0" class="axis" text-anchor="end">0.08%</text>
+<line x1="785.0" y1="267.5" x2="1310.0" y2="267.5" stroke="#D9E1E8" stroke-width="1"/>
+<text x="775.0" y="271.5" class="axis" text-anchor="end">0.12%</text>
+<line x1="785.0" y1="190.0" x2="1310.0" y2="190.0" stroke="#D9E1E8" stroke-width="1"/>
+<text x="775.0" y="194.0" class="axis" text-anchor="end">0.16%</text>
+<rect x="819.5" y="348.0" width="48.0" height="152.0" rx="3.0" fill="#4C78A8" opacity="1.000"/>
+<text x="843.5" y="340.0" class="axis" text-anchor="middle">0.078%</text>
+<rect x="877.5" y="500.0" width="48.0" height="0.0" rx="3.0" fill="#72B7B2" opacity="1.000"/>
+<text x="901.5" y="492.0" class="axis" text-anchor="middle">0.000%</text>
+<text x="872.5" y="528.0" class="label" text-anchor="middle">FY2023</text>
+<rect x="994.5" y="357.7" width="48.0" height="142.3" rx="3.0" fill="#4C78A8" opacity="1.000"/>
+<text x="1018.5" y="349.7" class="axis" text-anchor="middle">0.073%</text>
+<rect x="1052.5" y="490.8" width="48.0" height="9.2" rx="3.0" fill="#72B7B2" opacity="1.000"/>
+<text x="1076.5" y="482.8" class="axis" text-anchor="middle">0.005%</text>
+<text x="1047.5" y="528.0" class="label" text-anchor="middle">FY2024</text>
+<rect x="1169.5" y="210.2" width="48.0" height="289.8" rx="3.0" fill="#4C78A8" opacity="1.000"/>
+<text x="1193.5" y="202.2" class="axis" text-anchor="middle">0.150%</text>
+<rect x="1227.5" y="490.5" width="48.0" height="9.5" rx="3.0" fill="#72B7B2" opacity="1.000"/>
+<text x="1251.5" y="482.5" class="axis" text-anchor="middle">0.005%</text>
+<text x="1222.5" y="528.0" class="label" text-anchor="middle">FY2025</text>
+<rect x="870.0" y="548.0" width="16.0" height="16.0" rx="2.0" fill="#4C78A8" opacity="1.000"/>
+<text x="894.0" y="561.0" class="label" text-anchor="start">Active</text>
+<rect x="1040.0" y="548.0" width="16.0" height="16.0" rx="2.0" fill="#72B7B2" opacity="1.000"/>
+<text x="1064.0" y="561.0" class="label" text-anchor="start">Lapsed</text>
+<text x="60.0" y="655.0" class="note" text-anchor="start">Source: eligible donor-year EDA cohort</text>
+</svg>

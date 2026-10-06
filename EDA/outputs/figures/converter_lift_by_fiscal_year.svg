@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1500" height="820" viewBox="0 0 1500 820" role="img" aria-labelledby="chart-title chart-desc">
+<title id="chart-title">Conversion rates by fiscal year and giving tier</title>
+<desc id="chart-desc">PBS Utah donor conversion exploratory data analysis chart.</desc>
+<style>
+text { font-family: Arial, Helvetica, sans-serif; fill: #243447; }
+.title { font-size: 26px; font-weight: 700; }
+.subtitle { font-size: 14px; fill: #5F6B76; }
+.panel-title { font-size: 17px; font-weight: 700; }
+.axis { font-size: 11px; fill: #5F6B76; }
+.label { font-size: 12px; }
+.value { font-size: 12px; font-weight: 700; }
+.note { font-size: 12px; fill: #5F6B76; }
+</style>
+<rect width="100%" height="100%" fill="#FFFFFF"/>
+<text x="60.0" y="55.0" class="title" text-anchor="start">Conversion rates by fiscal year and giving tier</text>
+<text x="60.0" y="82.0" class="subtitle" text-anchor="start">Broad tiers reduce sparse year-by-band cells; error bars are 95% Wilson intervals</text>
+<rect x="1010.0" y="44.0" width="16.0" height="16.0" rx="2.0" fill="#4C78A8" opacity="1.000"/>
+<text x="1033.0" y="57.0" class="label" text-anchor="start">FY2023</text>
+<rect x="1135.0" y="44.0" width="16.0" height="16.0" rx="2.0" fill="#F58518" opacity="1.000"/>
+<text x="1158.0" y="57.0" class="label" text-anchor="start">FY2024</text>
+<rect x="1260.0" y="44.0" width="16.0" height="16.0" rx="2.0" fill="#54A24B" opacity="1.000"/>
+<text x="1283.0" y="57.0" class="label" text-anchor="start">FY2025</text>
+<rect x="50.0" y="120.0" width="680.0" height="610.0" rx="12.0" fill="#F8FAFC" opacity="1.000"/>
+<text x="74.0" y="156.0" class="panel-title" text-anchor="start">Current annual giving</text>
+<line x1="122.0" y1="542.0" x2="697.0" y2="542.0" stroke="#D9E1E8" stroke-width="1"/>
+<text x="113.0" y="546.0" class="axis" text-anchor="end">0.0%</text>
+<line x1="122.0" y1="472.0" x2="697.0" y2="472.0" stroke="#D9E1E8" stroke-width="1"/>
+<text x="113.0" y="476.0" class="axis" text-anchor="end">3.0%</text>
+<line x1="122.0" y1="402.0" x2="697.0" y2="402.0" stroke="#D9E1E8" stroke-width="1"/>
+<text x="113.0" y="406.0" class="axis" text-anchor="end">6.0%</text>
+<line x1="122.0" y1="332.0" x2="697.0" y2="332.0" stroke="#D9E1E8" stroke-width="1"/>
+<text x="113.0" y="336.0" class="axis" text-anchor="end">9.0%</text>
+<line x1="122.0" y1="262.0" x2="697.0" y2="262.0" stroke="#D9E1E8" stroke-width="1"/>
+<text x="113.0" y="266.0" class="axis" text-anchor="end">12.0%</text>
+<line x1="122.0" y1="192.0" x2="697.0" y2="192.0" stroke="#D9E1E8" stroke-width="1"/>
+<text x="113.0" y="196.0" class="axis" text-anchor="end">15.0%</text>
+<rect x="163.8" y="541.8" width="32.0" height="0.2" rx="2.0" fill="#4C78A8" opacity="1.000"/>
+<line x1="179.8" y1="541.9" x2="179.8" y2="541.5" stroke="#243447" stroke-width="1.3"/>
+<line x1="174.8" y1="541.9" x2="184.8" y2="541.9" stroke="#243447" stroke-width="1.3"/>
+<line x1="174.8" y1="541.5" x2="184.8" y2="541.5" stroke="#243447" stroke-width="1.3"/>
+<text x="179.8" y="616.0" class="axis" text-anchor="middle">FY2023: 4/45,345, 0.2×</text>
+<rect x="201.8" y="541.8" width="32.0" height="0.2" rx="2.0" fill="#F58518" opacity="1.000"/>
+<line x1="217.8" y1="541.9" x2="217.8" y2="541.5" stroke="#243447" stroke-width="1.3"/>
+<line x1="212.8" y1="541.9" x2="222.8" y2="541.9" stroke="#243447" stroke-width="1.3"/>
+<line x1="212.8" y1="541.5" x2="222.8" y2="541.5" stroke="#243447" stroke-width="1.3"/>
+<text x="217.8" y="634.0" class="axis" text-anchor="middle">FY2024: 5/51,802, 0.2×</text>
+<rect x="239.8" y="541.5" width="32.0" height="0.5" rx="2.0" fill="#54A24B" opacity="1.000"/>
+<line x1="255.8" y1="541.8" x2="255.8" y2="541.2" stroke="#243447" stroke-width="1.3"/>
+<line x1="250.8" y1="541.8" x2="260.8" y2="541.8" stroke="#243447" stroke-width="1.3"/>
+<line x1="250.8" y1="541.2" x2="260.8" y2="541.2" stroke="#243447" stroke-width="1.3"/>
+<text x="255.8" y="652.0" class="axis" text-anchor="middle">FY2025: 10/51,299, 0.2×</text>
+<text x="217.8" y="568.0" class="label" text-anchor="middle">Under $250</text>
+<rect x="355.5" y="530.6" width="32.0" height="11.4" rx="2.0" fill="#4C78A8" opacity="1.000"/>
+<line x1="371.5" y1="536.2" x2="371.5" y2="519.5" stroke="#243447" stroke-width="1.3"/>
+<line x1="366.5" y1="536.2" x2="376.5" y2="536.2" stroke="#243447" stroke-width="1.3"/>
+<line x1="366.5" y1="519.5" x2="376.5" y2="519.5" stroke="#243447" stroke-width="1.3"/>
+<text x="371.5" y="616.0" class="axis" text-anchor="middle">FY2023: 8/1,631, 8.9×</text>
+<rect x="393.5" y="536.6" width="32.0" height="5.4" rx="2.0" fill="#F58518" opacity="1.000"/>
+<line x1="409.5" y1="539.9" x2="409.5" y2="528.1" stroke="#243447" stroke-width="1.3"/>
+<line x1="404.5" y1="539.9" x2="414.5" y2="539.9" stroke="#243447" stroke-width="1.3"/>
+<line x1="404.5" y1="528.1" x2="414.5" y2="528.1" stroke="#243447" stroke-width="1.3"/>
+<text x="409.5" y="634.0" class="axis" text-anchor="middle">FY2024: 4/1,716, 5.0×</text>
+<rect x="431.5" y="515.4" width="32.0" height="26.6" rx="2.0" fill="#54A24B" opacity="1.000"/>
+<line x1="447.5" y1="524.7" x2="447.5" y2="501.0" stroke="#243447" stroke-width="1.3"/>
+<line x1="442.5" y1="524.7" x2="452.5" y2="524.7" stroke="#243447" stroke-width="1.3"/>
+<line x1="442.5" y1="501.0" x2="452.5" y2="501.0" stroke="#243447" stroke-width="1.3"/>
+<text x="447.5" y="652.0" class="axis" text-anchor="middle">FY2025: 20/1,752, 12.2×</text>
+<text x="409.5" y="568.0" class="label" text-anchor="middle">$250–499</text>
+<rect x="547.2" y="419.2" width="32.0" height="122.8" rx="2.0" fill="#4C78A8" opacity="1.000"/>
+<line x1="563.2" y1="468.3" x2="563.2" y2="340.4" stroke="#243447" stroke-width="1.3"/>
+<line x1="558.2" y1="468.3" x2="568.2" y2="468.3" stroke="#243447" stroke-width="1.3"/>
+<line x1="558.2" y1="340.4" x2="568.2" y2="340.4" stroke="#243447" stroke-width="1.3"/>
+<text x="563.2" y="616.0" class="axis" text-anchor="middle">FY2023: 14/266, 95.6×</text>
+<rect x="585.2" y="376.1" width="32.0" height="165.9" rx="2.0" fill="#F58518" opacity="1.000"/>
+<line x1="601.2" y1="438.8" x2="601.2" y2="279.8" stroke="#243447" stroke-width="1.3"/>
+<line x1="596.2" y1="438.8" x2="606.2" y2="438.8" stroke="#243447" stroke-width="1.3"/>
+<line x1="596.2" y1="279.8" x2="606.2" y2="279.8" stroke="#243447" stroke-width="1.3"/>
+<text x="601.2" y="634.0" class="axis" text-anchor="middle">FY2024: 16/225, 152.9×</text>
+<rect x="623.2" y="320.8" width="32.0" height="221.2" rx="2.0" fill="#54A24B" opacity="1.000"/>
+<line x1="639.2" y1="396.9" x2="639.2" y2="211.0" stroke="#243447" stroke-width="1.3"/>
+<line x1="634.2" y1="396.9" x2="644.2" y2="396.9" stroke="#243447" stroke-width="1.3"/>
+<line x1="634.2" y1="211.0" x2="644.2" y2="211.0" stroke="#243447" stroke-width="1.3"/>
+<text x="639.2" y="652.0" class="axis" text-anchor="middle">FY2025: 20/211, 101.0×</text>
+<text x="601.2" y="568.0" class="label" text-anchor="middle">$500–1,199</text>
+<text x="74.0" y="705.0" class="note" text-anchor="start">Labels show conversions/observations and lift versus that year's baseline.</text>
+<rect x="770.0" y="120.0" width="680.0" height="610.0" rx="12.0" fill="#F8FAFC" opacity="1.000"/>
+<text x="794.0" y="156.0" class="panel-title" text-anchor="start">Three-year total giving</text>
+<line x1="842.0" y1="542.0" x2="1417.0" y2="542.0" stroke="#D9E1E8" stroke-width="1"/>
+<text x="833.0" y="546.0" class="axis" text-anchor="end">0.0%</text>
+<line x1="842.0" y1="472.0" x2="1417.0" y2="472.0" stroke="#D9E1E8" stroke-width="1"/>
+<text x="833.0" y="476.0" class="axis" text-anchor="end">3.0%</text>
+<line x1="842.0" y1="402.0" x2="1417.0" y2="402.0" stroke="#D9E1E8" stroke-width="1"/>
+<text x="833.0" y="406.0" class="axis" text-anchor="end">6.0%</text>
+<line x1="842.0" y1="332.0" x2="1417.0" y2="332.0" stroke="#D9E1E8" stroke-width="1"/>
+<text x="833.0" y="336.0" class="axis" text-anchor="end">9.0%</text>
+<line x1="842.0" y1="262.0" x2="1417.0" y2="262.0" stroke="#D9E1E8" stroke-width="1"/>
+<text x="833.0" y="266.0" class="axis" text-anchor="end">12.0%</text>
+<line x1="842.0" y1="192.0" x2="1417.0" y2="192.0" stroke="#D9E1E8" stroke-width="1"/>
+<text x="833.0" y="196.0" class="axis" text-anchor="end">15.0%</text>
+<rect x="883.8" y="541.6" width="32.0" height="0.4" rx="2.0" fill="#4C78A8" opacity="1.000"/>
+<line x1="899.8" y1="541.8" x2="899.8" y2="541.2" stroke="#243447" stroke-width="1.3"/>
+<line x1="894.8" y1="541.8" x2="904.8" y2="541.8" stroke="#243447" stroke-width="1.3"/>
+<line x1="894.8" y1="541.2" x2="904.8" y2="541.2" stroke="#243447" stroke-width="1.3"/>
+<text x="899.8" y="616.0" class="axis" text-anchor="middle">FY2023: 7/43,372, 0.3×</text>
+<rect x="921.8" y="541.8" width="32.0" height="0.2" rx="2.0" fill="#F58518" opacity="1.000"/>
+<line x1="937.8" y1="541.9" x2="937.8" y2="541.5" stroke="#243447" stroke-width="1.3"/>
+<line x1="932.8" y1="541.9" x2="942.8" y2="541.9" stroke="#243447" stroke-width="1.3"/>
+<line x1="932.8" y1="541.5" x2="942.8" y2="541.5" stroke="#243447" stroke-width="1.3"/>
+<text x="937.8" y="634.0" class="axis" text-anchor="middle">FY2024: 5/49,680, 0.2×</text>
+<rect x="959.8" y="541.4" width="32.0" height="0.6" rx="2.0" fill="#54A24B" opacity="1.000"/>
+<line x1="975.8" y1="541.7" x2="975.8" y2="541.0" stroke="#243447" stroke-width="1.3"/>
+<line x1="970.8" y1="541.7" x2="980.8" y2="541.7" stroke="#243447" stroke-width="1.3"/>
+<line x1="970.8" y1="541.0" x2="980.8" y2="541.0" stroke="#243447" stroke-width="1.3"/>
+<text x="975.8" y="652.0" class="axis" text-anchor="middle">FY2025: 12/49,008, 0.3×</text>
+<text x="937.8" y="568.0" class="label" text-anchor="middle">Under $500</text>
+<rect x="1075.5" y="536.2" width="32.0" height="5.8" rx="2.0" fill="#4C78A8" opacity="1.000"/>
+<line x1="1091.5" y1="538.9" x2="1091.5" y2="531.0" stroke="#243447" stroke-width="1.3"/>
+<line x1="1086.5" y1="538.9" x2="1096.5" y2="538.9" stroke="#243447" stroke-width="1.3"/>
+<line x1="1086.5" y1="531.0" x2="1096.5" y2="531.0" stroke="#243447" stroke-width="1.3"/>
+<text x="1091.5" y="616.0" class="axis" text-anchor="middle">FY2023: 9/3,621, 4.5×</text>
+<rect x="1113.5" y="538.9" width="32.0" height="3.1" rx="2.0" fill="#F58518" opacity="1.000"/>
+<line x1="1129.5" y1="540.7" x2="1129.5" y2="534.9" stroke="#243447" stroke-width="1.3"/>
+<line x1="1124.5" y1="540.7" x2="1134.5" y2="540.7" stroke="#243447" stroke-width="1.3"/>
+<line x1="1124.5" y1="534.9" x2="1134.5" y2="534.9" stroke="#243447" stroke-width="1.3"/>
+<text x="1129.5" y="634.0" class="axis" text-anchor="middle">FY2024: 5/3,819, 2.8×</text>
+<rect x="1151.5" y="530.4" width="32.0" height="11.6" rx="2.0" fill="#54A24B" opacity="1.000"/>
+<line x1="1167.5" y1="534.5" x2="1167.5" y2="524.1" stroke="#243447" stroke-width="1.3"/>
+<line x1="1162.5" y1="534.5" x2="1172.5" y2="534.5" stroke="#243447" stroke-width="1.3"/>
+<line x1="1162.5" y1="524.1" x2="1172.5" y2="524.1" stroke="#243447" stroke-width="1.3"/>
+<text x="1167.5" y="652.0" class="axis" text-anchor="middle">FY2025: 20/4,020, 5.3×</text>
+<text x="1129.5" y="568.0" class="label" text-anchor="middle">$500–999</text>
+<rect x="1267.2" y="448.3" width="32.0" height="93.7" rx="2.0" fill="#4C78A8" opacity="1.000"/>
+<line x1="1283.2" y1="490.8" x2="1283.2" y2="373.2" stroke="#243447" stroke-width="1.3"/>
+<line x1="1278.2" y1="490.8" x2="1288.2" y2="490.8" stroke="#243447" stroke-width="1.3"/>
+<line x1="1278.2" y1="373.2" x2="1288.2" y2="373.2" stroke="#243447" stroke-width="1.3"/>
+<text x="1283.2" y="616.0" class="axis" text-anchor="middle">FY2023: 10/249, 73.0×</text>
+<rect x="1305.2" y="398.6" width="32.0" height="143.4" rx="2.0" fill="#F58518" opacity="1.000"/>
+<line x1="1321.2" y1="454.3" x2="1321.2" y2="311.1" stroke="#243447" stroke-width="1.3"/>
+<line x1="1316.2" y1="454.3" x2="1326.2" y2="454.3" stroke="#243447" stroke-width="1.3"/>
+<line x1="1316.2" y1="311.1" x2="1326.2" y2="311.1" stroke="#243447" stroke-width="1.3"/>
+<text x="1321.2" y="634.0" class="axis" text-anchor="middle">FY2024: 15/244, 132.2×</text>
+<rect x="1343.2" y="362.5" width="32.0" height="179.5" rx="2.0" fill="#54A24B" opacity="1.000"/>
+<line x1="1359.2" y1="427.2" x2="1359.2" y2="266.0" stroke="#243447" stroke-width="1.3"/>
+<line x1="1354.2" y1="427.2" x2="1364.2" y2="427.2" stroke="#243447" stroke-width="1.3"/>
+<line x1="1354.2" y1="266.0" x2="1364.2" y2="266.0" stroke="#243447" stroke-width="1.3"/>
+<text x="1359.2" y="652.0" class="axis" text-anchor="middle">FY2025: 18/234, 81.9×</text>
+<text x="1321.2" y="568.0" class="label" text-anchor="middle">$1,000+</text>
+<text x="794.0" y="705.0" class="note" text-anchor="start">Labels show conversions/observations and lift versus that year's baseline.</text>
+</svg>

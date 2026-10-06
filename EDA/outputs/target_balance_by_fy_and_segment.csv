@@ -1,0 +1,7 @@
+fiscal_year,eligibility_segment,observations,conversions,non_conversions,conversion_rate
+2023,active_normal,33133,26,33107,0.000785
+2023,lapsed_normal,14109,0,14109,0.000000
+2024,active_normal,32670,24,32646,0.000735
+2024,lapsed_normal,21073,1,21072,0.000047
+2025,active_normal,32761,49,32712,0.001496
+2025,lapsed_normal,20501,1,20500,0.000049
