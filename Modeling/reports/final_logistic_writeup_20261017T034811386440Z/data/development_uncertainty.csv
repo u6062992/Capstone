@@ -1,0 +1,641 @@
+model,scope,period,metric,low,high,valid_replicates
+Dummy (training prevalence),Overall,2022,accuracy,0.9978466267970684,0.9987186047682293,1000
+Dummy (training prevalence),Overall,2022,observed_rate,0.001281395231770737,0.0021533732029317063,1000
+Dummy (training prevalence),Overall,2022,recall_at_1000,0.031850176768481064,0.032257023966968806,1000
+Dummy (training prevalence),Overall,2022,precision_at_1000,0.0012813952317707372,0.0021533732029317063,1000
+Dummy (training prevalence),Overall,2022,lift_at_1000,0.9999999999999999,1.0000000000000002,1000
+Dummy (training prevalence),Overall,2023,accuracy,0.9985287360968286,0.9992167589440958,1000
+Dummy (training prevalence),Overall,2023,observed_rate,0.0007832410559042694,0.0014712639031715154,1000
+Dummy (training prevalence),Overall,2023,recall_at_1000,0.029933846199898227,0.030287450622667904,1000
+Dummy (training prevalence),Overall,2023,precision_at_1000,0.0007832410559042694,0.0014712639031715154,1000
+Dummy (training prevalence),Overall,2023,lift_at_1000,0.9999999999999998,1.0000000000000002,1000
+Dummy (training prevalence),Overall,2024,accuracy,0.9982578769881763,0.9990321762460178,1000
+Dummy (training prevalence),Overall,2024,observed_rate,0.0009678237539822097,0.0017421230118237214,1000
+Dummy (training prevalence),Overall,2024,recall_at_1000,0.03032136094668246,0.030694666344123003,1000
+Dummy (training prevalence),Overall,2024,precision_at_1000,0.0009678237539822097,0.0017421230118237212,1000
+Dummy (training prevalence),Overall,2024,lift_at_1000,0.9999999999999998,1.0000000000000002,1000
+Dummy (training prevalence),Overall,Pooled,accuracy,0.9983650763657472,0.998852636639982,1000
+Dummy (training prevalence),Overall,Pooled,observed_rate,0.0011473633600179553,0.0016349236342527544,1000
+Dummy (training prevalence),Overall,Pooled,recall_at_1000,0.03083543741822524,0.031189722829023877,1000
+Dummy (training prevalence),Overall,Pooled,precision_at_1000,0.0011500486966478664,0.0016406982317059113,1000
+Dummy (training prevalence),Overall,Pooled,lift_at_1000,1.0001827570262434,1.0093312951017233,1000
+Dummy (training prevalence),Never-major,2022,accuracy,0.9990001209505742,0.9995797952617824,1000
+Dummy (training prevalence),Never-major,2022,observed_rate,0.0004202047382175201,0.0009998790494257666,1000
+Dummy (training prevalence),Never-major,2022,recall_at_1000,0.0320358801858081,0.032448621667004636,1000
+Dummy (training prevalence),Never-major,2022,precision_at_1000,0.0004202047382175201,0.0009998790494257664,1000
+Dummy (training prevalence),Never-major,2022,lift_at_1000,0.9999999999999998,1.0000000000000002,1000
+Dummy (training prevalence),Never-major,2023,accuracy,0.9990947112982883,0.9996084741232861,1000
+Dummy (training prevalence),Never-major,2023,observed_rate,0.00039152587671377264,0.0009052887017117239,1000
+Dummy (training prevalence),Never-major,2023,recall_at_1000,0.030105927709296126,0.030462728851250495,1000
+Dummy (training prevalence),Never-major,2023,precision_at_1000,0.0003915258767137726,0.0009052887017117239,1000
+Dummy (training prevalence),Never-major,2023,lift_at_1000,0.9999999999999998,1.0000000000000002,1000
+Dummy (training prevalence),Never-major,2024,accuracy,0.9992640480568351,0.9997535885591111,1000
+Dummy (training prevalence),Never-major,2024,observed_rate,0.0002464114408888984,0.0007359519431648791,1000
+Dummy (training prevalence),Never-major,2024,recall_at_1000,0.03051937103251809,0.030897574540398577,1000
+Dummy (training prevalence),Never-major,2024,precision_at_1000,0.0002464114408888984,0.0007359519431648792,1000
+Dummy (training prevalence),Never-major,2024,lift_at_1000,0.9999999999999998,1.0000000000000002,1000
+Dummy (training prevalence),Never-major,Pooled,accuracy,0.9992326184801679,0.999544857639204,1000
+Dummy (training prevalence),Never-major,Pooled,observed_rate,0.00045514236079601526,0.0007673815198320597,1000
+Dummy (training prevalence),Never-major,Pooled,recall_at_1000,0.030872061483130826,0.031389972398172046,1000
+Dummy (training prevalence),Never-major,Pooled,precision_at_1000,0.000455575912506451,0.0007705785472375523,1000
+Dummy (training prevalence),Never-major,Pooled,lift_at_1000,0.9950625416055938,1.009791868446083,1000
+Dummy (training prevalence),No-contact overall,2022,accuracy,0.998199762037122,0.9994214485514827,1000
+Dummy (training prevalence),No-contact overall,2022,observed_rate,0.0005785514485172357,0.0018002379628779773,1000
+Dummy (training prevalence),No-contact overall,2022,recall_at_1000,0.031815427872193006,0.03227561123137691,1000
+Dummy (training prevalence),No-contact overall,2022,precision_at_1000,0.0005785514485172357,0.001800237962877977,1000
+Dummy (training prevalence),No-contact overall,2022,lift_at_1000,0.9999999999999998,1.0000000000000002,1000
+Dummy (training prevalence),No-contact overall,2023,accuracy,0.9987884667546041,0.9997584902551917,1000
+Dummy (training prevalence),No-contact overall,2023,observed_rate,0.00024150974480829443,0.0012115332453959593,1000
+Dummy (training prevalence),No-contact overall,2023,recall_at_1000,0.029903246126149443,0.030318329501178187,1000
+Dummy (training prevalence),No-contact overall,2023,precision_at_1000,0.0002415097448082944,0.0012115332453959593,1000
+Dummy (training prevalence),No-contact overall,2023,lift_at_1000,0.9999999999999998,1.0000000000000002,1000
+Dummy (training prevalence),No-contact overall,2024,accuracy,0.9985278109976439,0.9996939236697427,1000
+Dummy (training prevalence),No-contact overall,2024,observed_rate,0.00030607633025724783,0.0014721890023561498,1000
+Dummy (training prevalence),No-contact overall,2024,recall_at_1000,0.030287995115077515,0.030721114490682183,1000
+Dummy (training prevalence),No-contact overall,2024,precision_at_1000,0.00030607633025724783,0.0014721890023561498,1000
+Dummy (training prevalence),No-contact overall,2024,lift_at_1000,0.9999999999999998,1.0000000000000002,1000
+Dummy (training prevalence),No-contact overall,Pooled,accuracy,0.998784459787418,0.9994303628351345,1000
+Dummy (training prevalence),No-contact overall,Pooled,observed_rate,0.0005696371648654198,0.0012155402125820479,1000
+Dummy (training prevalence),No-contact overall,Pooled,recall_at_1000,0.03070208047940894,0.031396101164360056,1000
+Dummy (training prevalence),No-contact overall,Pooled,precision_at_1000,0.0005787898370470827,0.0012256792854872954,1000
+Dummy (training prevalence),No-contact overall,Pooled,lift_at_1000,0.9954807903579298,1.0163357775216477,1000
+Dummy (training prevalence),No-contact never-major,2022,accuracy,0.9990652213603727,0.9997422823739249,1000
+Dummy (training prevalence),No-contact never-major,2022,observed_rate,0.0002577176260750243,0.0009347786396273473,1000
+Dummy (training prevalence),No-contact never-major,2022,recall_at_1000,0.0319819077316296,0.03244497679313574,1000
+Dummy (training prevalence),No-contact never-major,2022,precision_at_1000,0.0002577176260750243,0.0009347786396273474,1000
+Dummy (training prevalence),No-contact never-major,2022,lift_at_1000,0.9999999999999998,1.0000000000000002,1000
+Dummy (training prevalence),No-contact never-major,2023,accuracy,0.9991753814135322,0.9998779829985271,1000
+Dummy (training prevalence),No-contact never-major,2023,observed_rate,0.00012201700147281688,0.0008246185864678443,1000
+Dummy (training prevalence),No-contact never-major,2023,recall_at_1000,0.03008691625366209,0.030495865228597884,1000
+Dummy (training prevalence),No-contact never-major,2023,precision_at_1000,0.00012201700147281688,0.0008246185864678443,1000
+Dummy (training prevalence),No-contact never-major,2023,lift_at_1000,0.9999999999999998,1.0000000000000002,1000
+Dummy (training prevalence),No-contact never-major,2024,accuracy,0.9994746426935582,0.9999694321196566,1000
+Dummy (training prevalence),No-contact never-major,2024,observed_rate,3.0567880343409174e-05,0.0005253573064417427,1000
+Dummy (training prevalence),No-contact never-major,2024,recall_at_1000,0.030487017817201006,0.03091461234175565,980
+Dummy (training prevalence),No-contact never-major,2024,precision_at_1000,3.056788034340918e-05,0.0005253573064417426,1000
+Dummy (training prevalence),No-contact never-major,2024,lift_at_1000,0.9999999999999998,1.0000000000000002,980
+Dummy (training prevalence),No-contact never-major,Pooled,accuracy,0.9994162175897795,0.9997620856031645,1000
+Dummy (training prevalence),No-contact never-major,Pooled,observed_rate,0.0002379143968354447,0.0005837824102205769,1000
+Dummy (training prevalence),No-contact never-major,Pooled,recall_at_1000,0.03082257691011327,0.03171305821504518,1000
+Dummy (training prevalence),No-contact never-major,Pooled,precision_at_1000,0.00023994051761740994,0.0005879689909620501,1000
+Dummy (training prevalence),No-contact never-major,Pooled,lift_at_1000,0.9932492804344291,1.0208291897186548,1000
+Current-giving ranking,Overall,2022,accuracy_at_1000,0.9681557610464966,0.9690667326713204,1000
+Current-giving ranking,Overall,2022,observed_rate,0.0012461895437782394,0.0021563399301662697,1000
+Current-giving ranking,Overall,2022,recall_at_1000,0.581930021801069,0.7977215780185253,1000
+Current-giving ranking,Overall,2022,precision_at_1000,0.025903547009058146,0.04809612186619756,1000
+Current-giving ranking,Overall,2022,lift_at_1000,18.119778417258576,24.928280835945344,1000
+Dummy (training prevalence),Overall,2022,accuracy_at_1000,0.9658572007128645,0.9668402165222388,1000
+Current-giving ranking,Overall,2023,accuracy_at_1000,0.9700769728607794,0.9707916940906972,1000
+Current-giving ranking,Overall,2023,observed_rate,0.0007828230560767987,0.0014743648635392773,1000
+Current-giving ranking,Overall,2023,recall_at_1000,0.6212438238668591,0.8640374911706932,1000
+Current-giving ranking,Overall,2023,precision_at_1000,0.018414182543957092,0.03788299195103303,1000
+Current-giving ranking,Overall,2023,lift_at_1000,20.607492632965293,28.737336620863942,1000
+Dummy (training prevalence),Overall,2023,accuracy_at_1000,0.9684552733229573,0.9691993751919865,1000
+Current-giving ranking,Overall,2024,accuracy_at_1000,0.9699766046050983,0.9708321858964426,1000
+Current-giving ranking,Overall,2024,observed_rate,0.0009464319639195221,0.0017522256949762762,1000
+Current-giving ranking,Overall,2024,recall_at_1000,0.7302968365960198,0.9257849072384943,1000
+Current-giving ranking,Overall,2024,precision_at_1000,0.025473543289752598,0.04937577848482329,1000
+Current-giving ranking,Overall,2024,lift_at_1000,23.950044259235334,30.377541996989393,1000
+Dummy (training prevalence),Overall,2024,accuracy_at_1000,0.9677949253354335,0.9686285851307126,1000
+Current-giving ranking,Overall,Pooled,accuracy_at_1000,0.9695917359127973,0.9700957590863073,1000
+Current-giving ranking,Overall,Pooled,observed_rate,0.0011323390563694406,0.0016346127003319187,1000
+Current-giving ranking,Overall,Pooled,recall_at_1000,0.6842080051775346,0.8135533553674562,1000
+Current-giving ranking,Overall,Pooled,precision_at_1000,0.026960729621164078,0.040782882669119544,1000
+Current-giving ranking,Overall,Pooled,lift_at_1000,22.176297670790817,26.384586095126913,1000
+Dummy (training prevalence),Overall,Pooled,accuracy_at_1000,0.9675721945346695,0.9680960383155381,1000
+Current-giving ranking,Never-major,2022,accuracy_at_1000,0.9674604202879361,0.9681285722138028,1000
+Current-giving ranking,Never-major,2022,observed_rate,0.0004160081837605015,0.0010287313629981788,1000
+Current-giving ranking,Never-major,2022,recall_at_1000,0.326391926885977,0.7344410354852563,1000
+Current-giving ranking,Never-major,2022,precision_at_1000,0.005480158423597054,0.018890020588294656,1000
+Current-giving ranking,Never-major,2022,lift_at_1000,10.087505358878266,22.730424697630447,1000
+Dummy (training prevalence),Never-major,2022,accuracy_at_1000,0.9667661124376102,0.9674596779458305,1000
+Current-giving ranking,Never-major,2023,accuracy_at_1000,0.9696142698728077,0.9701685707329464,1000
+Current-giving ranking,Never-major,2023,observed_rate,0.00039453478336018037,0.0009372744258017787,1000
+Current-giving ranking,Never-major,2023,recall_at_1000,0.4580462191759016,0.811660531209808,1000
+Current-giving ranking,Never-major,2023,precision_at_1000,0.007399270196557886,0.020335612710089473,1000
+Current-giving ranking,Never-major,2023,lift_at_1000,15.172374487256661,26.872734577369904,1000
+Dummy (training prevalence),Never-major,2023,accuracy_at_1000,0.9688071575316549,0.9694126946148749,1000
+Current-giving ranking,Never-major,2024,accuracy_at_1000,0.9691648565274502,0.9697318701606533,1000
+Current-giving ranking,Never-major,2024,observed_rate,0.00027523799482136613,0.0007080791080960812,1000
+Current-giving ranking,Never-major,2024,recall_at_1000,0.4042627593212784,0.8502039304380385,1000
+Current-giving ranking,Never-major,2024,precision_at_1000,0.0043621332620931205,0.016219570981682266,1000
+Current-giving ranking,Never-major,2024,lift_at_1000,13.172195732130053,27.567777295041672,1000
+Dummy (training prevalence),Never-major,2024,accuracy_at_1000,0.9685529395405287,0.9691477970543115,1000
+Current-giving ranking,Never-major,Pooled,accuracy_at_1000,0.9688816814248552,0.9692490491869828,1000
+Current-giving ranking,Never-major,Pooled,observed_rate,0.00045617210558289103,0.0007762503048763333,1000
+Current-giving ranking,Never-major,Pooled,recall_at_1000,0.4808605020462038,0.7072707869381439,1000
+Current-giving ranking,Never-major,Pooled,precision_at_1000,0.008150595923097276,0.01568701687506761,1000
+Current-giving ranking,Never-major,Pooled,lift_at_1000,15.511859035126406,22.807462122841475,1000
+Dummy (training prevalence),Never-major,Pooled,accuracy_at_1000,0.9681791023438163,0.9685611604435544,1000
+Current-giving ranking,No-contact overall,2022,accuracy_at_1000,0.9676337063700696,0.968756707788915,1000
+Current-giving ranking,No-contact overall,2022,observed_rate,0.000576210962756608,0.0017683399524309612,1000
+Current-giving ranking,No-contact overall,2022,recall_at_1000,0.3517555794706066,0.7895698700832777,1000
+Current-giving ranking,No-contact overall,2022,precision_at_1000,0.008358096432355303,0.036190350406064366,1000
+Current-giving ranking,No-contact overall,2022,lift_at_1000,10.989681627731134,24.652283296875083,1000
+Dummy (training prevalence),No-contact overall,2022,accuracy_at_1000,0.9662681746085655,0.9674688404833425,1000
+Current-giving ranking,No-contact overall,2023,accuracy_at_1000,0.9698304336753699,0.9709097871514228,1000
+Current-giving ranking,No-contact overall,2023,observed_rate,0.0002412347258894784,0.0012188391904610109,1000
+Current-giving ranking,No-contact overall,2023,recall_at_1000,0.5108348533083847,0.9618226600985221,1000
+Current-giving ranking,No-contact overall,2023,precision_at_1000,0.004393689796249836,0.035874771348866775,1000
+Current-giving ranking,No-contact overall,2023,lift_at_1000,16.942651927178854,31.92090924239752,1000
+Dummy (training prevalence),No-contact overall,2023,accuracy_at_1000,0.9686930917421489,0.9697217146123128,1000
+Current-giving ranking,No-contact overall,2024,accuracy_at_1000,0.9694912854791072,0.9706431445733883,1000
+Current-giving ranking,No-contact overall,2024,observed_rate,0.00030691776667657306,0.001505049552109463,1000
+Current-giving ranking,No-contact overall,2024,recall_at_1000,0.5466684334403693,0.9716763368336409,1000
+Current-giving ranking,No-contact overall,2024,precision_at_1000,0.007032258064516129,0.04162494833724653,1000
+Current-giving ranking,No-contact overall,2024,lift_at_1000,17.896695107847666,31.87349331880291,1000
+Dummy (training prevalence),No-contact overall,2024,accuracy_at_1000,0.9680707181935669,0.969215782676301,1000
+Current-giving ranking,No-contact overall,Pooled,accuracy_at_1000,0.9692243958982195,0.9698859669484166,1000
+Current-giving ranking,No-contact overall,Pooled,observed_rate,0.0005571103375376074,0.0012362284537662384,1000
+Current-giving ranking,No-contact overall,Pooled,recall_at_1000,0.5890501227531942,0.8305685968442809,1000
+Current-giving ranking,No-contact overall,Pooled,precision_at_1000,0.011378212244796395,0.03123224990020016,1000
+Current-giving ranking,No-contact overall,Pooled,lift_at_1000,19.052676234836838,26.91173366029443,1000
+Dummy (training prevalence),No-contact overall,Pooled,accuracy_at_1000,0.967953443070248,0.9686271504366968,1000
+Current-giving ranking,No-contact never-major,2022,accuracy_at_1000,0.9673922685359752,0.9682034464843106,1000
+Current-giving ranking,No-contact never-major,2022,observed_rate,0.00022615137592330305,0.0009016547330388025,1000
+Current-giving ranking,No-contact never-major,2022,recall_at_1000,0.18400340988924033,0.7738181686740999,1000
+Current-giving ranking,No-contact never-major,2022,precision_at_1000,0.0018404846167252296,0.01809500409591073,1000
+Current-giving ranking,No-contact never-major,2022,lift_at_1000,5.69530516054088,24.020328290536195,1000
+Dummy (training prevalence),No-contact never-major,2022,accuracy_at_1000,0.9668679319307935,0.9676293846928619,1000
+Current-giving ranking,No-contact never-major,2023,accuracy_at_1000,0.9695512772123039,0.9703749588039718,1000
+Current-giving ranking,No-contact never-major,2023,observed_rate,0.00012131635781584956,0.0008230248290612729,1000
+Current-giving ranking,No-contact never-major,2023,recall_at_1000,0.20384086148171396,0.9477234401349073,1000
+Current-giving ranking,No-contact never-major,2023,precision_at_1000,0.001,0.02316944970107767,1000
+Current-giving ranking,No-contact never-major,2023,lift_at_1000,6.738848454370742,31.307910496423634,1000
+Dummy (training prevalence),No-contact never-major,2023,accuracy_at_1000,0.9689028068671154,0.9696559828088305,1000
+Current-giving ranking,No-contact never-major,2024,accuracy_at_1000,0.9690300831903645,0.9697366403819211,1000
+Current-giving ranking,No-contact never-major,2024,observed_rate,3.060192782901701e-05,0.0005276875879108899,1000
+Current-giving ranking,No-contact never-major,2024,recall_at_1000,0.0,1.0,984
+Current-giving ranking,No-contact never-major,2024,precision_at_1000,0.0,0.012096774193548388,1000
+Current-giving ranking,No-contact never-major,2024,lift_at_1000,0.0,32.541688709677416,984
+Dummy (training prevalence),No-contact never-major,2024,accuracy_at_1000,0.9687162516882969,0.9693904042369479,1000
+Current-giving ranking,No-contact never-major,Pooled,accuracy_at_1000,0.9688194049792932,0.9692955865089337,1000
+Current-giving ranking,No-contact never-major,Pooled,observed_rate,0.00021779092551565144,0.0006025610497157908,1000
+Current-giving ranking,No-contact never-major,Pooled,recall_at_1000,0.3574398330199885,0.7775243978026688,1000
+Current-giving ranking,No-contact never-major,Pooled,precision_at_1000,0.002857765755726499,0.0141283286486853,1000
+Current-giving ranking,No-contact never-major,Pooled,lift_at_1000,11.470103205759331,25.04282597665029,1000
+Dummy (training prevalence),No-contact never-major,Pooled,accuracy_at_1000,0.9683480568968659,0.9687881803250745,1000
+Logistic regression (untuned),Overall,2022,accuracy,0.9977587466709205,0.9987178675572893,1000
+Logistic regression (untuned),Overall,2022,accuracy_at_1000,0.9684348539823441,0.9694771683688114,1000
+Logistic regression (untuned),Overall,2022,observed_rate,0.0012461895437782394,0.0021563399301662697,1000
+Logistic regression (untuned),Overall,2022,mean_predicted,0.0017043022168862021,0.0021246359410284433,1000
+Logistic regression (untuned),Overall,2022,brier_score,0.0010927661477005723,0.001843068955202373,1000
+Logistic regression (untuned),Overall,2022,recall_at_1000,0.6832954545454546,0.8975,1000
+Logistic regression (untuned),Overall,2022,precision_at_1000,0.03,0.055,1000
+Logistic regression (untuned),Overall,2022,lift_at_1000,21.28381522727273,28.04683284722222,1000
+Logistic regression (untuned),Overall,2023,accuracy,0.9983114589326397,0.9990589775235975,1000
+Logistic regression (untuned),Overall,2023,accuracy_at_1000,0.9700912495750107,0.9708705875378687,1000
+Logistic regression (untuned),Overall,2023,observed_rate,0.0007828230560767987,0.0014743648635392773,1000
+Logistic regression (untuned),Overall,2023,mean_predicted,0.0014216107644705565,0.0017887772351226083,1000
+Logistic regression (untuned),Overall,2023,brier_score,0.0008079083979118715,0.0013627759249718301,1000
+Logistic regression (untuned),Overall,2023,recall_at_1000,0.6176470588235294,0.8919160231660231,1000
+Logistic regression (untuned),Overall,2023,precision_at_1000,0.019,0.039,1000
+Logistic regression (untuned),Overall,2023,lift_at_1000,20.53823161764706,29.622649782818534,1000
+Logistic regression (untuned),Overall,2024,accuracy,0.9982696138798757,0.9990815949293089,1000
+Logistic regression (untuned),Overall,2024,accuracy_at_1000,0.9700278687089378,0.9709414671638262,1000
+Logistic regression (untuned),Overall,2024,observed_rate,0.0009464319639195221,0.0017522256949762762,1000
+Logistic regression (untuned),Overall,2024,mean_predicted,0.0010271805989049891,0.0012815091745766905,1000
+Logistic regression (untuned),Overall,2024,brier_score,0.0007898299549825914,0.0014085730883829485,1000
+Logistic regression (untuned),Overall,2024,recall_at_1000,0.75,0.9555555555555556,1000
+Logistic regression (untuned),Overall,2024,precision_at_1000,0.026,0.051,1000
+Logistic regression (untuned),Overall,2024,lift_at_1000,24.531525,31.36329983918852,1000
+Logistic regression (untuned),Overall,Pooled,accuracy,0.9982880948616656,0.9988099387137508,1000
+Logistic regression (untuned),Overall,Pooled,accuracy_at_1000,0.9697174620303141,0.970259333532542,1000
+Logistic regression (untuned),Overall,Pooled,observed_rate,0.0011323390563694406,0.0016346127003319187,1000
+Logistic regression (untuned),Overall,Pooled,mean_predicted,0.0014112292393486782,0.0016833109688669512,1000
+Logistic regression (untuned),Overall,Pooled,brier_score,0.000995657414337885,0.0013966620857732814,1000
+Logistic regression (untuned),Overall,Pooled,recall_at_1000,0.7327155172413793,0.8702419899257413,1000
+Logistic regression (untuned),Overall,Pooled,precision_at_1000,0.029,0.04334166666666666,1000
+Logistic regression (untuned),Overall,Pooled,lift_at_1000,23.71969403790471,28.158966486920423,1000
+Logistic regression (untuned),Never-major,2022,accuracy,0.9989712686370018,0.9995839918162395,1000
+Logistic regression (untuned),Never-major,2022,accuracy_at_1000,0.9674690850970897,0.9682025956134797,1000
+Logistic regression (untuned),Never-major,2022,observed_rate,0.0004160081837605015,0.0010287313629981788,1000
+Logistic regression (untuned),Never-major,2022,mean_predicted,0.001020586554649243,0.001187481185910185,1000
+Logistic regression (untuned),Never-major,2022,brier_score,0.0004351910550445772,0.0010086611564903243,1000
+Logistic regression (untuned),Never-major,2022,recall_at_1000,0.33303571428571427,0.7694444444444443,1000
+Logistic regression (untuned),Never-major,2022,precision_at_1000,0.006,0.019,1000
+Logistic regression (untuned),Never-major,2022,lift_at_1000,10.292791071428573,23.899063888888886,1000
+Logistic regression (untuned),Never-major,2023,accuracy,0.9990627255741983,0.9996054652166398,1000
+Logistic regression (untuned),Never-major,2023,accuracy_at_1000,0.9695418294847525,0.9702041930862184,1000
+Logistic regression (untuned),Never-major,2023,observed_rate,0.00039453478336018037,0.0009372744258017787,1000
+Logistic regression (untuned),Never-major,2023,mean_predicted,0.0008153110953660322,0.0009171683385764186,1000
+Logistic regression (untuned),Never-major,2023,brier_score,0.0003958238893115571,0.0009036639456591007,1000
+Logistic regression (untuned),Never-major,2023,recall_at_1000,0.3927579365079365,0.8333333333333334,1000
+Logistic regression (untuned),Never-major,2023,precision_at_1000,0.006975000000000001,0.021,1000
+Logistic regression (untuned),Never-major,2023,lift_at_1000,13.00292619047619,27.481104166666665,1000
+Logistic regression (untuned),Never-major,2024,accuracy,0.9992919208919039,0.9997247620051786,1000
+Logistic regression (untuned),Never-major,2024,accuracy_at_1000,0.9691156456387561,0.9697278692766439,1000
+Logistic regression (untuned),Never-major,2024,observed_rate,0.00027523799482136613,0.0007080791080960812,1000
+Logistic regression (untuned),Never-major,2024,mean_predicted,0.0006299622305158556,0.00070045542133793,1000
+Logistic regression (untuned),Never-major,2024,brier_score,0.000270058231454996,0.0006912997187386504,1000
+Logistic regression (untuned),Never-major,2024,recall_at_1000,0.38461538461538464,0.8571428571428571,1000
+Logistic regression (untuned),Never-major,2024,precision_at_1000,0.004,0.016,1000
+Logistic regression (untuned),Never-major,2024,lift_at_1000,12.476913461538462,27.967885714285714,1000
+Logistic regression (untuned),Never-major,Pooled,accuracy,0.9992237496951237,0.9995438278944171,1000
+Logistic regression (untuned),Never-major,Pooled,accuracy_at_1000,0.9688651317920106,0.9692556194612952,1000
+Logistic regression (untuned),Never-major,Pooled,observed_rate,0.00045617210558289103,0.0007762503048763333,1000
+Logistic regression (untuned),Never-major,Pooled,mean_predicted,0.0008347559009339841,0.0009146102700159668,1000
+Logistic regression (untuned),Never-major,Pooled,brier_score,0.0004608932731943145,0.0007584909561847604,1000
+Logistic regression (untuned),Never-major,Pooled,recall_at_1000,0.4561339009287925,0.7291914682539682,1000
+Logistic regression (untuned),Never-major,Pooled,precision_at_1000,0.008,0.016,1000
+Logistic regression (untuned),Never-major,Pooled,lift_at_1000,14.705878468899522,23.501779208002645,1000
+Logistic regression (untuned),No-contact overall,2022,accuracy,0.9979755497711187,0.9992954017345648,1000
+Logistic regression (untuned),No-contact overall,2022,accuracy_at_1000,0.9679032628259588,0.9692159960458547,1000
+Logistic regression (untuned),No-contact overall,2022,observed_rate,0.0005762109627566081,0.0017683399524309614,1000
+Logistic regression (untuned),No-contact overall,2022,mean_predicted,0.0015320291627078809,0.00227472190717611,1000
+Logistic regression (untuned),No-contact overall,2022,brier_score,0.0006966649873884462,0.0016437842572247774,1000
+Logistic regression (untuned),No-contact overall,2022,recall_at_1000,0.5202237995913502,0.900741146726632,1000
+Logistic regression (untuned),No-contact overall,2022,precision_at_1000,0.010032258064516127,0.04434677419354837,1000
+Logistic regression (untuned),No-contact overall,2022,lift_at_1000,16.192991845027834,28.137779445525933,1000
+Logistic regression (untuned),No-contact overall,2023,accuracy,0.9983027057224515,0.999486893506234,1000
+Logistic regression (untuned),No-contact overall,2023,accuracy_at_1000,0.9697680078784863,0.9708523884065364,1000
+Logistic regression (untuned),No-contact overall,2023,observed_rate,0.0002412347258894784,0.0012188391904610109,1000
+Logistic regression (untuned),No-contact overall,2023,mean_predicted,0.0013382563586366767,0.001999870496758614,1000
+Logistic regression (untuned),No-contact overall,2023,brier_score,0.00042800606841168976,0.001173759340631579,1000
+Logistic regression (untuned),No-contact overall,2023,recall_at_1000,0.3654970760233918,0.944911947213337,1000
+Logistic regression (untuned),No-contact overall,2023,precision_at_1000,0.004032258064516129,0.03425806451612903,1000
+Logistic regression (untuned),No-contact overall,2023,lift_at_1000,12.122788447934354,31.37693791385699,1000
+Logistic regression (untuned),No-contact overall,2024,accuracy,0.9986530269725828,0.9997850733197753,1000
+Logistic regression (untuned),No-contact overall,2024,accuracy_at_1000,0.9695530945854952,0.9708672953090156,1000
+Logistic regression (untuned),No-contact overall,2024,observed_rate,0.0003069177666765731,0.001505049552109463,1000
+Logistic regression (untuned),No-contact overall,2024,mean_predicted,0.0008972536771752293,0.0013727062890642743,1000
+Logistic regression (untuned),No-contact overall,2024,brier_score,0.00027667810921822977,0.001216176051673513,1000
+Logistic regression (untuned),No-contact overall,2024,recall_at_1000,0.6444954128440367,1.0,1000
+Logistic regression (untuned),No-contact overall,2024,precision_at_1000,0.008064516129032258,0.0453798387096774,1000
+Logistic regression (untuned),No-contact overall,2024,lift_at_1000,21.13483256325836,32.79097177419355,1000
+Logistic regression (untuned),No-contact overall,Pooled,accuracy,0.9985821989330286,0.9993366610616147,1000
+Logistic regression (untuned),No-contact overall,Pooled,accuracy_at_1000,0.9692923983464394,0.9700700820800333,1000
+Logistic regression (untuned),No-contact overall,Pooled,observed_rate,0.0005571103375376074,0.0012362284537662381,1000
+Logistic regression (untuned),No-contact overall,Pooled,mean_predicted,0.0013472401408902337,0.0017619374914012139,1000
+Logistic regression (untuned),No-contact overall,Pooled,brier_score,0.0006050877692462454,0.0011378735968308414,1000
+Logistic regression (untuned),No-contact overall,Pooled,recall_at_1000,0.6752394516318729,0.8945637870532831,1000
+Logistic regression (untuned),No-contact overall,Pooled,precision_at_1000,0.01241935483870968,0.03458091397849463,1000
+Logistic regression (untuned),No-contact overall,Pooled,lift_at_1000,21.88101846285525,28.98025872976821,1000
+Logistic regression (untuned),No-contact never-major,2022,accuracy,0.9990983452669612,0.9997738486240768,1000
+Logistic regression (untuned),No-contact never-major,2022,accuracy_at_1000,0.9673462292674216,0.968178948465101,1000
+Logistic regression (untuned),No-contact never-major,2022,observed_rate,0.00022615137592330302,0.0009016547330388025,1000
+Logistic regression (untuned),No-contact never-major,2022,mean_predicted,0.001017097827833992,0.0013010904728366617,1000
+Logistic regression (untuned),No-contact never-major,2022,brier_score,0.00029374817770398074,0.0008432966716093143,1000
+Logistic regression (untuned),No-contact never-major,2022,recall_at_1000,0.11083333333333334,0.7686853480124132,1000
+Logistic regression (untuned),No-contact never-major,2022,precision_at_1000,0.001,0.01709758064516129,1000
+Logistic regression (untuned),No-contact never-major,2022,lift_at_1000,3.4211189516129035,23.83852620435311,1000
+Logistic regression (untuned),No-contact never-major,2023,accuracy,0.9991769751709388,0.9998786836421841,1000
+Logistic regression (untuned),No-contact never-major,2023,accuracy_at_1000,0.9694666696050924,0.9702922236819062,1000
+Logistic regression (untuned),No-contact never-major,2023,observed_rate,0.00012131635781584956,0.0008230248290612729,1000
+Logistic regression (untuned),No-contact never-major,2023,mean_predicted,0.0007903346619592173,0.0009632569929973186,1000
+Logistic regression (untuned),No-contact never-major,2023,brier_score,0.00013679740356401939,0.0007918693162358868,1000
+Logistic regression (untuned),No-contact never-major,2023,recall_at_1000,0.0,0.9096242801549814,1000
+Logistic regression (untuned),No-contact never-major,2023,precision_at_1000,0.0,0.021186290322580625,1000
+Logistic regression (untuned),No-contact never-major,2023,lift_at_1000,0.0,29.904911485345927,1000
+Logistic regression (untuned),No-contact never-major,2024,accuracy,0.9994723124120891,0.9999693980721711,1000
+Logistic regression (untuned),No-contact never-major,2024,accuracy_at_1000,0.9690300831903645,0.9697366403819211,1000
+Logistic regression (untuned),No-contact never-major,2024,observed_rate,3.060192782901701e-05,0.0005276875879108898,1000
+Logistic regression (untuned),No-contact never-major,2024,mean_predicted,0.0006037543585969156,0.0007210393596856338,1000
+Logistic regression (untuned),No-contact never-major,2024,brier_score,3.9078315578532606e-05,0.0005116209038625971,1000
+Logistic regression (untuned),No-contact never-major,2024,recall_at_1000,0.0,1.0,984
+Logistic regression (untuned),No-contact never-major,2024,precision_at_1000,0.0,0.012096774193548388,1000
+Logistic regression (untuned),No-contact never-major,2024,lift_at_1000,0.0,32.541688709677416,984
+Logistic regression (untuned),No-contact never-major,Pooled,accuracy,0.9993974389502843,0.9997822090744843,1000
+Logistic regression (untuned),No-contact never-major,Pooled,accuracy_at_1000,0.9687751959395438,0.9692471898247709,1000
+Logistic regression (untuned),No-contact never-major,Pooled,observed_rate,0.00021779092551565146,0.0006025610497157908,1000
+Logistic regression (untuned),No-contact never-major,Pooled,mean_predicted,0.0008317760603645601,0.0009545708493428885,1000
+Logistic regression (untuned),No-contact never-major,Pooled,brier_score,0.00023668774204593446,0.0005818858618685318,1000
+Logistic regression (untuned),No-contact never-major,Pooled,recall_at_1000,0.2701363073110285,0.7512356147175622,1000
+Logistic regression (untuned),No-contact never-major,Pooled,precision_at_1000,0.0023252688172043018,0.013430107526881722,1000
+Logistic regression (untuned),No-contact never-major,Pooled,lift_at_1000,8.687640720310187,24.105444150695394,1000
+Random forest (untuned),Overall,2022,accuracy,0.9977668073185174,0.9986852801010306,1000
+Random forest (untuned),Overall,2022,accuracy_at_1000,0.9682925330970824,0.9693069215630954,1000
+Random forest (untuned),Overall,2022,observed_rate,0.0012461895437782394,0.0021563399301662697,1000
+Random forest (untuned),Overall,2022,mean_predicted,0.0015736431371017822,0.0019709638212252745,1000
+Random forest (untuned),Overall,2022,brier_score,0.0012193377403345053,0.0019825815811686273,1000
+Random forest (untuned),Overall,2022,recall_at_1000,0.6254072662894804,0.8608844900323873,1000
+Random forest (untuned),Overall,2022,precision_at_1000,0.02701552845932254,0.05266914139568871,1000
+Random forest (untuned),Overall,2022,lift_at_1000,19.528843971201553,26.86914225520929,1000
+Random forest (untuned),Overall,2023,accuracy,0.9984314918992994,0.9991275860302387,1000
+Random forest (untuned),Overall,2023,accuracy_at_1000,0.9699888615699411,0.9707504633898157,1000
+Random forest (untuned),Overall,2023,observed_rate,0.0007828230560767987,0.0014743648635392773,1000
+Random forest (untuned),Overall,2023,mean_predicted,0.001588632497775356,0.001974552369328265,1000
+Random forest (untuned),Overall,2023,brier_score,0.0008381144146678612,0.0014199866646306613,1000
+Random forest (untuned),Overall,2023,recall_at_1000,0.566664566532258,0.8485614536066343,1000
+Random forest (untuned),Overall,2023,precision_at_1000,0.01749070512820513,0.03646693448206772,1000
+Random forest (untuned),Overall,2023,lift_at_1000,18.860818760511723,28.295353825366398,1000
+Random forest (untuned),Overall,2024,accuracy,0.9982662468554219,0.9990590834744499,1000
+Random forest (untuned),Overall,2024,accuracy_at_1000,0.9699793174298327,0.9708793339345974,1000
+Random forest (untuned),Overall,2024,observed_rate,0.0009464319639195221,0.0017522256949762762,1000
+Random forest (untuned),Overall,2024,mean_predicted,0.001154934559083619,0.001475325230616922,1000
+Random forest (untuned),Overall,2024,brier_score,0.0008566126960883197,0.001479199199041535,1000
+Random forest (untuned),Overall,2024,recall_at_1000,0.7232665604052764,0.9389533968222412,1000
+Random forest (untuned),Overall,2024,precision_at_1000,0.025030286161866602,0.05001289856341061,1000
+Random forest (untuned),Overall,2024,lift_at_1000,23.704270205128044,30.800955421757667,1000
+Random forest (untuned),Overall,Pooled,accuracy,0.9983196026926341,0.9988283914793176,1000
+Random forest (untuned),Overall,Pooled,accuracy_at_1000,0.9696223548747872,0.9701391527341031,1000
+Random forest (untuned),Overall,Pooled,observed_rate,0.0011323390563694406,0.0016346127003319187,1000
+Random forest (untuned),Overall,Pooled,mean_predicted,0.0014942134132266641,0.001747444739635167,1000
+Random forest (untuned),Overall,Pooled,brier_score,0.001070416605987279,0.0014828650517444962,1000
+Random forest (untuned),Overall,Pooled,recall_at_1000,0.6992670052126766,0.8343387048478497,1000
+Random forest (untuned),Overall,Pooled,precision_at_1000,0.027791824734298906,0.041460953073972066,1000
+Random forest (untuned),Overall,Pooled,lift_at_1000,22.66569776329619,27.032579299617584,1000
+Random forest (untuned),Never-major,2022,accuracy,0.9989712686370018,0.9995839918162395,1000
+Random forest (untuned),Never-major,2022,accuracy_at_1000,0.96740295838569,0.9681161781261088,1000
+Random forest (untuned),Never-major,2022,observed_rate,0.0004160081837605015,0.0010287313629981788,1000
+Random forest (untuned),Never-major,2022,mean_predicted,0.000900281617853078,0.0011622914040904297,1000
+Random forest (untuned),Never-major,2022,brier_score,0.0005108875825236545,0.0010940313746172082,1000
+Random forest (untuned),Never-major,2022,recall_at_1000,0.26923734065002947,0.7150210360915509,1000
+Random forest (untuned),Never-major,2022,precision_at_1000,0.005028649214246564,0.018057308794975423,1000
+Random forest (untuned),Never-major,2022,lift_at_1000,8.367841035858758,22.144467356625974,1000
+Random forest (untuned),Never-major,2023,accuracy,0.999000115894561,0.9995457312362662,1000
+Random forest (untuned),Never-major,2023,accuracy_at_1000,0.9694239315890838,0.9700820609411221,1000
+Random forest (untuned),Never-major,2023,observed_rate,0.00039453478336018037,0.0009372744258017787,1000
+Random forest (untuned),Never-major,2023,mean_predicted,0.000994236522080088,0.0012273104055655567,1000
+Random forest (untuned),Never-major,2023,brier_score,0.0004940503900479849,0.0009899842793497753,1000
+Random forest (untuned),Never-major,2023,recall_at_1000,0.3078049818715124,0.7477660386965377,1000
+Random forest (untuned),Never-major,2023,precision_at_1000,0.005002038728652356,0.017976785714285713,1000
+Random forest (untuned),Never-major,2023,lift_at_1000,10.14540470498861,24.653080142566186,1000
+Random forest (untuned),Never-major,2024,accuracy,0.9992919208919039,0.9997247620051786,1000
+Random forest (untuned),Never-major,2024,accuracy_at_1000,0.9691255139762601,0.9697194530691203,1000
+Random forest (untuned),Never-major,2024,observed_rate,0.00027523799482136613,0.0007080791080960812,1000
+Random forest (untuned),Never-major,2024,mean_predicted,0.0006762557281768279,0.000870624722746696,1000
+Random forest (untuned),Never-major,2024,brier_score,0.0003343866826163415,0.0007653743412708111,1000
+Random forest (untuned),Never-major,2024,recall_at_1000,0.3683347880891812,0.8583562373688781,1000
+Random forest (untuned),Never-major,2024,precision_at_1000,0.004053162966716951,0.016067997880399514,1000
+Random forest (untuned),Never-major,2024,lift_at_1000,11.969747879968779,27.925147799371636,1000
+Random forest (untuned),Never-major,Pooled,accuracy,0.9992024525103175,0.9995226156806202,1000
+Random forest (untuned),Never-major,Pooled,accuracy_at_1000,0.9688011945860217,0.9692031466323808,1000
+Random forest (untuned),Never-major,Pooled,observed_rate,0.00045617210558289103,0.0007762503048763333,1000
+Random forest (untuned),Never-major,Pooled,mean_predicted,0.000897153419835308,0.0010474569718573006,1000
+Random forest (untuned),Never-major,Pooled,brier_score,0.0005432635412849761,0.0008337635437564418,1000
+Random forest (untuned),Never-major,Pooled,recall_at_1000,0.40690701070879276,0.6679165471180805,1000
+Random forest (untuned),Never-major,Pooled,precision_at_1000,0.007035985957492596,0.014660395450088183,1000
+Random forest (untuned),Never-major,Pooled,lift_at_1000,13.123235910428109,21.533376924628104,1000
+Random forest (untuned),No-contact overall,2022,accuracy,0.9978726044945861,0.9992607805824426,1000
+Random forest (untuned),No-contact overall,2022,accuracy_at_1000,0.9678837279712447,0.9692029479587512,1000
+Random forest (untuned),No-contact overall,2022,observed_rate,0.0005762109627566077,0.0017683399524309606,1000
+Random forest (untuned),No-contact overall,2022,mean_predicted,0.001483912616543217,0.0022764993891886114,1000
+Random forest (untuned),No-contact overall,2022,brier_score,0.0008175659498895146,0.00178537048763579,1000
+Random forest (untuned),No-contact overall,2022,recall_at_1000,0.48627472119246007,0.8952865370279427,1000
+Random forest (untuned),No-contact overall,2022,precision_at_1000,0.010029445506385543,0.044335040997187936,1000
+Random forest (untuned),No-contact overall,2022,lift_at_1000,15.158266795193672,27.91248386978138,1000
+Random forest (untuned),No-contact overall,2023,accuracy,0.9986679148356077,0.9996675204264832,1000
+Random forest (untuned),No-contact overall,2023,accuracy_at_1000,0.9696859144911791,0.9704999237445996,1000
+Random forest (untuned),No-contact overall,2023,observed_rate,0.00024123472588947827,0.0012188391904610098,1000
+Random forest (untuned),No-contact overall,2023,mean_predicted,0.0014678654638166705,0.002073347492585964,1000
+Random forest (untuned),No-contact overall,2023,brier_score,0.0004834211273462854,0.001300882749593231,1000
+Random forest (untuned),No-contact overall,2023,recall_at_1000,0.27659957289290754,0.8342245989304813,1000
+Random forest (untuned),No-contact overall,2023,precision_at_1000,0.002494060446821123,0.02825111217248413,1000
+Random forest (untuned),No-contact overall,2023,lift_at_1000,9.177063935560255,27.814826638612562,1000
+Random forest (untuned),No-contact overall,2024,accuracy,0.9984949504478896,0.9996930822333223,1000
+Random forest (untuned),No-contact overall,2024,accuracy_at_1000,0.9695539646916195,0.9708677420808689,1000
+Random forest (untuned),No-contact overall,2024,observed_rate,0.0003069177666765728,0.0015050495521094613,1000
+Random forest (untuned),No-contact overall,2024,mean_predicted,0.001118191102758741,0.0017434318686354027,1000
+Random forest (untuned),No-contact overall,2024,brier_score,0.000369221583512258,0.0012405050534228484,1000
+Random forest (untuned),No-contact overall,2024,recall_at_1000,0.6464042149019031,1.0,1000
+Random forest (untuned),No-contact overall,2024,precision_at_1000,0.008070452244307268,0.045389860099754625,1000
+Random forest (untuned),No-contact overall,2024,lift_at_1000,21.197877425266725,32.79097177419359,1000
+Random forest (untuned),No-contact overall,Pooled,accuracy,0.9986232574073972,0.9993564169539184,1000
+Random forest (untuned),No-contact overall,Pooled,accuracy_at_1000,0.9692583316655394,0.9699628917123213,1000
+Random forest (untuned),No-contact overall,Pooled,observed_rate,0.0005571103375376069,0.0012362284537662368,1000
+Random forest (untuned),No-contact overall,Pooled,mean_predicted,0.0014795121659985748,0.0018802679149645082,1000
+Random forest (untuned),No-contact overall,Pooled,brier_score,0.0006861560073232023,0.0012359376086813726,1000
+Random forest (untuned),No-contact overall,Pooled,recall_at_1000,0.6424433319952313,0.8599710589094423,1000
+Random forest (untuned),No-contact overall,Pooled,precision_at_1000,0.011891383494698227,0.032317610592416855,1000
+Random forest (untuned),No-contact overall,Pooled,lift_at_1000,20.82015490947046,27.821642773072135,1000
+Random forest (untuned),No-contact never-major,2022,accuracy,0.9990983452669605,0.999773848624076,1000
+Random forest (untuned),No-contact never-major,2022,accuracy_at_1000,0.9673419630031347,0.9681756556732333,1000
+Random forest (untuned),No-contact never-major,2022,observed_rate,0.00022615137592330286,0.000901654733038802,1000
+Random forest (untuned),No-contact never-major,2022,mean_predicted,0.0009379392350187529,0.0013160889163637112,1000
+Random forest (untuned),No-contact never-major,2022,brier_score,0.00036843667419760175,0.0009362045481321283,1000
+Random forest (untuned),No-contact never-major,2022,recall_at_1000,0.10165103626800286,0.7613993037501503,1000
+Random forest (untuned),No-contact never-major,2022,precision_at_1000,0.0010187202772766924,0.017167298823120545,1000
+Random forest (untuned),No-contact never-major,2022,lift_at_1000,3.1588819248521665,23.510134157723105,1000
+Random forest (untuned),No-contact never-major,2023,accuracy,0.9991116051110003,0.9998187803963433,1000
+Random forest (untuned),No-contact never-major,2023,accuracy_at_1000,0.9694639672743832,0.9702065639415975,1000
+Random forest (untuned),No-contact never-major,2023,observed_rate,0.00012131635781584948,0.0008230248290612723,1000
+Random forest (untuned),No-contact never-major,2023,mean_predicted,0.0009252167592814617,0.0012156720321063034,1000
+Random forest (untuned),No-contact never-major,2023,brier_score,0.00023117194361654833,0.0009218232088139208,1000
+Random forest (untuned),No-contact never-major,2023,recall_at_1000,0.0,0.8676426462605465,1000
+Random forest (untuned),No-contact never-major,2023,precision_at_1000,0.0,0.02051646009413623,1000
+Random forest (untuned),No-contact never-major,2023,lift_at_1000,0.0,28.583912698989536,1000
+Random forest (untuned),No-contact never-major,2024,accuracy,0.9994723124120883,0.9999693980721703,1000
+Random forest (untuned),No-contact never-major,2024,accuracy_at_1000,0.9690324134734705,0.969737059432821,1000
+Random forest (untuned),No-contact never-major,2024,observed_rate,3.060192782901698e-05,0.0005276875879108895,1000
+Random forest (untuned),No-contact never-major,2024,mean_predicted,0.0006410100740240086,0.000938548292968146,1000
+Random forest (untuned),No-contact never-major,2024,brier_score,0.00010519293863354892,0.0006024931982920766,1000
+Random forest (untuned),No-contact never-major,2024,recall_at_1000,0.0069284486405821934,1.0,984
+Random forest (untuned),No-contact never-major,2024,precision_at_1000,7.713001518659177e-06,0.012156832450533058,1000
+Random forest (untuned),No-contact never-major,2024,lift_at_1000,0.22586646884661696,32.54168870967745,984
+Random forest (untuned),No-contact never-major,Pooled,accuracy,0.9993788838195155,0.9997621610988547,1000
+Random forest (untuned),No-contact never-major,Pooled,accuracy_at_1000,0.9687661292438239,0.9692187533582824,1000
+Random forest (untuned),No-contact never-major,Pooled,observed_rate,0.00021779092551565127,0.00060256104971579,1000
+Random forest (untuned),No-contact never-major,Pooled,mean_predicted,0.0008866677335060154,0.0010838222777302476,1000
+Random forest (untuned),No-contact never-major,Pooled,brier_score,0.00031763191097205774,0.0006820846538306685,1000
+Random forest (untuned),No-contact never-major,Pooled,recall_at_1000,0.25304669003333885,0.7241957010678315,1000
+Random forest (untuned),No-contact never-major,Pooled,precision_at_1000,0.002023673877155238,0.013133018868065087,1000
+Random forest (untuned),No-contact never-major,Pooled,lift_at_1000,8.177632294686871,23.312110695723582,1000
+Histogram gradient boosting (untuned),Overall,2022,accuracy,0.9942227079242387,0.9957361886016478,1000
+Histogram gradient boosting (untuned),Overall,2022,accuracy_at_1000,0.9664565173752324,0.9674435537530122,1000
+Histogram gradient boosting (untuned),Overall,2022,observed_rate,0.0012461895437782394,0.0021563399301662697,1000
+Histogram gradient boosting (untuned),Overall,2022,mean_predicted,0.003479554337028325,0.004792690625557478,1000
+Histogram gradient boosting (untuned),Overall,2022,brier_score,0.004238309019063176,0.005737724089234914,1000
+Histogram gradient boosting (untuned),Overall,2022,recall_at_1000,0.10194077631052421,0.3269467213114754,1000
+Histogram gradient boosting (untuned),Overall,2022,precision_at_1000,0.005,0.018,1000
+Histogram gradient boosting (untuned),Overall,2022,lift_at_1000,3.182167116846739,10.210356659836066,1000
+Histogram gradient boosting (untuned),Overall,2023,accuracy,0.992873749625693,0.9946266303114196,1000
+Histogram gradient boosting (untuned),Overall,2023,accuracy_at_1000,0.9697097215514631,0.970466752206656,1000
+Histogram gradient boosting (untuned),Overall,2023,observed_rate,0.0007828230560767987,0.0014743648635392773,1000
+Histogram gradient boosting (untuned),Overall,2023,mean_predicted,0.005296317952839117,0.006918092975352591,1000
+Histogram gradient boosting (untuned),Overall,2023,brier_score,0.005202090141636436,0.006899814343328836,1000
+Histogram gradient boosting (untuned),Overall,2023,recall_at_1000,0.4399375,0.7391304347826086,1000
+Histogram gradient boosting (untuned),Overall,2023,precision_at_1000,0.013,0.031,1000
+Histogram gradient boosting (untuned),Overall,2023,lift_at_1000,14.5343625,24.498206745524296,1000
+Histogram gradient boosting (untuned),Overall,2024,accuracy,0.996279854596557,0.9974405030404087,1000
+Histogram gradient boosting (untuned),Overall,2024,accuracy_at_1000,0.9684573566786182,0.9693447139444402,1000
+Histogram gradient boosting (untuned),Overall,2024,observed_rate,0.0009464319639195221,0.0017522256949762762,1000
+Histogram gradient boosting (untuned),Overall,2024,mean_predicted,0.002178640809247557,0.0032188356914143743,1000
+Histogram gradient boosting (untuned),Overall,2024,brier_score,0.002415784137854202,0.0035550858993621914,1000
+Histogram gradient boosting (untuned),Overall,2024,recall_at_1000,0.1537878787878788,0.4186395348837209,1000
+Histogram gradient boosting (untuned),Overall,2024,precision_at_1000,0.006,0.019,1000
+Histogram gradient boosting (untuned),Overall,2024,lift_at_1000,5.025513636363637,13.730241244186045,1000
+Histogram gradient boosting (untuned),Overall,Pooled,accuracy,0.9947363515759713,0.9956933326592675,1000
+Histogram gradient boosting (untuned),Overall,Pooled,accuracy_at_1000,0.9684368585836137,0.9689365386135341,1000
+Histogram gradient boosting (untuned),Overall,Pooled,observed_rate,0.0011323390563694406,0.0016346127003319187,1000
+Histogram gradient boosting (untuned),Overall,Pooled,mean_predicted,0.0038900160429101017,0.004720520771580499,1000
+Histogram gradient boosting (untuned),Overall,Pooled,brier_score,0.0042010640628046105,0.005097678866262311,1000
+Histogram gradient boosting (untuned),Overall,Pooled,recall_at_1000,0.265625,0.4140922934322034,1000
+Histogram gradient boosting (untuned),Overall,Pooled,precision_at_1000,0.011333333333333334,0.019666666666666666,1000
+Histogram gradient boosting (untuned),Overall,Pooled,lift_at_1000,8.606257729640152,13.429911013058852,1000
+Histogram gradient boosting (untuned),Never-major,2022,accuracy,0.9956134550796776,0.9970046910036907,1000
+Histogram gradient boosting (untuned),Never-major,2022,accuracy_at_1000,0.9668660059123269,0.9675960240050748,1000
+Histogram gradient boosting (untuned),Never-major,2022,observed_rate,0.0004160081837605015,0.0010287313629981788,1000
+Histogram gradient boosting (untuned),Never-major,2022,mean_predicted,0.002643840029550609,0.0038686280630327577,1000
+Histogram gradient boosting (untuned),Never-major,2022,brier_score,0.002963289832183899,0.004339130631501548,1000
+Histogram gradient boosting (untuned),Never-major,2022,recall_at_1000,0.0,0.30781249999999993,1000
+Histogram gradient boosting (untuned),Never-major,2022,precision_at_1000,0.0,0.007,1000
+Histogram gradient boosting (untuned),Never-major,2022,lift_at_1000,0.0,9.537715624999995,1000
+Histogram gradient boosting (untuned),Never-major,2023,accuracy,0.9942404104509112,0.9957818725516401,1000
+Histogram gradient boosting (untuned),Never-major,2023,accuracy_at_1000,0.9692415014019258,0.9698772860655193,1000
+Histogram gradient boosting (untuned),Never-major,2023,observed_rate,0.00039453478336018037,0.0009372744258017787,1000
+Histogram gradient boosting (untuned),Never-major,2023,mean_predicted,0.00419138791734048,0.0055643943647290545,1000
+Histogram gradient boosting (untuned),Never-major,2023,brier_score,0.004098668515443199,0.005576407052190926,1000
+Histogram gradient boosting (untuned),Never-major,2023,recall_at_1000,0.18744212962962964,0.5791795665634673,1000
+Histogram gradient boosting (untuned),Never-major,2023,precision_at_1000,0.003,0.014,1000
+Histogram gradient boosting (untuned),Never-major,2023,lift_at_1000,6.179198958333333,19.203315015479866,1000
+Histogram gradient boosting (untuned),Never-major,2024,accuracy,0.9976072114962089,0.9985347246172142,1000
+Histogram gradient boosting (untuned),Never-major,2024,accuracy_at_1000,0.9687374762273163,0.9693542621734677,1000
+Histogram gradient boosting (untuned),Never-major,2024,observed_rate,0.00027523799482136613,0.0007080791080960812,1000
+Histogram gradient boosting (untuned),Never-major,2024,mean_predicted,0.001344033587680516,0.002156261925759979,1000
+Histogram gradient boosting (untuned),Never-major,2024,brier_score,0.0013302763407235499,0.0021968858830322307,1000
+Histogram gradient boosting (untuned),Never-major,2024,recall_at_1000,0.04751552795031056,0.5,1000
+Histogram gradient boosting (untuned),Never-major,2024,precision_at_1000,0.001,0.008,1000
+Histogram gradient boosting (untuned),Never-major,2024,lift_at_1000,1.5525605590062113,16.228625,1000
+Histogram gradient boosting (untuned),Never-major,Pooled,accuracy,0.9961054891895782,0.9968768743908678,1000
+Histogram gradient boosting (untuned),Never-major,Pooled,accuracy_at_1000,0.9684451883787502,0.9688404650954323,1000
+Histogram gradient boosting (untuned),Never-major,Pooled,observed_rate,0.00045617210558289103,0.0007762503048763333,1000
+Histogram gradient boosting (untuned),Never-major,Pooled,mean_predicted,0.002930685567971836,0.0036357651963395323,1000
+Histogram gradient boosting (untuned),Never-major,Pooled,brier_score,0.0030318651964750787,0.003765447959042989,1000
+Histogram gradient boosting (untuned),Never-major,Pooled,recall_at_1000,0.14545454545454545,0.37254901960784315,1000
+Histogram gradient boosting (untuned),Never-major,Pooled,precision_at_1000,0.0026666666666666666,0.007666666666666666,1000
+Histogram gradient boosting (untuned),Never-major,Pooled,lift_at_1000,4.689631847507332,12.002247222222223,1000
+Histogram gradient boosting (untuned),No-contact overall,2022,accuracy,0.9939852654957895,0.9963502232480527,1000
+Histogram gradient boosting (untuned),No-contact overall,2022,accuracy_at_1000,0.9665384628557755,0.9678205778837217,1000
+Histogram gradient boosting (untuned),No-contact overall,2022,observed_rate,0.000576210962756608,0.001768339952430961,1000
+Histogram gradient boosting (untuned),No-contact overall,2022,mean_predicted,0.0030051629933576904,0.0049864945102984105,1000
+Histogram gradient boosting (untuned),No-contact overall,2022,brier_score,0.0036336365404227556,0.005951919536734582,1000
+Histogram gradient boosting (untuned),No-contact overall,2022,recall_at_1000,0.0,0.42589526862126165,1000
+Histogram gradient boosting (untuned),No-contact overall,2022,precision_at_1000,0.0,0.015096774193548388,1000
+Histogram gradient boosting (untuned),No-contact overall,2022,lift_at_1000,0.0,13.281944312129388,1000
+Histogram gradient boosting (untuned),No-contact overall,2023,accuracy,0.992443104524981,0.9948009591307295,1000
+Histogram gradient boosting (untuned),No-contact overall,2023,accuracy_at_1000,0.9695224261192666,0.9705503266794979,1000
+Histogram gradient boosting (untuned),No-contact overall,2023,observed_rate,0.0002412347258894784,0.001218839190461011,1000
+Histogram gradient boosting (untuned),No-contact overall,2023,mean_predicted,0.005087093770340564,0.007208349786534717,1000
+Histogram gradient boosting (untuned),No-contact overall,2023,brier_score,0.005057099829993993,0.007275534189284238,1000
+Histogram gradient boosting (untuned),No-contact overall,2023,recall_at_1000,0.11043838998621959,0.8896797153024911,1000
+Histogram gradient boosting (untuned),No-contact overall,2023,precision_at_1000,0.001,0.028225806451612902,1000
+Histogram gradient boosting (untuned),No-contact overall,2023,lift_at_1000,3.674288284410331,29.531035999047198,1000
+Histogram gradient boosting (untuned),No-contact overall,2024,accuracy,0.9963761929045725,0.9981260378347762,1000
+Histogram gradient boosting (untuned),No-contact overall,2024,accuracy_at_1000,0.9682815650646305,0.9695123871232154,1000
+Histogram gradient boosting (untuned),No-contact overall,2024,observed_rate,0.0003069177666765731,0.0015050495521094628,1000
+Histogram gradient boosting (untuned),No-contact overall,2024,mean_predicted,0.0017244370763725664,0.0031585935088549208,1000
+Histogram gradient boosting (untuned),No-contact overall,2024,brier_score,0.0017614614301511614,0.003504399970273941,1000
+Histogram gradient boosting (untuned),No-contact overall,2024,recall_at_1000,0.0,0.47638703461198584,1000
+Histogram gradient boosting (untuned),No-contact overall,2024,precision_at_1000,0.0,0.013096774193548388,1000
+Histogram gradient boosting (untuned),No-contact overall,2024,lift_at_1000,0.0,15.610357532050454,1000
+Histogram gradient boosting (untuned),No-contact overall,Pooled,accuracy,0.9947178387545094,0.9959930630971308,1000
+Histogram gradient boosting (untuned),No-contact overall,Pooled,accuracy_at_1000,0.9683824612778401,0.9691077807935367,1000
+Histogram gradient boosting (untuned),No-contact overall,Pooled,observed_rate,0.0005571103375376073,0.0012362284537662381,1000
+Histogram gradient boosting (untuned),No-contact overall,Pooled,mean_predicted,0.0036362172266542767,0.004701265662154937,1000
+Histogram gradient boosting (untuned),No-contact overall,Pooled,brier_score,0.0038942229979398255,0.005131183925847313,1000
+Histogram gradient boosting (untuned),No-contact overall,Pooled,recall_at_1000,0.10721028824516449,0.46068081102395436,1000
+Histogram gradient boosting (untuned),No-contact overall,Pooled,precision_at_1000,0.0026774193548387095,0.014774193548387096,1000
+Histogram gradient boosting (untuned),No-contact overall,Pooled,lift_at_1000,3.46710697216954,14.946365633701236,1000
+Histogram gradient boosting (untuned),No-contact never-major,2022,accuracy,0.9956541156503506,0.9973929841631849,1000
+Histogram gradient boosting (untuned),No-contact never-major,2022,accuracy_at_1000,0.9671622953980655,0.9680241483800843,1000
+Histogram gradient boosting (untuned),No-contact never-major,2022,observed_rate,0.00022615137592330297,0.0009016547330388025,1000
+Histogram gradient boosting (untuned),No-contact never-major,2022,mean_predicted,0.0023814359229643034,0.00400746859591206,1000
+Histogram gradient boosting (untuned),No-contact never-major,2022,brier_score,0.0025909372570844364,0.004279026085223181,1000
+Histogram gradient boosting (untuned),No-contact never-major,2022,recall_at_1000,0.0,0.6173717295276927,1000
+Histogram gradient boosting (untuned),No-contact never-major,2022,precision_at_1000,0.0,0.014096774193548389,1000
+Histogram gradient boosting (untuned),No-contact never-major,2022,lift_at_1000,0.0,19.18521232037749,1000
+Histogram gradient boosting (untuned),No-contact never-major,2023,accuracy,0.994126301672047,0.996013596936545,1000
+Histogram gradient boosting (untuned),No-contact never-major,2023,accuracy_at_1000,0.9691910038445417,0.9700069994781768,1000
+Histogram gradient boosting (untuned),No-contact never-major,2023,observed_rate,0.00012131635781584956,0.0008230248290612729,1000
+Histogram gradient boosting (untuned),No-contact never-major,2023,mean_predicted,0.0040378656007447385,0.005763616148365778,1000
+Histogram gradient boosting (untuned),No-contact never-major,2023,brier_score,0.0038978707087723133,0.005616892437675659,1000
+Histogram gradient boosting (untuned),No-contact never-major,2023,recall_at_1000,0.0,0.7704342552159146,1000
+Histogram gradient boosting (untuned),No-contact never-major,2023,precision_at_1000,0.0,0.014096774193548389,1000
+Histogram gradient boosting (untuned),No-contact never-major,2023,lift_at_1000,0.0,25.52219746756194,1000
+Histogram gradient boosting (untuned),No-contact never-major,2024,accuracy,0.9981573723461489,0.9990207658834699,1000
+Histogram gradient boosting (untuned),No-contact never-major,2024,accuracy_at_1000,0.968685881148204,0.9693871306857251,1000
+Histogram gradient boosting (untuned),No-contact never-major,2024,observed_rate,3.060192782901701e-05,0.0005276875879108899,1000
+Histogram gradient boosting (untuned),No-contact never-major,2024,mean_predicted,0.0010380078571879815,0.0017426955971067807,1000
+Histogram gradient boosting (untuned),No-contact never-major,2024,brier_score,0.000866445614474666,0.0016991198219039434,1000
+Histogram gradient boosting (untuned),No-contact never-major,2024,recall_at_1000,0.0,0.0,984
+Histogram gradient boosting (untuned),No-contact never-major,2024,precision_at_1000,0.0,0.0,1000
+Histogram gradient boosting (untuned),No-contact never-major,2024,lift_at_1000,0.0,0.0,984
+Histogram gradient boosting (untuned),No-contact never-major,Pooled,accuracy,0.99628274315095,0.9972051016352517,1000
+Histogram gradient boosting (untuned),No-contact never-major,Pooled,accuracy_at_1000,0.9685268733625563,0.9690032549240515,1000
+Histogram gradient boosting (untuned),No-contact never-major,Pooled,observed_rate,0.00021779092551565144,0.0006025610497157908,1000
+Histogram gradient boosting (untuned),No-contact never-major,Pooled,mean_predicted,0.0027145216148027618,0.0035632518901838415,1000
+Histogram gradient boosting (untuned),No-contact never-major,Pooled,brier_score,0.0027095144389968602,0.003584079359536897,1000
+Histogram gradient boosting (untuned),No-contact never-major,Pooled,recall_at_1000,0.02844802308332964,0.5016077170418007,1000
+Histogram gradient boosting (untuned),No-contact never-major,Pooled,precision_at_1000,0.0003333333333333333,0.008053763440860217,1000
+Histogram gradient boosting (untuned),No-contact never-major,Pooled,lift_at_1000,0.9180930420272985,16.18564027659352,1000
+Former major or $500 rule,Overall,2022,accuracy_at_1000,0.9683368720586472,0.9693441049296104,1000
+Former major or $500 rule,Overall,2022,observed_rate,0.0012461895437782394,0.0021563399301662697,1000
+Former major or $500 rule,Overall,2022,recall_at_1000,0.6393994816500025,0.8711166048498213,1000
+Former major or $500 rule,Overall,2022,precision_at_1000,0.028256083016266628,0.05325511726871727,1000
+Former major or $500 rule,Overall,2022,lift_at_1000,19.948271280610786,27.28803134926515,1000
+Former major or $500 rule,Overall,2023,accuracy_at_1000,0.9699157188021643,0.9706988369611189,1000
+Former major or $500 rule,Overall,2023,observed_rate,0.0007828230560767987,0.0014743648635392773,1000
+Former major or $500 rule,Overall,2023,recall_at_1000,0.5372907573617354,0.8406789303757461,1000
+Former major or $500 rule,Overall,2023,precision_at_1000,0.01622930802584854,0.03519668439426657,1000
+Former major or $500 rule,Overall,2023,lift_at_1000,17.84170103163928,27.78925391571834,1000
+Former major or $500 rule,Overall,2024,accuracy_at_1000,0.9699817043365803,0.9708954212036881,1000
+Former major or $500 rule,Overall,2024,observed_rate,0.0009464319639195221,0.0017522256949762762,1000
+Former major or $500 rule,Overall,2024,recall_at_1000,0.7300951005863588,0.9434505620759351,1000
+Former major or $500 rule,Overall,2024,precision_at_1000,0.025148989270367274,0.05014867687502041,1000
+Former major or $500 rule,Overall,2024,lift_at_1000,23.95788241080212,30.912297768935293,1000
+Former major or $500 rule,Overall,Pooled,accuracy_at_1000,0.969602063601739,0.9701433452885602,1000
+Former major or $500 rule,Overall,Pooled,observed_rate,0.0011323390563694406,0.0016346127003319187,1000
+Former major or $500 rule,Overall,Pooled,recall_at_1000,0.6956937949817565,0.8374816384669395,1000
+Former major or $500 rule,Overall,Pooled,precision_at_1000,0.02760893480746391,0.04147187428223144,1000
+Former major or $500 rule,Overall,Pooled,lift_at_1000,22.522560637114033,27.126839839022452,1000
+Former major or $500 rule,Never-major,2022,accuracy_at_1000,0.9672868263153702,0.9680043548652926,1000
+Former major or $500 rule,Never-major,2022,observed_rate,0.0004160081837605015,0.0010287313629981788,1000
+Former major or $500 rule,Never-major,2022,recall_at_1000,0.2211738436280815,0.6461152006973118,1000
+Former major or $500 rule,Never-major,2022,precision_at_1000,0.004230880909647398,0.016301512428944204,1000
+Former major or $500 rule,Never-major,2022,lift_at_1000,6.852935261376192,20.04061307640443,1000
+Former major or $500 rule,Never-major,2023,accuracy_at_1000,0.9693273598079638,0.9699822266451068,1000
+Former major or $500 rule,Never-major,2023,observed_rate,0.00039453478336018037,0.0009372744258017787,1000
+Former major or $500 rule,Never-major,2023,recall_at_1000,0.23296690591389457,0.6893577747891423,1000
+Former major or $500 rule,Never-major,2023,precision_at_1000,0.004211412554920607,0.015427778166309745,1000
+Former major or $500 rule,Never-major,2023,lift_at_1000,7.680359526498591,22.727445745909236,1000
+Former major or $500 rule,Never-major,2024,accuracy_at_1000,0.9690711846968844,0.9696706166190604,1000
+Former major or $500 rule,Never-major,2024,observed_rate,0.00027523799482136613,0.0007080791080960812,1000
+Former major or $500 rule,Never-major,2024,recall_at_1000,0.3245445564365845,0.8050176679903782,1000
+Former major or $500 rule,Never-major,2024,precision_at_1000,0.0033232336830377866,0.015123624064998622,1000
+Former major or $500 rule,Never-major,2024,lift_at_1000,10.54823545608473,26.222825879950893,1000
+Former major or $500 rule,Never-major,Pooled,accuracy_at_1000,0.968718022099756,0.9691169182616837,1000
+Former major or $500 rule,Never-major,Pooled,observed_rate,0.00045617210558289103,0.0007762503048763333,1000
+Former major or $500 rule,Never-major,Pooled,recall_at_1000,0.3498318206285174,0.6016501692529226,1000
+Former major or $500 rule,Never-major,Pooled,precision_at_1000,0.005985533092154749,0.012912423732839825,1000
+Former major or $500 rule,Never-major,Pooled,lift_at_1000,11.268139407705986,19.389709963001014,1000
+Former major or $500 rule,No-contact overall,2022,accuracy_at_1000,0.9678402964079366,0.9691816216500032,1000
+Former major or $500 rule,No-contact overall,2022,observed_rate,0.0005762109627566075,0.0017683399524309601,1000
+Former major or $500 rule,No-contact overall,2022,recall_at_1000,0.4757250775084109,0.8780297247838327,1000
+Former major or $500 rule,No-contact overall,2022,precision_at_1000,0.00925018296925514,0.043634635291040634,1000
+Former major or $500 rule,No-contact overall,2022,lift_at_1000,14.838085254235052,27.391767175089964,1000
+Former major or $500 rule,No-contact overall,2023,accuracy_at_1000,0.9695368864436222,0.9705569238410124,1000
+Former major or $500 rule,No-contact overall,2023,observed_rate,0.00024123472588947817,0.0012188391904610096,1000
+Former major or $500 rule,No-contact overall,2023,recall_at_1000,0.12623561223757515,0.891358214143624,1000
+Former major or $500 rule,No-contact overall,2023,precision_at_1000,0.0011265362168857164,0.028354697008489128,1000
+Former major or $500 rule,No-contact overall,2023,lift_at_1000,4.197411794025442,29.588248009115137,1000
+Former major or $500 rule,No-contact overall,2024,accuracy_at_1000,0.969556705786206,0.9708693944718462,1000
+Former major or $500 rule,No-contact overall,2024,observed_rate,0.0003069177666765728,0.0015050495521094615,1000
+Former major or $500 rule,No-contact overall,2024,recall_at_1000,0.6515706004494654,1.0,1000
+Former major or $500 rule,No-contact overall,2024,precision_at_1000,0.008098301986300934,0.045490520994933635,1000
+Former major or $500 rule,No-contact overall,2024,lift_at_1000,21.36395854567599,32.790971774193586,1000
+Former major or $500 rule,No-contact overall,Pooled,accuracy_at_1000,0.9692134488649006,0.9699549263687803,1000
+Former major or $500 rule,No-contact overall,Pooled,observed_rate,0.0005571103375376067,0.0012362284537662368,1000
+Former major or $500 rule,No-contact overall,Pooled,recall_at_1000,0.6034225238956782,0.8574699049616307,1000
+Former major or $500 rule,No-contact overall,Pooled,precision_at_1000,0.011458508855753648,0.03233775225510388,1000
+Former major or $500 rule,No-contact overall,Pooled,lift_at_1000,19.491835849253743,27.830195936006877,1000
+Former major or $500 rule,No-contact never-major,2022,accuracy_at_1000,0.9672974467357772,0.9681275413230379,1000
+Former major or $500 rule,No-contact never-major,2022,observed_rate,0.0002261513759233029,0.0009016547330388016,1000
+Former major or $500 rule,No-contact never-major,2022,recall_at_1000,0.08040719892310262,0.728118389147197,1000
+Former major or $500 rule,No-contact never-major,2022,precision_at_1000,0.0011475551457496476,0.016366760982795058,1000
+Former major or $500 rule,No-contact never-major,2022,lift_at_1000,2.4993360006935412,22.58473123378869,1000
+Former major or $500 rule,No-contact never-major,2023,accuracy_at_1000,0.9692130291004739,0.9700208925940432,1000
+Former major or $500 rule,No-contact never-major,2023,observed_rate,0.00012131635781584945,0.0008230248290612723,1000
+Former major or $500 rule,No-contact never-major,2023,recall_at_1000,0.022724707972761538,0.7758484554463401,1000
+Former major or $500 rule,No-contact never-major,2023,precision_at_1000,0.00011740586384573612,0.014426262634183729,1000
+Former major or $500 rule,No-contact never-major,2023,lift_at_1000,0.7506027994242025,25.691898745810338,1000
+Former major or $500 rule,No-contact never-major,2024,accuracy_at_1000,0.9690374032852235,0.9697378816013587,1000
+Former major or $500 rule,No-contact never-major,2024,observed_rate,3.0601927829016986e-05,0.0005276875879108895,1000
+Former major or $500 rule,No-contact never-major,2024,recall_at_1000,0.02365232507094678,1.0,984
+Former major or $500 rule,No-contact never-major,2024,precision_at_1000,2.3989417210939198e-05,0.012269450588934108,1000
+Former major or $500 rule,No-contact never-major,2024,lift_at_1000,0.769557475380609,32.54168870967745,984
+Former major or $500 rule,No-contact never-major,Pooled,accuracy_at_1000,0.9686810674732647,0.9691477519572107,1000
+Former major or $500 rule,No-contact never-major,Pooled,observed_rate,0.00021779092551565125,0.0006025610497157899,1000
+Former major or $500 rule,No-contact never-major,Pooled,recall_at_1000,0.1399673542906861,0.6569098417518483,1000
+Former major or $500 rule,No-contact never-major,Pooled,precision_at_1000,0.0012091756307228828,0.011219201627165602,1000
+Former major or $500 rule,No-contact never-major,Pooled,lift_at_1000,4.492334628126945,21.120473265536422,1000

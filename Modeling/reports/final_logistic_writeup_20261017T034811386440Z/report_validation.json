@@ -1,0 +1,31 @@
+{
+  "status": "executed_and_built",
+  "renderer": "standard-library HTML companion; not native Quarto",
+  "code_cells_executed": 16,
+  "code_cell_labels": [
+    "load-packages",
+    "load-data",
+    "table-helpers",
+    "approved-inputs",
+    "rolling-design",
+    "overall-model-comparison",
+    "never-major-model-comparison",
+    "paired-logistic-comparison",
+    "no-contact-overall-comparison",
+    "no-contact-never-major-comparison",
+    "overall-list-composition",
+    "no-contact-list-composition",
+    "no-contact-subgroup-differences",
+    "disruption-check-results",
+    "logistic-calibration-comparison",
+    "scoring-release-checks"
+  ],
+  "input_hash_checks_passed": true,
+  "inline_expressions_resolved": true,
+  "model_fitting_performed": false,
+  "model_scoring_performed": false,
+  "fy2025_evaluation_repeated": false,
+  "donor_level_data_embedded": false,
+  "synthetic_data_notice_present": true,
+  "build_stderr": ""
+}

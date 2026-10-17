@@ -1,0 +1,17 @@
+{
+  "build_html_companion.py": "81e208716057bd565758206f3350af70015ffb24bfb2f5e321da179a23187d83",
+  "final_modeling_writeup.html": "2aa99142006dc9e98329da4d32a1f95b725a691a189cbecbad4ca05151640640",
+  "final_modeling_writeup.qmd": "16e9eeba40765f0d435a96b2df88610172df617da29880f22467bf6614c1a260",
+  "report_validation.json": "673a7131f16d262a51cc853a885de35b1142b2a58682363b0845b57a5f3a58cf",
+  "_report_body.qmd": "d7bde8c4d991ef14e50eaf50623d43444f69c8420fc8781646dac27b269d8ad2",
+  "data/development_comparison.csv": "5e8fda03accb09e82af68bad3e14052850e08dddf4b91e69e34f8eaab2c8b0cd",
+  "data/development_fold_metrics.csv": "ad8919392e830015888365b97da6911786a5ae096e17f09c916388059639c4ec",
+  "data/development_uncertainty.csv": "76d682abb54286cd834170d53d79ab0ca8a335ce4444c84f86fe3108bb38b21a",
+  "data/logistic_vs_giving.csv": "aa32e405a93397df5704a70fe840d49bf8f27a9a483dc32071dc4b6f2a44f61d",
+  "data/no_contact_list_composition.csv": "7b8cf8342dad8c98d88075c3a139df3fefa7d6bcaf5a9505f72b03d840e65a61",
+  "data/no_contact_list_group_differences.csv": "98646cc3141e7f1f26bb33ee7fc2a4087c36c7552ddd2d256a6d7c6cc4913a1d",
+  "data/overall_list_composition.csv": "43d281420ba6bd5b255e601a987122cce08557610312f77f0c4a65686fb4c13a",
+  "data/overall_list_group_differences.csv": "df9e3bf4c4df0e90835facd1e32d0300c714517305119561f4ad3730365c773b",
+  "data/report_manifest.json": "785b05cac5676d72f9cd540f10df84856195116f0d26e8d39bddf198706da9b1",
+  "data/secondary_rule_comparisons.csv": "fc543f1ad61d817c9573277384f44fbbcae702b46f036f05d53be89c5d45b4a0"
+}

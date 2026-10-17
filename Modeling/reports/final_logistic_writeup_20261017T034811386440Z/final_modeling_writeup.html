@@ -1,0 +1,951 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PBS Utah major-donor modeling: final write-up and FY2026 scoring</title>
+<style>
+body{font-family:system-ui,Arial,sans-serif;max-width:1200px;margin:2rem auto;padding:0 1.5rem;line-height:1.55;color:#172b3a}
+h1{margin-top:2.5rem;border-bottom:2px solid #b9d0de;padding-bottom:.4rem}h2{margin-top:1.8rem}
+.callout{background:#edf5fa;border-left:5px solid #2f607a;padding:.8rem 1rem;margin:1.5rem 0}
+.source{white-space:pre-wrap;overflow-wrap:anywhere;background:#f4f5f6;padding:1rem;font-size:.82rem;border:1px solid #dce2e7}
+.output{overflow-x:auto;margin:1rem 0}table{border-collapse:collapse;width:100%;font-size:.88rem}
+th,td{padding:.55rem .7rem;text-align:left;border:1px solid #d4dfe6}th{background:#e5eef4}tr:nth-child(even){background:#f7fafc}
+code{font-size:.9em}a{color:#155a82}header p{color:#51616b}
+@media print{.source{font-size:.65rem}body{max-width:none}.output{overflow:visible}table{font-size:.7rem}}
+</style></head><body><header><h1>PBS Utah major-donor modeling: final write-up and FY2026 scoring</h1>
+<p>Standalone HTML companion. Code cells executed in a fresh process; not a native Quarto render.</p></header>
+<aside class="callout">
+<p>This report was generated using AI under general human direction. At the time of generation, the contents have not been comprehensively reviewed by a human analyst.</p>
+</aside>
+<aside class="callout">
+<p><strong>Synthetic-data publication:</strong> The project owner confirmed that all data are fictitious and authorized public sharing of the model, results, and scored prospect examples. Donor identifiers and giving records are synthetic, not real PBS Utah donor information. These results demonstrate the capstone workflow; they are not validated findings about actual donors or authorization for real outreach.</p>
+</aside>
+<pre class="source"><code>#| label: load-packages
+from pathlib import Path
+import hashlib
+import json
+import numpy as np
+import pandas as pd
+from IPython.display import HTML</code></pre>
+<pre class="source"><code>#| label: load-data
+report_name = &quot;final_logistic_writeup_20261017T034811386440Z&quot;
+candidates = [Path.cwd(), Path.cwd() / &quot;Modeling/reports&quot; / report_name]
+if &quot;__file__&quot; in globals():
+    candidates.insert(0, Path(__file__).resolve().parent)
+report_dir = next(p for p in candidates if (p / &quot;data/report_manifest.json&quot;).is_file())
+root = report_dir.parents[2]
+data_dir = report_dir / &quot;data&quot;
+manifest = json.loads((data_dir / &quot;report_manifest.json&quot;).read_text(encoding=&quot;utf-8&quot;))
+for name, digest in manifest[&quot;data_sha256&quot;].items():
+    assert hashlib.sha256((data_dir / name).read_bytes()).hexdigest() == digest
+bundle = root / manifest[&quot;artifact_directory&quot;]
+scoring_dir = root / manifest[&quot;scoring_directory&quot;]
+checksums = json.loads((bundle / &quot;checksums.json&quot;).read_text(encoding=&quot;utf-8&quot;))
+for name, digest in checksums.items():
+    assert hashlib.sha256((bundle / name).read_bytes()).hexdigest() == digest
+metadata = json.loads((bundle / &quot;metadata.json&quot;).read_text(encoding=&quot;utf-8&quot;))
+scoring = json.loads((scoring_dir / &quot;scoring_audit.json&quot;).read_text(encoding=&quot;utf-8&quot;))
+comparison = pd.read_csv(data_dir / &quot;development_comparison.csv&quot;)
+folds = pd.read_csv(data_dir / &quot;development_fold_metrics.csv&quot;)
+uncertainty = pd.read_csv(data_dir / &quot;development_uncertainty.csv&quot;)
+paired = pd.read_csv(data_dir / &quot;logistic_vs_giving.csv&quot;)
+rule_comparisons = pd.read_csv(data_dir / &quot;secondary_rule_comparisons.csv&quot;)
+overall_composition = pd.read_csv(data_dir / &quot;overall_list_composition.csv&quot;)
+no_contact_composition = pd.read_csv(data_dir / &quot;no_contact_list_composition.csv&quot;)
+overall_differences = pd.read_csv(data_dir / &quot;overall_list_group_differences.csv&quot;)
+no_contact_differences = pd.read_csv(data_dir / &quot;no_contact_list_group_differences.csv&quot;)
+fy2025 = pd.read_csv(bundle / &quot;fy2025_metrics.csv&quot;)
+fy2025_uncertainty = pd.read_csv(bundle / &quot;fy2025_uncertainty.csv&quot;)
+assert set(folds[&quot;assessment_fy&quot;]) == {2022, 2023, 2024}
+assert set(fy2025[&quot;assessment_fy&quot;]) == {2025}
+assert scoring[&quot;model_sha256&quot;] == manifest[&quot;model_sha256&quot;]
+logistic_name = &quot;Logistic regression (untuned)&quot;
+selected = comparison.loc[comparison[&quot;model&quot;].eq(logistic_name)].set_index(&quot;scope&quot;)
+fy2025_by_scope = fy2025.set_index(&quot;scope&quot;)</code></pre>
+<pre class="source"><code>#| label: table-helpers
+def show_table(frame):
+    return HTML(frame.to_html(index=False, escape=True, border=0, na_rep=&quot;N/A&quot;))
+
+def percentage(value, digits=2):
+    return &quot;N/A&quot; if pd.isna(value) else f&quot;{100 * value:.{digits}f}%&quot;
+
+pooled_ci = uncertainty.loc[uncertainty[&quot;period&quot;].eq(&quot;Pooled&quot;)].set_index([&quot;model&quot;, &quot;scope&quot;, &quot;metric&quot;])
+
+def development_table(scope):
+    result = comparison.loc[comparison[&quot;scope&quot;].eq(scope)].copy()
+    rows = []
+    for _, row in result.iterrows():
+        bounds = pooled_ci.loc[(row[&quot;model&quot;], scope, &quot;recall_at_1000&quot;)]
+        rows.append({
+            &quot;Candidate&quot;: row[&quot;model&quot;],
+            &quot;Accuracy at 0.5&quot;: percentage(row[&quot;accuracy&quot;], 3),
+            &quot;List accuracy&quot;: percentage(row[&quot;accuracy_at_1000&quot;], 3),
+            &quot;Recall@1,000 [95% CI]&quot;: f&quot;{percentage(row[&#x27;recall_at_1000&#x27;])} [{100 * bounds[&#x27;low&#x27;]:.2f}, {100 * bounds[&#x27;high&#x27;]:.2f}]&quot;,
+            &quot;Precision@1,000&quot;: percentage(row[&quot;precision_at_1000&quot;], 3),
+            &quot;Lift&quot;: f&quot;{row[&#x27;lift_at_1000&#x27;]:.2f}&quot;,
+            &quot;Mean annual AP&quot;: f&quot;{row[&#x27;mean_yearly_ap&#x27;]:.4f}&quot;,
+            &quot;Mean annual ROC AUC&quot;: f&quot;{row[&#x27;mean_yearly_roc_auc&#x27;]:.4f}&quot;,
+        })
+    return show_table(pd.DataFrame(rows))</code></pre>
+<h1>Executive summary</h1>
+<p>The selected approach is an untuned logistic-regression pipeline using the approved core predictors and training-only treatment controls. In exploratory rolling validation, overall recall at 1,000 was <strong>80.60%</strong>, precision was <strong>3.60%</strong>, and lift was <strong>26.11 times</strong> the pooled base rate.</p>
+<p>The primary evidence is the FY2022–FY2024 rolling assessment, not the FY2025 influx-period check. The saved final pipeline was subsequently refitted on FY2021–FY2025 using <strong>160,919 donor-year rows</strong>. Its standalone artifact passed fresh-process reload and scoring-control tests. That final refit has no independent post-refit performance estimate.</p>
+<p>The saved model has now scored <strong>38,219 eligible FY2026 prospects</strong>. A preliminary overall person-level top-1,000 file contains <strong>1000 rows</strong>, allocating <strong>1,000 places</strong>. No new model fitting or FY2025 evaluation occurred during scoring.</p>
+<p>The main operational trade-off is clear: logistic improves overall converter capture primarily by allocating more places to eligible former-major donors. An improvement for never-major outreach was not established. Scores are not validated individual conversion probabilities.</p>
+<h1>Objective, population, and features</h1>
+<p>The target is <code>converted_1yr</code>: major status in the next fiscal year, not first-ever major status. Eligible donors gave positively in fiscal year t and were not major in that same year. Former-major donors remain eligible; lapsed donors are a separate reporting population.</p>
+<p>The group definitions recognize positive direct giving and assigned soft credits, with the documented spouse-combined major-status rule. Prospect records remain person-level even where labels reflect combined spouse giving. Household deduplication is a separate operational decision.</p>
+<p>The final model uses the approved core feature list below. Identifiers, outcome amounts, evaluation weights, and future information are not supplied as predictors.</p>
+<pre class="source"><code>#| label: approved-inputs
+feature_schema = pd.read_csv(bundle / &quot;feature_schema.csv&quot;)
+show_table(feature_schema[[&quot;feature&quot;, &quot;role&quot;, &quot;preprocessing&quot;]])</code></pre>
+<div class="output"><table class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>feature</th>
+      <th>role</th>
+      <th>preprocessing</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>prior_total</td>
+      <td>core_predictor</td>
+      <td>numeric_or_binary</td>
+    </tr>
+    <tr>
+      <td>former_major</td>
+      <td>core_predictor</td>
+      <td>numeric_or_binary</td>
+    </tr>
+    <tr>
+      <td>years_last5</td>
+      <td>core_predictor</td>
+      <td>numeric_or_binary</td>
+    </tr>
+    <tr>
+      <td>years_since_first_gift</td>
+      <td>core_predictor</td>
+      <td>numeric_or_binary</td>
+    </tr>
+    <tr>
+      <td>legacy_years</td>
+      <td>core_predictor</td>
+      <td>numeric_or_binary</td>
+    </tr>
+    <tr>
+      <td>giving_change</td>
+      <td>core_predictor</td>
+      <td>numeric_or_binary</td>
+    </tr>
+    <tr>
+      <td>giving_change_band</td>
+      <td>core_predictor</td>
+      <td>categorical</td>
+    </tr>
+    <tr>
+      <td>two_years_before</td>
+      <td>core_predictor</td>
+      <td>numeric_or_binary</td>
+    </tr>
+    <tr>
+      <td>largest_gift_share</td>
+      <td>core_predictor</td>
+      <td>numeric_or_binary</td>
+    </tr>
+    <tr>
+      <td>sustainer</td>
+      <td>core_predictor</td>
+      <td>numeric_or_binary</td>
+    </tr>
+    <tr>
+      <td>monthly_amount</td>
+      <td>core_predictor</td>
+      <td>numeric_or_binary</td>
+    </tr>
+    <tr>
+      <td>soft_before</td>
+      <td>core_predictor</td>
+      <td>numeric_or_binary</td>
+    </tr>
+    <tr>
+      <td>age_at_t</td>
+      <td>core_predictor</td>
+      <td>numeric_or_binary</td>
+    </tr>
+    <tr>
+      <td>gender</td>
+      <td>core_predictor</td>
+      <td>categorical</td>
+    </tr>
+    <tr>
+      <td>contacted_t</td>
+      <td>training_only_control</td>
+      <td>numeric_or_binary</td>
+    </tr>
+    <tr>
+      <td>heldout_t</td>
+      <td>training_only_control</td>
+      <td>numeric_or_binary</td>
+    </tr>
+  </tbody>
+</table></div>
+<p>Numeric and binary inputs use training-median imputation and standardization. <code>gender</code> and <code>giving_change_band</code> use constant <code>Unknown</code> imputation and one-hot encoding, with unseen levels ignored. Preprocessing was fitted within each rolling training fold and refitted on the approved full training period for the final artifact.</p>
+<p>Logistic regression uses C=1, L2 regularization, the lbfgs solver, and a 1,000-iteration convergence cap. No hyperparameter tuning, class weighting, resampling, or recalibration was performed. Actual <code>contacted_t</code> and <code>heldout_t</code> flags are used in training; both are switched off for all scoring. Actual exposure flags remain separate for evaluation.</p>
+<h1>Validation design and model comparisons</h1>
+<pre class="source"><code>#| label: rolling-design
+show_table(pd.DataFrame({
+    &quot;Training cohorts&quot;: [&quot;FY2021&quot;, &quot;FY2021–FY2022&quot;, &quot;FY2021–FY2023&quot;],
+    &quot;Assessment cohort&quot;: [&quot;FY2022&quot;, &quot;FY2023&quot;, &quot;FY2024&quot;],
+}))</code></pre>
+<div class="output"><table class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>Training cohorts</th>
+      <th>Assessment cohort</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>FY2021</td>
+      <td>FY2022</td>
+    </tr>
+    <tr>
+      <td>FY2021–FY2022</td>
+      <td>FY2023</td>
+    </tr>
+    <tr>
+      <td>FY2021–FY2023</td>
+      <td>FY2024</td>
+    </tr>
+  </tbody>
+</table></div>
+<p>Saved split membership was used. Earlier training years can contain donors observed in later assessment years. No inner tuning was performed; any future inner tuning must group by <code>couple_id</code>. All learned preprocessing was restricted to training data.</p>
+<p>Primary selection used recall at 1,000 prospects per assessment year. Cutoff ties received fractional allocation. Overall and never-major evaluations each use their own 1,000-prospect list; they must not be confused with subgroup capture within one overall list.</p>
+<p>Recall, precision, and lift are pooled over annual lists. AP and ROC AUC below are means of annual metrics. Accuracy at 0.5 uses probability-threshold classifications; list accuracy treats list inclusion as positive with fractional ties. Ranking-only baselines have no probability-threshold accuracy. Accuracy is secondary because conversion is rare.</p>
+<p>Intervals use 1,000 couple-clustered bootstrap replicates, recalculating list cutoffs. They are conditional on fitted predictions and do not represent the entire model-selection uncertainty. Prior full-data EDA occurred: these are <strong>exploratory validation results</strong>, not an untouched-test claim.</p>
+<h2>All eligible donors: primary comparison</h2>
+<pre class="source"><code>#| label: overall-model-comparison
+development_table(&quot;Overall&quot;)</code></pre>
+<div class="output"><table class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>Candidate</th>
+      <th>Accuracy at 0.5</th>
+      <th>List accuracy</th>
+      <th>Recall@1,000 [95% CI]</th>
+      <th>Precision@1,000</th>
+      <th>Lift</th>
+      <th>Mean annual AP</th>
+      <th>Mean annual ROC AUC</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Dummy (training prevalence)</td>
+      <td>99.862%</td>
+      <td>96.784%</td>
+      <td>3.10% [3.08, 3.12]</td>
+      <td>0.139%</td>
+      <td>1.00</td>
+      <td>0.0014</td>
+      <td>0.5000</td>
+    </tr>
+    <tr>
+      <td>Current-giving ranking</td>
+      <td>N/A</td>
+      <td>96.983%</td>
+      <td>75.41% [68.42, 81.36]</td>
+      <td>3.368%</td>
+      <td>24.43</td>
+      <td>0.0827</td>
+      <td>0.9280</td>
+    </tr>
+    <tr>
+      <td>Logistic regression (untuned)</td>
+      <td>99.856%</td>
+      <td>96.998%</td>
+      <td>80.60% [73.27, 87.02]</td>
+      <td>3.600%</td>
+      <td>26.11</td>
+      <td>0.2454</td>
+      <td>0.9342</td>
+    </tr>
+    <tr>
+      <td>Random forest (untuned)</td>
+      <td>99.858%</td>
+      <td>96.988%</td>
+      <td>77.09% [69.93, 83.43]</td>
+      <td>3.444%</td>
+      <td>24.98</td>
+      <td>0.1761</td>
+      <td>0.8801</td>
+    </tr>
+    <tr>
+      <td>Histogram gradient boosting (untuned)</td>
+      <td>99.522%</td>
+      <td>96.868%</td>
+      <td>33.58% [26.56, 41.41]</td>
+      <td>1.500%</td>
+      <td>10.88</td>
+      <td>0.0359</td>
+      <td>0.5672</td>
+    </tr>
+    <tr>
+      <td>Former major or $500 rule</td>
+      <td>N/A</td>
+      <td>96.987%</td>
+      <td>76.57% [69.57, 83.75]</td>
+      <td>3.420%</td>
+      <td>24.81</td>
+      <td>0.0651</td>
+      <td>0.8728</td>
+    </tr>
+  </tbody>
+</table></div>
+<h2>Never-major donors: separate comparison</h2>
+<pre class="source"><code>#| label: never-major-model-comparison
+development_table(&quot;Never-major&quot;)</code></pre>
+<div class="output"><table class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>Candidate</th>
+      <th>Accuracy at 0.5</th>
+      <th>List accuracy</th>
+      <th>Recall@1,000 [95% CI]</th>
+      <th>Precision@1,000</th>
+      <th>Lift</th>
+      <th>Mean annual AP</th>
+      <th>Mean annual ROC AUC</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Dummy (training prevalence)</td>
+      <td>99.939%</td>
+      <td>96.837%</td>
+      <td>3.11% [3.09, 3.14]</td>
+      <td>0.061%</td>
+      <td>1.00</td>
+      <td>0.0006</td>
+      <td>0.5000</td>
+    </tr>
+    <tr>
+      <td>Current-giving ranking</td>
+      <td>N/A</td>
+      <td>96.906%</td>
+      <td>59.63% [48.09, 70.73]</td>
+      <td>1.173%</td>
+      <td>19.20</td>
+      <td>0.0242</td>
+      <td>0.8584</td>
+    </tr>
+    <tr>
+      <td>Logistic regression (untuned)</td>
+      <td>99.939%</td>
+      <td>96.906%</td>
+      <td>59.32% [45.61, 72.92]</td>
+      <td>1.167%</td>
+      <td>19.10</td>
+      <td>0.0420</td>
+      <td>0.8599</td>
+    </tr>
+    <tr>
+      <td>Random forest (untuned)</td>
+      <td>99.937%</td>
+      <td>96.900%</td>
+      <td>54.38% [40.69, 66.79]</td>
+      <td>1.070%</td>
+      <td>17.51</td>
+      <td>0.0154</td>
+      <td>0.7644</td>
+    </tr>
+    <tr>
+      <td>Histogram gradient boosting (untuned)</td>
+      <td>99.649%</td>
+      <td>96.865%</td>
+      <td>25.42% [14.55, 37.25]</td>
+      <td>0.500%</td>
+      <td>8.19</td>
+      <td>0.0079</td>
+      <td>0.5458</td>
+    </tr>
+    <tr>
+      <td>Former major or $500 rule</td>
+      <td>N/A</td>
+      <td>96.891%</td>
+      <td>47.10% [34.98, 60.17]</td>
+      <td>0.926%</td>
+      <td>15.17</td>
+      <td>0.0203</td>
+      <td>0.7302</td>
+    </tr>
+  </tbody>
+</table></div>
+<p>Logistic was selected for its strongest overall recall point estimate. The random forest did not demonstrate an advantage over logistic. This untuned histogram-gradient-boosting configuration performed poorly; that is not a conclusion about all boosting configurations. The current-giving ranking remains the essential never-major comparator, and the former-major-or-$500 rule is a strong simple overall benchmark.</p>
+<h2>Paired logistic comparison with current giving</h2>
+<pre class="source"><code>#| label: paired-logistic-comparison
+paired_display = paired.copy()
+for col in [&quot;recall_gain_pp&quot;, &quot;gain_ci_low_pp&quot;, &quot;gain_ci_high_pp&quot;]:
+    paired_display[col] = paired_display[col].map(lambda value: f&quot;{value:.2f}&quot;)
+show_table(paired_display.rename(columns={
+    &quot;scope&quot;: &quot;Population&quot;, &quot;recall_gain_pp&quot;: &quot;Logistic recall gain, pp&quot;,
+    &quot;gain_ci_low_pp&quot;: &quot;95% CI lower, pp&quot;, &quot;gain_ci_high_pp&quot;: &quot;95% CI upper, pp&quot;,
+}))</code></pre>
+<div class="output"><table class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>Population</th>
+      <th>Logistic recall gain, pp</th>
+      <th>95% CI lower, pp</th>
+      <th>95% CI upper, pp</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Overall</td>
+      <td>5.19</td>
+      <td>0.70</td>
+      <td>9.51</td>
+    </tr>
+    <tr>
+      <td>Never-major</td>
+      <td>-0.31</td>
+      <td>-7.96</td>
+      <td>7.21</td>
+    </tr>
+    <tr>
+      <td>No-contact overall</td>
+      <td>7.95</td>
+      <td>-2.04</td>
+      <td>19.18</td>
+    </tr>
+    <tr>
+      <td>No-contact never-major</td>
+      <td>-5.61</td>
+      <td>-15.70</td>
+      <td>1.98</td>
+    </tr>
+  </tbody>
+</table></div>
+<p>Logistic&#x27;s overall exploratory advantage excludes zero in this paired interval. Its never-major difference does not establish improvement or equivalence. Comparing the best-looking candidates repeatedly and prior full-data EDA limit confirmatory interpretations.</p>
+<h1>Weighted no-contact evaluation</h1>
+<p>Actual contacted donors are excluded. Saved holdout weights reconstruct the evaluation population and enter both list allocation and metrics. The models still score with the two training-only controls switched off. This analysis is not an uplift model and does not estimate conversions caused by outreach.</p>
+<h2>No-contact overall</h2>
+<pre class="source"><code>#| label: no-contact-overall-comparison
+development_table(&quot;No-contact overall&quot;)</code></pre>
+<div class="output"><table class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>Candidate</th>
+      <th>Accuracy at 0.5</th>
+      <th>List accuracy</th>
+      <th>Recall@1,000 [95% CI]</th>
+      <th>Precision@1,000</th>
+      <th>Lift</th>
+      <th>Mean annual AP</th>
+      <th>Mean annual ROC AUC</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Dummy (training prevalence)</td>
+      <td>99.912%</td>
+      <td>96.831%</td>
+      <td>3.10% [3.07, 3.14]</td>
+      <td>0.088%</td>
+      <td>1.01</td>
+      <td>0.0009</td>
+      <td>0.5000</td>
+    </tr>
+    <tr>
+      <td>Current-giving ranking</td>
+      <td>N/A</td>
+      <td>96.952%</td>
+      <td>72.16% [58.91, 83.06]</td>
+      <td>2.056%</td>
+      <td>23.38</td>
+      <td>0.0450</td>
+      <td>0.9179</td>
+    </tr>
+    <tr>
+      <td>Logistic regression (untuned)</td>
+      <td>99.898%</td>
+      <td>96.966%</td>
+      <td>80.11% [67.52, 89.46]</td>
+      <td>2.283%</td>
+      <td>25.95</td>
+      <td>0.1910</td>
+      <td>0.9166</td>
+    </tr>
+    <tr>
+      <td>Random forest (untuned)</td>
+      <td>99.900%</td>
+      <td>96.960%</td>
+      <td>76.68% [64.24, 86.00]</td>
+      <td>2.185%</td>
+      <td>24.84</td>
+      <td>0.1741</td>
+      <td>0.8926</td>
+    </tr>
+    <tr>
+      <td>Histogram gradient boosting (untuned)</td>
+      <td>99.538%</td>
+      <td>96.875%</td>
+      <td>28.26% [10.72, 46.07]</td>
+      <td>0.805%</td>
+      <td>9.16</td>
+      <td>0.0151</td>
+      <td>0.5494</td>
+    </tr>
+    <tr>
+      <td>Former major or $500 rule</td>
+      <td>N/A</td>
+      <td>96.957%</td>
+      <td>74.71% [60.34, 85.75]</td>
+      <td>2.129%</td>
+      <td>24.20</td>
+      <td>0.0399</td>
+      <td>0.8608</td>
+    </tr>
+  </tbody>
+</table></div>
+<h2>No-contact never-major</h2>
+<pre class="source"><code>#| label: no-contact-never-major-comparison
+development_table(&quot;No-contact never-major&quot;)</code></pre>
+<div class="output"><table class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>Candidate</th>
+      <th>Accuracy at 0.5</th>
+      <th>List accuracy</th>
+      <th>Recall@1,000 [95% CI]</th>
+      <th>Precision@1,000</th>
+      <th>Lift</th>
+      <th>Mean annual AP</th>
+      <th>Mean annual ROC AUC</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Dummy (training prevalence)</td>
+      <td>99.961%</td>
+      <td>96.858%</td>
+      <td>3.12% [3.08, 3.17]</td>
+      <td>0.040%</td>
+      <td>1.01</td>
+      <td>0.0004</td>
+      <td>0.5000</td>
+    </tr>
+    <tr>
+      <td>Current-giving ranking</td>
+      <td>N/A</td>
+      <td>96.904%</td>
+      <td>61.03% [35.74, 77.75]</td>
+      <td>0.776%</td>
+      <td>19.66</td>
+      <td>0.0148</td>
+      <td>0.8281</td>
+    </tr>
+    <tr>
+      <td>Logistic regression (untuned)</td>
+      <td>99.961%</td>
+      <td>96.900%</td>
+      <td>55.41% [27.01, 75.12]</td>
+      <td>0.704%</td>
+      <td>17.85</td>
+      <td>0.0824</td>
+      <td>0.8136</td>
+    </tr>
+    <tr>
+      <td>Random forest (untuned)</td>
+      <td>99.958%</td>
+      <td>96.899%</td>
+      <td>54.70% [25.30, 72.42]</td>
+      <td>0.695%</td>
+      <td>17.62</td>
+      <td>0.0097</td>
+      <td>0.7686</td>
+    </tr>
+    <tr>
+      <td>Histogram gradient boosting (untuned)</td>
+      <td>99.675%</td>
+      <td>96.877%</td>
+      <td>26.40% [2.84, 50.16]</td>
+      <td>0.335%</td>
+      <td>8.50</td>
+      <td>0.0070</td>
+      <td>0.5673</td>
+    </tr>
+    <tr>
+      <td>Former major or $500 rule</td>
+      <td>N/A</td>
+      <td>96.890%</td>
+      <td>43.62% [14.00, 65.69]</td>
+      <td>0.554%</td>
+      <td>14.05</td>
+      <td>0.0109</td>
+      <td>0.7206</td>
+    </tr>
+  </tbody>
+</table></div>
+<p>The no-contact uncertainty is wide. Logistic&#x27;s favorable overall point estimate does not establish a conclusive no-contact advantage over current giving, and its never-major point estimate is lower.</p>
+<h1>Composition and capture within the overall lists</h1>
+<p>These tables use each method&#x27;s <strong>overall</strong> 1,000-place list, without reranking separately within donor groups. Pooled quantities are donor-year slots across three cohorts, not unique people. Fractional counts reflect cutoff allocation and, in the no-contact analysis, evaluation weights.</p>
+<h2>All-eligible overall lists</h2>
+<pre class="source"><code>#| label: overall-list-composition
+overall_display = overall_composition.copy()
+for col in [&quot;selected_slots&quot;, &quot;available_group_converters&quot;, &quot;captured_group_converters&quot;]:
+    overall_display[col] = overall_display[col].map(lambda value: f&quot;{value:,.2f}&quot;)
+for col in [&quot;share_of_overall_lists&quot;, &quot;group_recall_within_overall_lists&quot;]:
+    overall_display[col] = overall_display[col].map(percentage)
+show_table(overall_display)</code></pre>
+<div class="output"><table class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>model</th>
+      <th>group</th>
+      <th>selected_slots</th>
+      <th>available_group_converters</th>
+      <th>captured_group_converters</th>
+      <th>share_of_overall_lists</th>
+      <th>group_recall_within_overall_lists</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Current-giving ranking</td>
+      <td>Former-major</td>
+      <td>266.22</td>
+      <td>75.00</td>
+      <td>66.67</td>
+      <td>8.87%</td>
+      <td>88.89%</td>
+    </tr>
+    <tr>
+      <td>Logistic regression (untuned)</td>
+      <td>Former-major</td>
+      <td>498.00</td>
+      <td>75.00</td>
+      <td>74.00</td>
+      <td>16.60%</td>
+      <td>98.67%</td>
+    </tr>
+    <tr>
+      <td>Current-giving ranking</td>
+      <td>Never-major</td>
+      <td>2,733.78</td>
+      <td>59.00</td>
+      <td>34.38</td>
+      <td>91.13%</td>
+      <td>58.27%</td>
+    </tr>
+    <tr>
+      <td>Logistic regression (untuned)</td>
+      <td>Never-major</td>
+      <td>2,502.00</td>
+      <td>59.00</td>
+      <td>34.00</td>
+      <td>83.40%</td>
+      <td>57.63%</td>
+    </tr>
+  </tbody>
+</table></div>
+<h2>Weighted no-contact overall lists</h2>
+<pre class="source"><code>#| label: no-contact-list-composition
+nc_display = no_contact_composition.copy()
+for col in [&quot;weighted_selected_slots&quot;, &quot;available_weighted_converters&quot;, &quot;captured_weighted_converters&quot;]:
+    nc_display[col] = nc_display[col].map(lambda value: f&quot;{value:,.2f}&quot;)
+for col in [&quot;share_of_overall_lists&quot;, &quot;group_recall_within_overall_lists&quot;]:
+    nc_display[col] = nc_display[col].map(percentage)
+show_table(nc_display)</code></pre>
+<div class="output"><table class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>model</th>
+      <th>group</th>
+      <th>weighted_selected_slots</th>
+      <th>available_weighted_converters</th>
+      <th>captured_weighted_converters</th>
+      <th>share_of_overall_lists</th>
+      <th>group_recall_within_overall_lists</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Current-giving ranking</td>
+      <td>Former-major</td>
+      <td>247.75</td>
+      <td>47.35</td>
+      <td>38.58</td>
+      <td>8.26%</td>
+      <td>81.48%</td>
+    </tr>
+    <tr>
+      <td>Logistic regression (untuned)</td>
+      <td>Former-major</td>
+      <td>482.13</td>
+      <td>47.35</td>
+      <td>47.35</td>
+      <td>16.07%</td>
+      <td>100.00%</td>
+    </tr>
+    <tr>
+      <td>Current-giving ranking</td>
+      <td>Never-major</td>
+      <td>2,752.25</td>
+      <td>38.13</td>
+      <td>23.10</td>
+      <td>91.74%</td>
+      <td>60.59%</td>
+    </tr>
+    <tr>
+      <td>Logistic regression (untuned)</td>
+      <td>Never-major</td>
+      <td>2,517.87</td>
+      <td>38.13</td>
+      <td>21.13</td>
+      <td>83.93%</td>
+      <td>55.41%</td>
+    </tr>
+  </tbody>
+</table></div>
+<p>Logistic allocates more of the overall list to eligible former-major donors. Its overall gain comes from improved former-major capture, not more never-major converter capture. In the weighted no-contact sample it captured all observed former-major converter weight, but this boundary result is not a guarantee for future cohorts.</p>
+<pre class="source"><code>#| label: no-contact-subgroup-differences
+show_table(no_contact_differences.round(3))</code></pre>
+<div class="output"><table class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>group</th>
+      <th>logistic_minus_giving_weighted_capture</th>
+      <th>logistic_minus_giving_recall_pp</th>
+      <th>recall_difference_ci_low_pp</th>
+      <th>recall_difference_ci_high_pp</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Former-major</td>
+      <td>8.770</td>
+      <td>18.520</td>
+      <td>2.730</td>
+      <td>36.290</td>
+    </tr>
+    <tr>
+      <td>Never-major</td>
+      <td>-1.973</td>
+      <td>-5.175</td>
+      <td>-15.249</td>
+      <td>2.445</td>
+    </tr>
+  </tbody>
+</table></div>
+<h1>FY2025 disruption check: separate secondary evidence</h1>
+<aside class="callout">
+<p>FY2025 was <strong>excluded from model selection and primary rolling validation</strong>. Its next-year outcomes fall in FY2026, July 1, 2025–June 30, 2026, the influx period identified in the EDA. After logistic was selected, a frozen pipeline trained on FY2021–FY2024 was evaluated once on FY2025. FY2025 was then included in the approved final refit. It was not permanently left out of training.</p>
+</aside>
+<p>The following results describe that earlier development-trained model&#x27;s labeled disruption check—not the final FY2021–FY2025 refit and not a replacement for primary rolling validation. They do not establish that the funding change caused a performance difference.</p>
+<pre class="source"><code>#| label: disruption-check-results
+check_ci = fy2025_uncertainty.set_index([&quot;scope&quot;, &quot;metric&quot;])
+check_rows = []
+for _, row in fy2025.iterrows():
+    bounds = check_ci.loc[(row[&quot;scope&quot;], &quot;recall_at_1000&quot;)]
+    check_rows.append({
+        &quot;Population&quot;: row[&quot;scope&quot;],
+        &quot;Development recall&quot;: percentage(selected.loc[row[&quot;scope&quot;], &quot;recall_at_1000&quot;]),
+        &quot;FY2025 recall [95% CI]&quot;: f&quot;{percentage(row[&#x27;recall_at_1000&#x27;])} [{100 * bounds[&#x27;low&#x27;]:.2f}, {100 * bounds[&#x27;high&#x27;]:.2f}]&quot;,
+        &quot;FY2025 precision&quot;: percentage(row[&quot;precision_at_1000&quot;]),
+        &quot;FY2025 lift&quot;: f&quot;{row[&#x27;lift_at_1000&#x27;]:.2f}&quot;,
+        &quot;FY2025 AP&quot;: f&quot;{row[&#x27;average_precision&#x27;]:.4f}&quot;,
+        &quot;FY2025 ROC AUC&quot;: f&quot;{row[&#x27;roc_auc&#x27;]:.4f}&quot;,
+        &quot;FY2025 accuracy at 0.5&quot;: percentage(row[&quot;accuracy&quot;], 3),
+    })
+show_table(pd.DataFrame(check_rows))</code></pre>
+<div class="output"><table class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>Population</th>
+      <th>Development recall</th>
+      <th>FY2025 recall [95% CI]</th>
+      <th>FY2025 precision</th>
+      <th>FY2025 lift</th>
+      <th>FY2025 AP</th>
+      <th>FY2025 ROC AUC</th>
+      <th>FY2025 accuracy at 0.5</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Overall</td>
+      <td>80.60%</td>
+      <td>67.90% [58.66, 78.88]</td>
+      <td>5.50%</td>
+      <td>22.33</td>
+      <td>0.2631</td>
+      <td>0.9506</td>
+      <td>99.751%</td>
+    </tr>
+    <tr>
+      <td>Never-major</td>
+      <td>59.32%</td>
+      <td>47.73% [33.33, 60.88]</td>
+      <td>2.10%</td>
+      <td>15.60</td>
+      <td>0.0520</td>
+      <td>0.9139</td>
+      <td>99.865%</td>
+    </tr>
+    <tr>
+      <td>No-contact overall</td>
+      <td>80.11%</td>
+      <td>65.52% [39.38, 82.33]</td>
+      <td>3.43%</td>
+      <td>21.55</td>
+      <td>0.1615</td>
+      <td>0.9386</td>
+      <td>99.829%</td>
+    </tr>
+    <tr>
+      <td>No-contact never-major</td>
+      <td>55.41%</td>
+      <td>50.14% [15.45, 72.90]</td>
+      <td>1.71%</td>
+      <td>16.39</td>
+      <td>0.1723</td>
+      <td>0.9106</td>
+      <td>99.896%</td>
+    </tr>
+  </tbody>
+</table></div>
+<h1>Calibration and limitations</h1>
+<pre class="source"><code>#| label: logistic-calibration-comparison
+calibration_rows = []
+for scope, group in folds.loc[folds[&quot;model&quot;].eq(logistic_name)].groupby(&quot;scope&quot;, sort=False):
+    weights = group[&quot;weight_total&quot;]
+    check = fy2025_by_scope.loc[scope]
+    calibration_rows.append({
+        &quot;Population&quot;: scope,
+        &quot;Development mean predicted&quot;: percentage(np.average(group[&quot;mean_predicted&quot;], weights=weights), 4),
+        &quot;Development observed&quot;: percentage(group[&quot;positive_mass&quot;].sum() / weights.sum(), 4),
+        &quot;Development Brier&quot;: f&quot;{selected.loc[scope, &#x27;brier_score&#x27;]:.6f}&quot;,
+        &quot;FY2025 mean predicted&quot;: percentage(check[&quot;mean_predicted&quot;], 4),
+        &quot;FY2025 observed&quot;: percentage(check[&quot;observed_rate&quot;], 4),
+        &quot;FY2025 Brier&quot;: f&quot;{check[&#x27;brier_score&#x27;]:.6f}&quot;,
+    })
+show_table(pd.DataFrame(calibration_rows))</code></pre>
+<div class="output"><table class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>Population</th>
+      <th>Development mean predicted</th>
+      <th>Development observed</th>
+      <th>Development Brier</th>
+      <th>FY2025 mean predicted</th>
+      <th>FY2025 observed</th>
+      <th>FY2025 Brier</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Overall</td>
+      <td>0.1551%</td>
+      <td>0.1379%</td>
+      <td>0.001194</td>
+      <td>0.1081%</td>
+      <td>0.2463%</td>
+      <td>0.002124</td>
+    </tr>
+    <tr>
+      <td>Never-major</td>
+      <td>0.0874%</td>
+      <td>0.0611%</td>
+      <td>0.000604</td>
+      <td>0.0577%</td>
+      <td>0.1346%</td>
+      <td>0.001319</td>
+    </tr>
+    <tr>
+      <td>No-contact overall</td>
+      <td>0.1537%</td>
+      <td>0.0880%</td>
+      <td>0.000861</td>
+      <td>0.0961%</td>
+      <td>0.1590%</td>
+      <td>0.001504</td>
+    </tr>
+    <tr>
+      <td>No-contact never-major</td>
+      <td>0.0891%</td>
+      <td>0.0395%</td>
+      <td>0.000396</td>
+      <td>0.0581%</td>
+      <td>0.1045%</td>
+      <td>0.001009</td>
+    </tr>
+  </tbody>
+</table></div>
+<p>Development predictions overpredicted conversion on average, particularly for no-contact populations; the FY2025 check underpredicted conversion on average. Better ranking or a lower Brier score does not establish good calibration at the top of the prospect list. Overall observed outcomes also include actual contact, whereas model inputs neutralize treatment controls; weighted no-contact evaluation more closely matches the intended scoring setting.</p>
+<p>No calibrator was fitted. Including FY2025 in the final refit does not demonstrate that calibration is repaired. Do not interpret sums of FY2026 scores as a validated forecast of conversions or scores as estimates of outreach effects.</p>
+<p>The source builder was reconstructed with reconciled counts, not guaranteed identical original feature values. Age was reconstructed from a later snapshot, and legacy records contribute to giving history and former-major flags. These provenance limitations should remain visible. Person-level scoring is not equivalent to household-level outreach.</p>
+<h1>Final refit and FY2026 scoring deliverables</h1>
+<p>The selected specification was refitted on FY2021–FY2025 without tuning or recalibration. The saved artifact includes learned preprocessing, package versions, hashes, and a control-safe inference wrapper. Reload tests used synthetic inputs and did not repeat FY2025 evaluation.</p>
+<p>For this release, the artifact and input hashes were verified and the saved model—not a newly fitted model—scored FY2026. Actual exposure flags are preserved in the export, but both model controls were neutralized. Current scoring uses equal person-level allocation weights, not the historical no-contact evaluation weights.</p>
+<pre class="source"><code>#| label: scoring-release-checks
+show_table(pd.DataFrame({
+    &quot;Check&quot;: [&quot;FY2026 prospects scored&quot;, &quot;Unknown outcomes&quot;, &quot;Top-list rows&quot;, &quot;Allocated prospect places&quot;, &quot;Fractional cutoff rows&quot;, &quot;Households deduplicated&quot;, &quot;Model refitted during scoring&quot;, &quot;FY2025 reevaluated&quot;],
+    &quot;Result&quot;: [scoring[&quot;rows_scored&quot;], scoring[&quot;unknown_targets&quot;], scoring[&quot;top_list_rows&quot;], scoring[&quot;top_list_allocated_slots&quot;], scoring[&quot;fractionally_allocated_rows&quot;], scoring[&quot;households_deduplicated&quot;], scoring[&quot;model_refitted&quot;], scoring[&quot;fy2025_re_evaluated&quot;]],
+}))</code></pre>
+<div class="output"><table class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>Check</th>
+      <th>Result</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>FY2026 prospects scored</td>
+      <td>38219</td>
+    </tr>
+    <tr>
+      <td>Unknown outcomes</td>
+      <td>38219</td>
+    </tr>
+    <tr>
+      <td>Top-list rows</td>
+      <td>1000</td>
+    </tr>
+    <tr>
+      <td>Allocated prospect places</td>
+      <td>1000.0</td>
+    </tr>
+    <tr>
+      <td>Fractional cutoff rows</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>Households deduplicated</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <td>Model refitted during scoring</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <td>FY2025 reevaluated</td>
+      <td>False</td>
+    </tr>
+  </tbody>
+</table></div>
+<p>FY2026 scores target major status in FY2027, July 1, 2026–June 30, 2027. All scoring-cohort outcomes are unknown, so no FY2026 accuracy, recall, precision, or calibration estimates are available. Missing outcomes are intentional and were not converted to zero.</p>
+<ul>
+<li><a href="../../outputs/fy2026_logistic_20261017T034811386440Z/fy2026_all_prospect_scores.csv">All FY2026 prospect scores</a></li>
+<li><a href="../../outputs/fy2026_logistic_20261017T034811386440Z/fy2026_top1000_person_level.csv">Preliminary person-level top-1,000 list</a></li>
+<li><a href="../../outputs/fy2026_logistic_20261017T034811386440Z/scoring_audit.json">Scoring provenance and quality checks</a></li>
+<li><a href="../../artifacts/logistic_final_fy2021_2025_20261017T033533058303Z/README.md">Saved model and loading instructions</a></li>
+<li><a href="../../../pbs_utah_group_eda.html">Finalized group EDA</a></li>
+</ul>
+<p><code>score_uncalibrated</code> is the model&#x27;s provisional probability for ranking. <code>rank_min</code> and <code>rank_max</code> preserve score ties. <code>top1000_allocation</code> is the selection fraction; identifier order is display-only and never breaks selection ties. Import identifier fields as text. The scored files contain synthetic identifiers and are publicly shared with the project owner&#x27;s approval; do not substitute real donor information in the public repository.</p>
+<p>The top list is preliminary: household deduplication, contact eligibility/suppression checks, and the operational balance between former-major and never-major prospects require staff review. No outreach has been sent, and this scoring run is not a live deployment.</p>
+<h1>Reproducibility and reporting status</h1>
+<p>All tables are generated from saved, hash-checked result snapshots. Rendering this report does not fit models, reevaluate FY2025, or rescore FY2026. Primary development and secondary disruption-check results are kept separate.</p>
+<p>The Quarto source requires pandas, NumPy, IPython, and Quarto/Jupyter tooling for native rendering. A standalone HTML companion is supplied using the same executed Python code cells and standard-library formatting; it is not a native Quarto render. The HTML companion contains no donor-level prospect data.</p>
+</body></html>

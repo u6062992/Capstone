@@ -1,0 +1,129 @@
+model,scope,period,metric,low,high,valid_replicates
+Logistic regression (untuned),Overall,2022,accuracy,0.9977587466709205,0.9987178675572893,1000
+Logistic regression (untuned),Overall,2022,accuracy_at_1000,0.9684348539823441,0.9694771683688114,1000
+Logistic regression (untuned),Overall,2022,observed_rate,0.0012461895437782394,0.0021563399301662697,1000
+Logistic regression (untuned),Overall,2022,mean_predicted,0.0017043022168862021,0.0021246359410284433,1000
+Logistic regression (untuned),Overall,2022,brier_score,0.0010927661477005723,0.001843068955202373,1000
+Logistic regression (untuned),Overall,2022,recall_at_1000,0.6832954545454546,0.8975,1000
+Logistic regression (untuned),Overall,2022,precision_at_1000,0.03,0.055,1000
+Logistic regression (untuned),Overall,2022,lift_at_1000,21.28381522727273,28.04683284722222,1000
+Logistic regression (untuned),Overall,2023,accuracy,0.9983114589326397,0.9990589775235975,1000
+Logistic regression (untuned),Overall,2023,accuracy_at_1000,0.9700912495750107,0.9708705875378687,1000
+Logistic regression (untuned),Overall,2023,observed_rate,0.0007828230560767987,0.0014743648635392773,1000
+Logistic regression (untuned),Overall,2023,mean_predicted,0.0014216107644705565,0.0017887772351226083,1000
+Logistic regression (untuned),Overall,2023,brier_score,0.0008079083979118715,0.0013627759249718301,1000
+Logistic regression (untuned),Overall,2023,recall_at_1000,0.6176470588235294,0.8919160231660231,1000
+Logistic regression (untuned),Overall,2023,precision_at_1000,0.019,0.039,1000
+Logistic regression (untuned),Overall,2023,lift_at_1000,20.53823161764706,29.622649782818534,1000
+Logistic regression (untuned),Overall,2024,accuracy,0.9982696138798757,0.9990815949293089,1000
+Logistic regression (untuned),Overall,2024,accuracy_at_1000,0.9700278687089378,0.9709414671638262,1000
+Logistic regression (untuned),Overall,2024,observed_rate,0.0009464319639195221,0.0017522256949762762,1000
+Logistic regression (untuned),Overall,2024,mean_predicted,0.0010271805989049891,0.0012815091745766905,1000
+Logistic regression (untuned),Overall,2024,brier_score,0.0007898299549825914,0.0014085730883829485,1000
+Logistic regression (untuned),Overall,2024,recall_at_1000,0.75,0.9555555555555556,1000
+Logistic regression (untuned),Overall,2024,precision_at_1000,0.026,0.051,1000
+Logistic regression (untuned),Overall,2024,lift_at_1000,24.531525,31.36329983918852,1000
+Logistic regression (untuned),Overall,Pooled,accuracy,0.9982880948616656,0.9988099387137508,1000
+Logistic regression (untuned),Overall,Pooled,accuracy_at_1000,0.9697174620303141,0.970259333532542,1000
+Logistic regression (untuned),Overall,Pooled,observed_rate,0.0011323390563694406,0.0016346127003319187,1000
+Logistic regression (untuned),Overall,Pooled,mean_predicted,0.0014112292393486782,0.0016833109688669512,1000
+Logistic regression (untuned),Overall,Pooled,brier_score,0.000995657414337885,0.0013966620857732814,1000
+Logistic regression (untuned),Overall,Pooled,recall_at_1000,0.7327155172413793,0.8702419899257413,1000
+Logistic regression (untuned),Overall,Pooled,precision_at_1000,0.029,0.04334166666666666,1000
+Logistic regression (untuned),Overall,Pooled,lift_at_1000,23.71969403790471,28.158966486920423,1000
+Logistic regression (untuned),Never-major,2022,accuracy,0.9989712686370018,0.9995839918162395,1000
+Logistic regression (untuned),Never-major,2022,accuracy_at_1000,0.9674690850970897,0.9682025956134797,1000
+Logistic regression (untuned),Never-major,2022,observed_rate,0.0004160081837605015,0.0010287313629981788,1000
+Logistic regression (untuned),Never-major,2022,mean_predicted,0.001020586554649243,0.001187481185910185,1000
+Logistic regression (untuned),Never-major,2022,brier_score,0.0004351910550445772,0.0010086611564903243,1000
+Logistic regression (untuned),Never-major,2022,recall_at_1000,0.33303571428571427,0.7694444444444443,1000
+Logistic regression (untuned),Never-major,2022,precision_at_1000,0.006,0.019,1000
+Logistic regression (untuned),Never-major,2022,lift_at_1000,10.292791071428573,23.899063888888886,1000
+Logistic regression (untuned),Never-major,2023,accuracy,0.9990627255741983,0.9996054652166398,1000
+Logistic regression (untuned),Never-major,2023,accuracy_at_1000,0.9695418294847525,0.9702041930862184,1000
+Logistic regression (untuned),Never-major,2023,observed_rate,0.00039453478336018037,0.0009372744258017787,1000
+Logistic regression (untuned),Never-major,2023,mean_predicted,0.0008153110953660322,0.0009171683385764186,1000
+Logistic regression (untuned),Never-major,2023,brier_score,0.0003958238893115571,0.0009036639456591007,1000
+Logistic regression (untuned),Never-major,2023,recall_at_1000,0.3927579365079365,0.8333333333333334,1000
+Logistic regression (untuned),Never-major,2023,precision_at_1000,0.006975000000000001,0.021,1000
+Logistic regression (untuned),Never-major,2023,lift_at_1000,13.00292619047619,27.481104166666665,1000
+Logistic regression (untuned),Never-major,2024,accuracy,0.9992919208919039,0.9997247620051786,1000
+Logistic regression (untuned),Never-major,2024,accuracy_at_1000,0.9691156456387561,0.9697278692766439,1000
+Logistic regression (untuned),Never-major,2024,observed_rate,0.00027523799482136613,0.0007080791080960812,1000
+Logistic regression (untuned),Never-major,2024,mean_predicted,0.0006299622305158556,0.00070045542133793,1000
+Logistic regression (untuned),Never-major,2024,brier_score,0.000270058231454996,0.0006912997187386504,1000
+Logistic regression (untuned),Never-major,2024,recall_at_1000,0.38461538461538464,0.8571428571428571,1000
+Logistic regression (untuned),Never-major,2024,precision_at_1000,0.004,0.016,1000
+Logistic regression (untuned),Never-major,2024,lift_at_1000,12.476913461538462,27.967885714285714,1000
+Logistic regression (untuned),Never-major,Pooled,accuracy,0.9992237496951237,0.9995438278944171,1000
+Logistic regression (untuned),Never-major,Pooled,accuracy_at_1000,0.9688651317920106,0.9692556194612952,1000
+Logistic regression (untuned),Never-major,Pooled,observed_rate,0.00045617210558289103,0.0007762503048763333,1000
+Logistic regression (untuned),Never-major,Pooled,mean_predicted,0.0008347559009339841,0.0009146102700159668,1000
+Logistic regression (untuned),Never-major,Pooled,brier_score,0.0004608932731943145,0.0007584909561847604,1000
+Logistic regression (untuned),Never-major,Pooled,recall_at_1000,0.4561339009287925,0.7291914682539682,1000
+Logistic regression (untuned),Never-major,Pooled,precision_at_1000,0.008,0.016,1000
+Logistic regression (untuned),Never-major,Pooled,lift_at_1000,14.705878468899522,23.501779208002645,1000
+Logistic regression (untuned),No-contact overall,2022,accuracy,0.9979755497711187,0.9992954017345648,1000
+Logistic regression (untuned),No-contact overall,2022,accuracy_at_1000,0.9679032628259588,0.9692159960458547,1000
+Logistic regression (untuned),No-contact overall,2022,observed_rate,0.0005762109627566081,0.0017683399524309614,1000
+Logistic regression (untuned),No-contact overall,2022,mean_predicted,0.0015320291627078809,0.00227472190717611,1000
+Logistic regression (untuned),No-contact overall,2022,brier_score,0.0006966649873884462,0.0016437842572247774,1000
+Logistic regression (untuned),No-contact overall,2022,recall_at_1000,0.5202237995913502,0.900741146726632,1000
+Logistic regression (untuned),No-contact overall,2022,precision_at_1000,0.010032258064516127,0.04434677419354837,1000
+Logistic regression (untuned),No-contact overall,2022,lift_at_1000,16.192991845027834,28.137779445525933,1000
+Logistic regression (untuned),No-contact overall,2023,accuracy,0.9983027057224515,0.999486893506234,1000
+Logistic regression (untuned),No-contact overall,2023,accuracy_at_1000,0.9697680078784863,0.9708523884065364,1000
+Logistic regression (untuned),No-contact overall,2023,observed_rate,0.0002412347258894784,0.0012188391904610109,1000
+Logistic regression (untuned),No-contact overall,2023,mean_predicted,0.0013382563586366767,0.001999870496758614,1000
+Logistic regression (untuned),No-contact overall,2023,brier_score,0.00042800606841168976,0.001173759340631579,1000
+Logistic regression (untuned),No-contact overall,2023,recall_at_1000,0.3654970760233918,0.944911947213337,1000
+Logistic regression (untuned),No-contact overall,2023,precision_at_1000,0.004032258064516129,0.03425806451612903,1000
+Logistic regression (untuned),No-contact overall,2023,lift_at_1000,12.122788447934354,31.37693791385699,1000
+Logistic regression (untuned),No-contact overall,2024,accuracy,0.9986530269725828,0.9997850733197753,1000
+Logistic regression (untuned),No-contact overall,2024,accuracy_at_1000,0.9695530945854952,0.9708672953090156,1000
+Logistic regression (untuned),No-contact overall,2024,observed_rate,0.0003069177666765731,0.001505049552109463,1000
+Logistic regression (untuned),No-contact overall,2024,mean_predicted,0.0008972536771752293,0.0013727062890642743,1000
+Logistic regression (untuned),No-contact overall,2024,brier_score,0.00027667810921822977,0.001216176051673513,1000
+Logistic regression (untuned),No-contact overall,2024,recall_at_1000,0.6444954128440367,1.0,1000
+Logistic regression (untuned),No-contact overall,2024,precision_at_1000,0.008064516129032258,0.0453798387096774,1000
+Logistic regression (untuned),No-contact overall,2024,lift_at_1000,21.13483256325836,32.79097177419355,1000
+Logistic regression (untuned),No-contact overall,Pooled,accuracy,0.9985821989330286,0.9993366610616147,1000
+Logistic regression (untuned),No-contact overall,Pooled,accuracy_at_1000,0.9692923983464394,0.9700700820800333,1000
+Logistic regression (untuned),No-contact overall,Pooled,observed_rate,0.0005571103375376074,0.0012362284537662381,1000
+Logistic regression (untuned),No-contact overall,Pooled,mean_predicted,0.0013472401408902337,0.0017619374914012139,1000
+Logistic regression (untuned),No-contact overall,Pooled,brier_score,0.0006050877692462454,0.0011378735968308414,1000
+Logistic regression (untuned),No-contact overall,Pooled,recall_at_1000,0.6752394516318729,0.8945637870532831,1000
+Logistic regression (untuned),No-contact overall,Pooled,precision_at_1000,0.01241935483870968,0.03458091397849463,1000
+Logistic regression (untuned),No-contact overall,Pooled,lift_at_1000,21.88101846285525,28.98025872976821,1000
+Logistic regression (untuned),No-contact never-major,2022,accuracy,0.9990983452669612,0.9997738486240768,1000
+Logistic regression (untuned),No-contact never-major,2022,accuracy_at_1000,0.9673462292674216,0.968178948465101,1000
+Logistic regression (untuned),No-contact never-major,2022,observed_rate,0.00022615137592330302,0.0009016547330388025,1000
+Logistic regression (untuned),No-contact never-major,2022,mean_predicted,0.001017097827833992,0.0013010904728366617,1000
+Logistic regression (untuned),No-contact never-major,2022,brier_score,0.00029374817770398074,0.0008432966716093143,1000
+Logistic regression (untuned),No-contact never-major,2022,recall_at_1000,0.11083333333333334,0.7686853480124132,1000
+Logistic regression (untuned),No-contact never-major,2022,precision_at_1000,0.001,0.01709758064516129,1000
+Logistic regression (untuned),No-contact never-major,2022,lift_at_1000,3.4211189516129035,23.83852620435311,1000
+Logistic regression (untuned),No-contact never-major,2023,accuracy,0.9991769751709388,0.9998786836421841,1000
+Logistic regression (untuned),No-contact never-major,2023,accuracy_at_1000,0.9694666696050924,0.9702922236819062,1000
+Logistic regression (untuned),No-contact never-major,2023,observed_rate,0.00012131635781584956,0.0008230248290612729,1000
+Logistic regression (untuned),No-contact never-major,2023,mean_predicted,0.0007903346619592173,0.0009632569929973186,1000
+Logistic regression (untuned),No-contact never-major,2023,brier_score,0.00013679740356401939,0.0007918693162358868,1000
+Logistic regression (untuned),No-contact never-major,2023,recall_at_1000,0.0,0.9096242801549814,1000
+Logistic regression (untuned),No-contact never-major,2023,precision_at_1000,0.0,0.021186290322580625,1000
+Logistic regression (untuned),No-contact never-major,2023,lift_at_1000,0.0,29.904911485345927,1000
+Logistic regression (untuned),No-contact never-major,2024,accuracy,0.9994723124120891,0.9999693980721711,1000
+Logistic regression (untuned),No-contact never-major,2024,accuracy_at_1000,0.9690300831903645,0.9697366403819211,1000
+Logistic regression (untuned),No-contact never-major,2024,observed_rate,3.060192782901701e-05,0.0005276875879108898,1000
+Logistic regression (untuned),No-contact never-major,2024,mean_predicted,0.0006037543585969156,0.0007210393596856338,1000
+Logistic regression (untuned),No-contact never-major,2024,brier_score,3.9078315578532606e-05,0.0005116209038625971,1000
+Logistic regression (untuned),No-contact never-major,2024,recall_at_1000,0.0,1.0,984
+Logistic regression (untuned),No-contact never-major,2024,precision_at_1000,0.0,0.012096774193548388,1000
+Logistic regression (untuned),No-contact never-major,2024,lift_at_1000,0.0,32.541688709677416,984
+Logistic regression (untuned),No-contact never-major,Pooled,accuracy,0.9993974389502843,0.9997822090744843,1000
+Logistic regression (untuned),No-contact never-major,Pooled,accuracy_at_1000,0.9687751959395438,0.9692471898247709,1000
+Logistic regression (untuned),No-contact never-major,Pooled,observed_rate,0.00021779092551565146,0.0006025610497157908,1000
+Logistic regression (untuned),No-contact never-major,Pooled,mean_predicted,0.0008317760603645601,0.0009545708493428885,1000
+Logistic regression (untuned),No-contact never-major,Pooled,brier_score,0.00023668774204593446,0.0005818858618685318,1000
+Logistic regression (untuned),No-contact never-major,Pooled,recall_at_1000,0.2701363073110285,0.7512356147175622,1000
+Logistic regression (untuned),No-contact never-major,Pooled,precision_at_1000,0.0023252688172043018,0.013430107526881722,1000
+Logistic regression (untuned),No-contact never-major,Pooled,lift_at_1000,8.687640720310187,24.105444150695394,1000

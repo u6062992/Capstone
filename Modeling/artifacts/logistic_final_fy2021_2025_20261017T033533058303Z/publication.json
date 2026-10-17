@@ -1,0 +1,10 @@
+{
+  "owner_declared_data_synthetic": true,
+  "public_publication_authorized": true,
+  "authorization_text": "Data is fake. okay to publish public",
+  "prepared_utc": "2026-10-17T20:48:05.955449+00:00",
+  "purpose": "Synthetic-data capstone demonstration, not a real-donor outreach deployment",
+  "model_binary_sha256": "798665cf61cb1e61f7778321e50a397d5d80c71f6a3741d8c04de44d07081b57",
+  "model_and_prediction_values_changed": false,
+  "machine_path_redaction": "User-home prefixes in diagnostic stderr only; warnings retained"
+}

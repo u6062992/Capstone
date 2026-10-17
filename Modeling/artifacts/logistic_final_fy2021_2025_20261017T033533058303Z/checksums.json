@@ -1,0 +1,20 @@
+{
+  "development_logistic_calibration_bins.csv": "6e1ad8ffc48f01e2d89a17cd8552e20659998ff6f9b491414c0ba35e4a60ca60",
+  "development_logistic_folds.csv": "95e1ff84b7fa4cd652d530f9391c4bddc0d26fe283cc271d9f4b84032c4e2cb1",
+  "development_logistic_summary.csv": "18fd524c5e36675a1825fec4273c9ffe5f5b5ea4515fe5355d6e12e63606508b",
+  "development_logistic_uncertainty.csv": "a6e660b58463e6086a2dc31aea8f4db945025a3b27d2b42071f94318f0f20b35",
+  "feature_manifest.json": "4336f8231f28b1df821df18c257adce4d1749bb083a9daaffb9898f7454850aa",
+  "feature_schema.csv": "eb7f6e2f201e1819d82ae830f8b67b00d3877e4015b4742957d97f884191f7ad",
+  "fy2025_calibration_bins.csv": "675a2e30f9278b7b53732b774bb78d20fc686cc6fb993e9184bed447420e964f",
+  "fy2025_calibration_summary.csv": "f7f90b0e7997242b118addfa8ad1514a66e889351d32858ea55532618068d99d",
+  "fy2025_metrics.csv": "03a41e78ec5307d52d4765344c4a701241b9cf97f3ca196141a828e362569366",
+  "fy2025_uncertainty.csv": "def882fb406043a286f6ba0212440f87b5292bc5b93cf5832f780caff9da82f0",
+  "fy2025_vs_development.csv": "93a202439192533135f3af25bdb499b07353a844fc0a56279221d434b369a587",
+  "metadata.json": "b8e9d91b6b7f16e4366ebc598624cfd3e6e1c78a9c42cf202d21b5c4e20a06eb",
+  "model.joblib": "798665cf61cb1e61f7778321e50a397d5d80c71f6a3741d8c04de44d07081b57",
+  "pbs_utah_logistic_artifact.py": "660594d3b6fd8de6f351fb030cf3af0113cc46dfc06bb75fb12793acfec837b3",
+  "publication.json": "9a67097db8b49ccbe4dfafcfb6f74debd4e538b55805001f67e248fa8678722c",
+  "README.md": "6dfc0f0dde456a7cdc01a15eb90dc4509fe46bda540397960db8e061134c2f79",
+  "reload_validation.json": "22d6cf7e26717a7f826f935747c6c788e92214b070d4a303264c30ec75399b6a",
+  "requirements.txt": "d240584e47adac6479d4d52ac18776f9f0a88c996ec8c77ad153715e3968c9dd"
+}

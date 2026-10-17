@@ -1,0 +1,9 @@
+baseline,reference,scope,reference_advantage_pp,ci_low_pp,ci_high_pp
+Former major or $500 rule,Current-giving ranking,Overall,-1.160862963506526,-5.609218027989628,3.4529708883202455
+Former major or $500 rule,Logistic regression (untuned),Overall,4.030149917478476,0.3046465790642846,8.020565107392478
+Former major or $500 rule,Current-giving ranking,Never-major,12.527996169294397,6.7713506224484314,19.28939052602202
+Former major or $500 rule,Logistic regression (untuned),Never-major,12.219564352181788,3.8302430127463,21.357297397448527
+Former major or $500 rule,Current-giving ranking,No-contact overall,-2.544861999887904,-16.219517710452717,11.870561025960235
+Former major or $500 rule,Logistic regression (untuned),No-contact overall,5.406298335964566,-0.47521300266323135,15.228464463649294
+Former major or $500 rule,Current-giving ranking,No-contact never-major,17.404441588268654,2.156858486449,37.35237349570541
+Former major or $500 rule,Logistic regression (untuned),No-contact never-major,11.793785877310597,-1.4962846847437608,31.88686640994319

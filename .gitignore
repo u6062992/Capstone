@@ -1,0 +1,9 @@
+/.quarto/
+**/*.quarto_ipynb
+/.posit/
+**/__pycache__/
+**/*.py[cod]
+**/.ipynb_checkpoints/
+
+# Preserve the user's editor-generated duplicate outside the publication set.
+/Modeling/reports/final_logistic_writeup_20261017T034811386440Z/final_modeling_writeup-1.qmd

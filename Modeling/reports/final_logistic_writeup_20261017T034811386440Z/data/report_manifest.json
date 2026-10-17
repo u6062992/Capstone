@@ -1,0 +1,17 @@
+{
+  "artifact_directory": "Modeling/artifacts/logistic_final_fy2021_2025_20261017T033533058303Z",
+  "scoring_directory": "Modeling/outputs/fy2026_logistic_20261017T034811386440Z",
+  "report_created_utc": "2026-10-17T03:48:11.386440+00:00",
+  "model_sha256": "798665cf61cb1e61f7778321e50a397d5d80c71f6a3741d8c04de44d07081b57",
+  "data_sha256": {
+    "development_comparison.csv": "5e8fda03accb09e82af68bad3e14052850e08dddf4b91e69e34f8eaab2c8b0cd",
+    "development_fold_metrics.csv": "ad8919392e830015888365b97da6911786a5ae096e17f09c916388059639c4ec",
+    "development_uncertainty.csv": "76d682abb54286cd834170d53d79ab0ca8a335ce4444c84f86fe3108bb38b21a",
+    "logistic_vs_giving.csv": "aa32e405a93397df5704a70fe840d49bf8f27a9a483dc32071dc4b6f2a44f61d",
+    "secondary_rule_comparisons.csv": "fc543f1ad61d817c9573277384f44fbbcae702b46f036f05d53be89c5d45b4a0",
+    "overall_list_composition.csv": "43d281420ba6bd5b255e601a987122cce08557610312f77f0c4a65686fb4c13a",
+    "overall_list_group_differences.csv": "df9e3bf4c4df0e90835facd1e32d0300c714517305119561f4ad3730365c773b",
+    "no_contact_list_composition.csv": "7b8cf8342dad8c98d88075c3a139df3fefa7d6bcaf5a9505f72b03d840e65a61",
+    "no_contact_list_group_differences.csv": "98646cc3141e7f1f26bb33ee7fc2a4087c36c7552ddd2d256a6d7c6cc4913a1d"
+  }
+}

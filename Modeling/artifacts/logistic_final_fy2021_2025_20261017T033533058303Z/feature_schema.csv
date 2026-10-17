@@ -1,0 +1,17 @@
+feature,training_dtype,role,preprocessing
+prior_total,float64,core_predictor,numeric_or_binary
+former_major,bool,core_predictor,numeric_or_binary
+years_last5,int64,core_predictor,numeric_or_binary
+years_since_first_gift,int64,core_predictor,numeric_or_binary
+legacy_years,int64,core_predictor,numeric_or_binary
+giving_change,float64,core_predictor,numeric_or_binary
+giving_change_band,str,core_predictor,categorical
+two_years_before,float64,core_predictor,numeric_or_binary
+largest_gift_share,float64,core_predictor,numeric_or_binary
+sustainer,bool,core_predictor,numeric_or_binary
+monthly_amount,float64,core_predictor,numeric_or_binary
+soft_before,bool,core_predictor,numeric_or_binary
+age_at_t,int64,core_predictor,numeric_or_binary
+gender,str,core_predictor,categorical
+contacted_t,bool,training_only_control,numeric_or_binary
+heldout_t,bool,training_only_control,numeric_or_binary

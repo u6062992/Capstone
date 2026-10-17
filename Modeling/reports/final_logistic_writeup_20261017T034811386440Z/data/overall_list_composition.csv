@@ -1,0 +1,5 @@
+model,group,selected_slots,available_group_converters,captured_group_converters,share_of_overall_lists,group_recall_within_overall_lists
+Current-giving ranking,Former-major,266.217157942316,75,66.66587467532109,0.08873905264743867,0.8888783290042812
+Logistic regression (untuned),Former-major,498.0,75,74.0,0.166,0.9866666666666667
+Current-giving ranking,Never-major,2733.782842057684,59,34.378168064159006,0.9112609473525612,0.5826808146467628
+Logistic regression (untuned),Never-major,2502.0,59,34.0,0.834,0.576271186440678

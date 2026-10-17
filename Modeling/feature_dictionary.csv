@@ -1,0 +1,77 @@
+column,dtype,role,description
+constituent_id,str,metadata,"Audit, key, cutoff, or supporting accounting field; excluded from default predictors."
+t,int64,metadata,"Audit, key, cutoff, or supporting accounting field; excluded from default predictors."
+segment,str,metadata,"Audit, key, cutoff, or supporting accounting field; excluded from default predictors."
+prior_total,float64,core_predictor,"Recognized individual giving during FY t, in dollars."
+prev_total,float64,metadata,"Audit, key, cutoff, or supporting accounting field; excluded from default predictors."
+two_years_before,float64,core_predictor,Recognized giving in t-2 plus t-1.
+years_last5,int64,core_predictor,Number of fiscal years with positive giving in t-4:t.
+years_since_first_gift,int64,core_predictor,Inclusive t minus first observed gift FY plus one; includes pre-1999 records.
+former_major,bool,core_predictor,"Qualified as major in any FY before t, including legacy and combined-only status."
+soft_before,bool,core_predictor,At least one positive assigned soft credit dated in a fiscal year before t.
+soft_in_t,bool,optional_predictor,Any positive assigned soft credit in FY t.
+soft_amount_t,float64,metadata,"Audit, key, cutoff, or supporting accounting field; excluded from default predictors."
+giving_change,float64,core_predictor,Dollar difference between t and t-1 giving.
+giving_change_band,str,core_predictor,"No gift last year, gave more, gave less, or gave the same."
+largest_gift_t,float64,optional_predictor,Largest recognized gift in FY t.
+largest_gift_share,float64,core_predictor,Largest single recognized gift in t divided by FY t total; undefined for lapsed.
+recurring_amount_t,float64,metadata,"Audit, key, cutoff, or supporting accounting field; excluded from default predictors."
+recurring_count_t,int64,metadata,"Audit, key, cutoff, or supporting accounting field; excluded from default predictors."
+sustainer,bool,core_predictor,"At least one recurring payment during t, reconstructed from transactions."
+monthly_amount,float64,core_predictor,Recurring dollars divided by recurring payment count in t; zero for nonsustainers.
+upgrade_gift,bool,optional_predictor,At least one Unite Upgrade gift during t.
+additional_gift,bool,optional_predictor,At least one Unite Additional gift during t.
+legacy_spouse_listed,bool,metadata,"Audit, key, cutoff, or supporting accounting field; excluded from default predictors."
+gift_count_t,int64,metadata,"Audit, key, cutoff, or supporting accounting field; excluded from default predictors."
+legacy_years,int64,core_predictor,Count of fiscal years with attributed legacy gifts through t.
+history_pre1999,bool,metadata,"Audit, key, cutoff, or supporting accounting field; excluded from default predictors."
+feature_cutoff,datetime64[us],metadata,"Audit, key, cutoff, or supporting accounting field; excluded from default predictors."
+last_gift_date,datetime64[us],metadata,"Audit, key, cutoff, or supporting accounting field; excluded from default predictors."
+days_since_last_gift,int64,optional_predictor,June 30 of t minus last observed positive gift date through t.
+spouse_id,str,metadata,"Audit, key, cutoff, or supporting accounting field; excluded from default predictors."
+gender,str,core_predictor,Snapshot gender; blank recorded as Unknown; assumed stable.
+state,str,optional_predictor,Snapshot state assumed stable; optional sensitivity feature.
+constituent_type,str,sensitivity_only,"Audit, key, cutoff, or supporting accounting field; excluded from default predictors."
+couple_id,str,metadata,"Audit, key, cutoff, or supporting accounting field; excluded from default predictors."
+age_at_t,int64,core_predictor,Snapshot age minus (2026-t); implausible negative or >120 ages left missing.
+spouse_on_file,bool,optional_predictor,Linked spouse in snapshot; assumed stable.
+row_id,str,metadata,"Audit, key, cutoff, or supporting accounting field; excluded from default predictors."
+in_validation,bool,metadata,"Audit, key, cutoff, or supporting accounting field; excluded from default predictors."
+outcome_observed_1yr,bool,outcome,"Audit, key, cutoff, or supporting accounting field; excluded from default predictors."
+converted_1yr,Int64,outcome,"Audit, key, cutoff, or supporting accounting field; excluded from default predictors."
+conversion_fy_1yr,Int64,outcome,"Audit, key, cutoff, or supporting accounting field; excluded from default predictors."
+conversion_amount_1yr,float64,outcome,"Audit, key, cutoff, or supporting accounting field; excluded from default predictors."
+conversion_tier_1yr,string,outcome,"Audit, key, cutoff, or supporting accounting field; excluded from default predictors."
+outcome_observed_3yr,bool,outcome,"Audit, key, cutoff, or supporting accounting field; excluded from default predictors."
+converted_3yr,Int64,outcome,"Audit, key, cutoff, or supporting accounting field; excluded from default predictors."
+conversion_fy_3yr,Int64,outcome,"Audit, key, cutoff, or supporting accounting field; excluded from default predictors."
+conversion_amount_3yr,float64,outcome,"Audit, key, cutoff, or supporting accounting field; excluded from default predictors."
+conversion_tier_3yr,string,outcome,"Audit, key, cutoff, or supporting accounting field; excluded from default predictors."
+outcome_observed_5yr,bool,outcome,"Audit, key, cutoff, or supporting accounting field; excluded from default predictors."
+converted_5yr,Int64,outcome,"Audit, key, cutoff, or supporting accounting field; excluded from default predictors."
+conversion_fy_5yr,Int64,outcome,"Audit, key, cutoff, or supporting accounting field; excluded from default predictors."
+conversion_amount_5yr,float64,outcome,"Audit, key, cutoff, or supporting accounting field; excluded from default predictors."
+conversion_tier_5yr,string,outcome,"Audit, key, cutoff, or supporting accounting field; excluded from default predictors."
+solicitations,float64,optional_predictor,"Solicitation rows in FY t, including repeated asks; unknown outside source coverage."
+responses,float64,optional_predictor,True responses with a valid response date in FY t (not campaign FY).
+by_mail,boolean,optional_predictor,Any Mail solicitation in FY t; unknown outside source coverage.
+by_email,boolean,optional_predictor,Any Email solicitation in FY t; unknown outside source coverage.
+by_digital,boolean,optional_predictor,Any Digital solicitation in FY t; unknown outside source coverage.
+by_phone_or_in_person,boolean,optional_predictor,Any Phone or In-Person solicitation in FY t; unknown outside source coverage.
+solicitations_3yr,float64,optional_predictor,Solicitations in observed years of FY t-2 through t; use with coverage years.
+solicitations_3yr_coverage_years,int64,metadata,Number of source-covered years in t-2:t (FY2021 has one; FY2022 has two).
+titles,float64,optional_predictor,Sum of Passport titles viewed across genres in FY t; NaN without a viewing record.
+genres,float64,optional_predictor,Distinct recorded Passport genres in FY t; NaN without a viewing record.
+share_watched,float64,optional_predictor,Title-weighted mean_percent_watched (0-1) in FY t; NaN when unobserved/undefined.
+viewed_t,bool,optional_predictor,A linked Passport record exists in FY t; False does not establish zero viewing.
+viewed_by_t,bool,optional_predictor,"Any Passport record from FY2021 through FY t, never using a later record."
+cultivation_selected_actual,bool,evaluation,"Actual selection flag in FY t; absent roster rows use False, not observed status."
+cultivation_contacted_actual,bool,evaluation,"Actual officer contact assignment in FY t, preserved even for FY2026 scoring."
+cultivation_holdout_actual,bool,evaluation,Actual holdout flag in FY t; absent roster rows use False by report convention.
+cultivation_observed,bool,metadata,This donor-year has a cultivation roster row; distinguishes missing history from recorded False.
+contacted_t,bool,training_only,Contact assignment in FY t for training; forced False for FY2026 scoring only.
+heldout_t,bool,training_only,Selected AND held out in FY t for training; forced False for FY2026 scoring only.
+no_contact_pool,bool,evaluation,"Not actually contacted in FY t; actuals, not neutralized training flags, define this pool."
+no_contact_weight,float64,evaluation,"0 for actual contact, full-roster selected/heldout for selected holdouts, otherwise 1."
+portfolio_id,string,metadata,Officer portfolio for the observed assignment; never a predictor; missing without a roster row.
+program_adopted,boolean,evaluation,Recorded portfolio adoption flag for analysis only; missing without a roster row.

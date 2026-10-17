@@ -1,0 +1,2 @@
+# Publication bundles use SHA-256 checksums. Preserve exact file bytes on every OS.
+Modeling/** -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol

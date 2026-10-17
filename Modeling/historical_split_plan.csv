@@ -1,0 +1,13 @@
+horizon_years,train_first_fy,train_last_fy,assessment_fy,latest_training_outcome_fy,feature_set
+3,2011,2011,2014,2014,historical_giving_only
+3,2011,2012,2015,2015,historical_giving_only
+3,2011,2013,2016,2016,historical_giving_only
+3,2011,2014,2017,2017,historical_giving_only
+3,2011,2015,2018,2018,historical_giving_only
+3,2011,2016,2019,2019,historical_giving_only
+3,2011,2017,2020,2020,historical_giving_only
+5,2011,2011,2016,2016,historical_giving_only
+5,2011,2012,2017,2017,historical_giving_only
+5,2011,2013,2018,2018,historical_giving_only
+5,2011,2014,2019,2019,historical_giving_only
+5,2011,2015,2020,2020,historical_giving_only
