@@ -16,6 +16,27 @@ This capstone explores how PBS Utah could prioritize eligible donors for major-d
 
 GitHub may show HTML as source or a download. Open the downloaded HTML locally to read the formatted report; keep the repository folder structure for its local links.
 
+## Modeling workflow and repository guide
+
+The final modeling workflow is complete: reconstruct donor-year datasets from the
+finalized group EDA definitions, compare models using rolling FY2022–FY2024
+assessments, run the separate FY2025 disruption check, refit the selected logistic
+specification on FY2021–FY2025, and save/reload the model to rank FY2026 prospects.
+This is a completed synthetic-data capstone workflow, not a deployed outreach system.
+
+| Location | Contents and purpose |
+|---|---|
+| [Modeling overview](Modeling/README.md) | Target and eligibility definitions, validation safeguards, reconstruction caveats, and dataset rebuilding instructions |
+| [Modeling scripts](Modeling/scripts/) | Dataset construction and safe input loading |
+| [Feature manifest](Modeling/feature_manifest.json) and [feature dictionary](Modeling/feature_dictionary.csv) | Approved predictor roles and master-column definitions |
+| [Final report](Modeling/reports/final_logistic_writeup_20261017T034811386440Z/final_modeling_writeup.html) | Model comparisons, evaluation results, and limitations |
+| [Saved model bundle](Modeling/artifacts/logistic_final_fy2021_2025_20261017T033533058303Z/README.md) | Fitted pipeline and loading instructions |
+| [FY2026 outputs](Modeling/outputs/fy2026_logistic_20261017T034811386440Z/README.md) | Synthetic prospect rankings, preliminary top-1,000 list, and scoring caveats |
+
+Start with the final report to review findings, or the Modeling overview to inspect
+the methodology. Rebuild-managed datasets and audits remain local and Git-ignored;
+the published deliverables do not require those files merely to read the results.
+
 ## Selected model and primary performance
 
 The selected model is **untuned logistic regression** with training-fold preprocessing and the approved core features. The target is `converted_1yr`: major status in the next fiscal year among active donors who are not currently major. **Eligible former-major donors are retained.**
